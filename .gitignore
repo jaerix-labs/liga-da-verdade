@@ -1,0 +1,15 @@
+# Configuração local do Claude Code — não faz parte da app
+.claude/
+
+# Provas de jornal (imagens, PDFs) — vivem fora do repositório, ver CLAUDE.md secção 7
+Provas-LigaDaVerdade/
+*.jpg
+*.jpeg
+*.png
+*.pdf
+*.heic
+
+# Ficheiros de sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/
