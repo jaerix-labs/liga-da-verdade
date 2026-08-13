@@ -65,7 +65,8 @@ de um modelo fixo, publicado e igual para todos.
 - **Não avalia árbitros.** As notas globais que os jornais dão aos árbitros são
   ignoradas. Interessa o lance, não o árbitro.
 - **Não republica conteúdo de jornais.** Só citação e ligação.
-- **Não analisa toda a Liga.** Só os jogos dos quatro grandes.
+- **Não analisa toda a Liga.** Só os jogos dos três grandes (Benfica, FC Porto,
+  Sporting). Ver D22.
 - **Não contabiliza cartões amarelos nem tempo de compensação.**
 - **Não modela a força individual das equipas** (v1).
 - **Não usa Excel, nem cloud privada, nem caminhos para ficheiros externos.**
@@ -219,7 +220,7 @@ joga a favor de ninguém.
 
 ### Cálculo por equipa
 
-Em jogos entre dois dos quatro grandes, calcular os pontos esperados de **cada
+Em jogos entre dois dos três grandes, calcular os pontos esperados de **cada
 equipa separadamente** nos dois mundos. Com empates possíveis, o ganho de uma
 não é o simétrico da perda da outra.
 
@@ -236,8 +237,9 @@ Meia dúzia, **todos publicados no site**, todos medíveis em dados públicos.
 
 ## 7. REGRAS DE RECOLHA
 
-- **Âmbito**: todos os jogos dos quatro grandes (Benfica, FC Porto, Sporting,
-  Sp. Braga) na época 2026/27. Cerca de 124 jogos.
+- **Âmbito**: todos os jogos dos três grandes (Benfica, FC Porto, Sporting) na
+  época 2026/27. Cerca de 96 jogos. O Sp. Braga foi retirado do âmbito — ver
+  D22.
 - **Regra de entrada**: um lance entra se e só se **pelo menos um analista da
   lista o comentou**. Sem exceções — nem quando parecer óbvio que houve erro
   num lance que ninguém comentou.
@@ -338,6 +340,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D19 | PressReader como via principal de acesso | Cobre os três jornais numa só rotina, legalmente. Conta de biblioteca em curso |
 | D20 | `classificacao_oficial` é um instantâneo manual, atualizado por jornada | Reconstruí-la a partir dos 306 jogos seria muito trabalho de recolha para dados que existem prontos |
 | D21 | Confirmada a rejeição de Excel + cloud privada | Levantada de novo pelo João a 13/08 e recusada: um browser não lê um caminho de cloud privada sem credenciais, e credenciais são segredos que o projeto não tem |
+| D22 | Sp. Braga retirado do âmbito. Projeto passa de "quatro grandes" a "três grandes" (Benfica, FC Porto, Sporting) | Ao recolher os lances da jornada 1, o João verificou que nenhum dos 7 analistas do painel comentou o jogo do Sp. Braga. Em vez de manter no âmbito uma equipa estruturalmente sem cobertura, decidiu retirá-la. Substitui D5 quanto ao número de equipas e de jogos |
 
 ---
 
@@ -405,7 +408,9 @@ Todas em **2026-08-13**, salvo indicação.
 
 Não são letra pequena. São parte do argumento.
 
-- Só se analisam jogos dos quatro grandes.
+- Só se analisam jogos dos três grandes (Benfica, FC Porto, Sporting). O Sp.
+  Braga foi retirado do âmbito por não ter nenhuma cobertura do painel de
+  analistas na jornada 1 (D22).
 - Os analistas escolhem os lances que comentam. O conjunto registado está
   naturalmente inclinado para o erro, e para os clubes cujos adeptos mais
   reclamam.
