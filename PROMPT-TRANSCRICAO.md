@@ -10,7 +10,7 @@ inteiro, anexa as imagens da jornada e escreve apenas *"Jornada N. Transcreve."*
 **O que sai:** um bloco de texto, uma lista de perguntas, e — depois de o João
 responder — a versão final para colar no Claude Code.
 
-**Versão 5.1 — 2026-08-13. Estável.** Ver histórico no fim.
+**Versão 5.2 — 2026-08-13. Estável.** Ver histórico no fim.
 
 ---
 
@@ -235,6 +235,29 @@ Avalia-se **se o árbitro acertou ou não acertou**. Só há estas duas gavetas.
 **Regista também os lances em que o analista disse que o árbitro acertou.**
 Fazem falta à contagem.
 
+### Golos: onde estava o problema?
+
+Quando o lance envolve um **golo que foi validado**, é preciso dizer **onde
+está a falha alegada**, porque isso muda por completo o mundo corrigido:
+
+| Situação | Como descrever |
+|----------|----------------|
+| A falha está **no próprio lance do golo** — fora de jogo do marcador, mão na bola de quem marca, bola que não cruzou a linha | Diz explicitamente: *"a falha aponta ao próprio lance do golo"* |
+| A falha está **antes do golo** — falta por assinalar na jogada, canto ou pontapé de baliza mal atribuído | Diz explicitamente: *"a falha aponta a uma decisão anterior ao golo"* e indica **qual decisão devia ter sido tomada** (livre, canto, pontapé de baliza) |
+
+Exemplo do segundo caso: o Antonetti puxa o Quaresma sem bola jogável, a jogada
+segue e o Estrela marca. O golo em si é legítimo — o que devia ter acontecido é
+que o árbitro assinalasse falta antes.
+
+**Não classifiques a família.** Só descreves onde está a falha; a classificação
+é feita depois, por uma tabela publicada.
+
+### Penáltis mal assinalados
+
+Se um analista disser que um penálti foi assinalado sem o dever, indica também
+**se foi convertido ou falhado**. Está nos dados do jogo, mas escreve-o na
+descrição do lance.
+
 ### Ocasiões de golo interrompidas
 
 Se o lance for uma ocasião travada por decisão errada — fora de jogo
@@ -289,6 +312,8 @@ Corre esta lista e só entrega depois:
 4. Todos os golos e cartões têm minuto e equipa? → se não, `[EM FALTA]`.
 5. Todos os lances têm beneficiário?
 5b. Todas as opiniões têm número de página?
+5c. Nos lances com golo validado, ficou dito se a falha aponta ao próprio lance
+   do golo ou a uma decisão anterior?
 6. Está algum analista fora da lista fechada?
 7. Está algum jogo fora do âmbito?
 
@@ -457,3 +482,9 @@ Se, ao transcreveres, encontrares um caso que estas instruções não previam,
   verificável, que é o oposto do objetivo do projeto. **Página passa a ser
   obrigatória por opinião.** Primeira alteração reativa, ao abrigo da regra de
   paragem.
+- **2026-08-13 (v5.2, reativa)** — ao remover o campo `familia` do JSON e passar
+  a derivá-la do `tipo`, descobriu-se que "golo validado" cobre dois casos com
+  mundos corrigidos diferentes: falha no próprio lance do golo (família 1) e
+  falha numa decisão anterior (família 3). O transcritor não classifica a
+  família, mas **tem de dizer onde está a falha** — sem isso a distinção
+  perde-se. Mesma coisa para penáltis indevidos: convertido ou falhado.
