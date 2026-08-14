@@ -55,7 +55,6 @@
           "id": "2026-27-j01-estrela-sporting-14",
           "minuto": "14",
           "tipo": "penalti_nao_assinalado",
-          "familia": 4,
           "descricao": "Fotis Ioannidis pontapeia com a ponta do pé direito o peito do pé esquerdo de Max Scholze e acaba por se desequilibrar e cair com o próprio pontapé. O árbitro não assinala penálti.",
           "resultado_antes": {
             "casa": 0,
@@ -110,7 +109,6 @@
           "id": "2026-27-j01-estrela-sporting-26",
           "minuto": "26",
           "tipo": "amarelo_nao_mostrado",
-          "familia": 8,
           "descricao": "Eddy Doué desloca-se em direção a Geny Catamo (Sporting), sem disputar a bola, e atinge-o com o braço esquerdo esticado no ombro/cara. O árbitro não mostra cartão amarelo.",
           "resultado_antes": {
             "casa": 0,
@@ -183,7 +181,6 @@
           "id": "2026-27-j01-estrela-sporting-30",
           "minuto": "30",
           "tipo": "penalti_nao_assinalado",
-          "familia": 4,
           "descricao": "Fotis Ioannidis (Sporting) e Bernardo Schappo (Estrela da Amadora) agarram-se mutuamente pela camisola na área. Ioannidis cai. O árbitro não assinala penálti.",
           "resultado_antes": {
             "casa": 0,
@@ -265,7 +262,6 @@
           "id": "2026-27-j01-estrela-sporting-45+1",
           "minuto": "45+1",
           "tipo": "golo_anulado",
-          "familia": 2,
           "descricao": "Eddy Doué toca, por trás e de forma imprudente, no pé/tornozelo de Gonçalo Inácio (Sporting), fazendo-o tropeçar e cair. O árbitro assinala falta atacante e anula o golo de Doué.",
           "resultado_antes": {
             "casa": 0,
@@ -347,7 +343,6 @@
           "id": "2026-27-j01-estrela-sporting-52",
           "minuto": "52",
           "tipo": "amarelo_mostrado",
-          "familia": 8,
           "descricao": "Eddy Doué chega tarde ao lance e pisa, com o pé direito de sola e pitons, o peito do pé direito de Georgios Vagiannidis (Sporting). O árbitro mostra cartão amarelo a Doué.",
           "resultado_antes": {
             "casa": 0,
@@ -375,7 +370,6 @@
           "id": "2026-27-j01-estrela-sporting-67a",
           "minuto": "67a",
           "tipo": "expulsao_nao_mostrada",
-          "familia": 7,
           "descricao": "Eddy Doué agarra e puxa Luís Suárez por trás, tocando-lhe no pescoço/cabeça. Seria o segundo cartão amarelo (logo, expulsão) para Doué, que já tinha sido amarelado aos 52'. O árbitro não mostra o segundo cartão amarelo.",
           "resultado_antes": {
             "casa": 0,
@@ -412,7 +406,6 @@
           "id": "2026-27-j01-estrela-sporting-67b",
           "minuto": "67b",
           "tipo": "amarelo_mostrado",
-          "familia": 8,
           "descricao": "Luís Suárez reage à falta de Doué, com contacto irregular. O árbitro mostra-lhe cartão amarelo.",
           "resultado_antes": {
             "casa": 0,
@@ -448,8 +441,7 @@
         {
           "id": "2026-27-j01-estrela-sporting-71-72",
           "minuto": "71-72",
-          "tipo": "golo_validado",
-          "familia": 3,
+          "tipo": "golo_apos_decisao_anterior",
           "descricao": "Leandro Antonetti coloca a mão sobre o ombro de Eduardo Quaresma (Sporting) e puxa-o para trás, sem bola jogável, retirando-o da jogada. O árbitro não assinala falta; Antonetti segue e marca o golo do Estrela da Amadora.",
           "resultado_antes": {
             "casa": 0,
@@ -531,7 +523,6 @@
           "id": "2026-27-j01-estrela-sporting-84",
           "minuto": "84",
           "tipo": "golo_validado",
-          "familia": 1,
           "descricao": "Segundo golo do Estrela da Amadora (Béni Souza), que sela o empate. A bola transpõe completamente a linha de baliza antes de a jogada terminar.",
           "resultado_antes": {
             "casa": 1,
@@ -559,7 +550,6 @@
           "id": "2026-27-j01-estrela-sporting-90+2a",
           "minuto": "90+2a",
           "tipo": "amarelo_mostrado",
-          "familia": 8,
           "descricao": "Béni Souza chega por trás de Jesse Derry (Sporting), agarra-o e puxa-o, travando a transição. O árbitro mostra-lhe cartão amarelo por falta tática.",
           "resultado_antes": {
             "casa": 2,
@@ -587,7 +577,6 @@
           "id": "2026-27-j01-estrela-sporting-90+2b",
           "minuto": "90+2b",
           "tipo": "amarelo_mostrado",
-          "familia": 8,
           "descricao": "Jesse Derry reage, empurrando um extremo do Estrela da Amadora. O árbitro mostra-lhe cartão amarelo.",
           "resultado_antes": {
             "casa": 2,

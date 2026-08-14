@@ -183,19 +183,42 @@ opinião.
 
 ### Catálogo de famílias
 
-| # | Família | Como se calcula |
-|---|---------|-----------------|
-| 1 | Golo validado indevidamente | Estado real (com golo) vs. estado sem golo |
-| 2 | Golo anulado indevidamente | Simétrico do anterior |
-| 3 | Golo nascido de decisão errada anterior | Mundo corrigido = o que o analista diz que devia ter acontecido (pontapé de baliza, canto, livre), com o `p` correspondente |
-| 4 | Grande penalidade por assinalar | Mistura com `p` = taxa de conversão de penáltis |
-| 5 | Penálti mal assinalado e falhado | Regista-se; impacto 0 |
-| 6 | Ocasião de golo interrompida por decisão errada | Mistura com `p` por escalão (ver abaixo) |
-| 7 | Expulsão indevida ou por mostrar | Estado corrigido tem 11 jogadores em vez de 10, nos minutos que faltavam |
-| 8 | Cartão amarelo indevido | Regista-se; impacto 0 na v1 |
+| # | Família | Tipo(s) no JSON | Como se calcula |
+|---|---------|------------------|-----------------|
+| 1 | Golo validado indevidamente | `golo_validado` | Estado real (com golo) vs. estado sem golo |
+| 2 | Golo anulado indevidamente | `golo_anulado` | Simétrico do anterior |
+| 3 | Golo nascido de decisão errada anterior | `golo_apos_decisao_anterior`; `penalti_indevido` (se convertido) | Mundo corrigido = o que o analista diz que devia ter acontecido (pontapé de baliza, canto, livre), com o `p` correspondente |
+| 4 | Grande penalidade por assinalar | `penalti_nao_assinalado` | Mistura com `p` = taxa de conversão de penáltis |
+| 5 | Penálti mal assinalado e falhado | `penalti_indevido` (se falhado) | Regista-se; impacto 0 |
+| 6 | Ocasião de golo interrompida por decisão errada | `ocasiao_interrompida` (exige `escalao`) | Mistura com `p` por escalão (ver abaixo) |
+| 7 | Expulsão indevida ou por mostrar | `expulsao_nao_mostrada`; `expulsao_indevida` | Estado corrigido tem 11 jogadores em vez de 10, nos minutos que faltavam |
+| 8 | Cartão amarelo indevido | `amarelo_mostrado`; `amarelo_nao_mostrado` | Regista-se; impacto 0 na v1 |
 
 **Fora do catálogo, sem registo:** tempo de compensação (D18), estado do
 relvado, e tudo o que não seja uma decisão de arbitragem sobre um lance.
+
+### Vocabulário fechado de "tipo" — e como se deriva a família
+
+O JSON **não guarda "familia"**. Guarda `tipo` (um destes dez valores, fechado
+— não se acrescentam novos sem rever este catálogo) e a família deriva-se dele
+em código, no Entregável 4, por uma tabela fixa: a da tabela acima.
+
+`golo_validado` | `golo_anulado` | `golo_apos_decisao_anterior` |
+`penalti_nao_assinalado` | `penalti_indevido` | `ocasiao_interrompida` |
+`expulsao_nao_mostrada` | `expulsao_indevida` | `amarelo_mostrado` |
+`amarelo_nao_mostrado`
+
+**Princípio: a família deriva do `tipo` mais os factos do jogo que já estão no
+ficheiro. Nunca de uma inferência nova.** O único caso em que um `tipo` sozinho
+não chega é `penalti_indevido` (família 3 se convertido, família 5 se
+falhado) — e mesmo aí não se infere nada: o bloco `golos` do jogo já diz se
+houve golo, e `incidente_relacionado` já liga o golo ao incidente. A distinção
+lê-se, não se adivinha.
+
+**Se aparecer um lance cujo `tipo` não couber neste vocabulário, o programa
+para e avisa o João** — não se inventa um tipo novo em código. Significa que o
+catálogo das oito famílias tem uma lacuna, e isso discute-se antes de se
+resolver.
 
 ### Escalões da família 6
 
@@ -341,6 +364,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D20 | `classificacao_oficial` é um instantâneo manual, atualizado por jornada | Reconstruí-la a partir dos 306 jogos seria muito trabalho de recolha para dados que existem prontos |
 | D21 | Confirmada a rejeição de Excel + cloud privada | Levantada de novo pelo João a 13/08 e recusada: um browser não lê um caminho de cloud privada sem credenciais, e credenciais são segredos que o projeto não tem |
 | D22 | Sp. Braga retirado do âmbito. Projeto passa de "quatro grandes" a "três grandes" (Benfica, FC Porto, Sporting) | Ao recolher os lances da jornada 1, o João verificou que nenhum dos 7 analistas do painel comentou o jogo do Sp. Braga. Em vez de manter no âmbito uma equipa estruturalmente sem cobertura, decidiu retirá-la. Substitui D5 quanto ao número de equipas e de jogos |
+| D23 | O JSON não guarda "familia". Guarda um `tipo` de vocabulário fechado (dez valores) e a família deriva-se dele em código, no Entregável 4 | `familia` era redundante com `tipo` e nada garantia que os dois campos continuassem de acordo ao longo da época. Fechar o vocabulário de `tipo` agora evita ter de reclassificar lances de jornadas passadas quando aparecer um caso novo a meio da época. Princípio: a família deriva do `tipo` mais os factos do jogo já registados (ex.: se um `penalti_indevido` teve golo, via o bloco `golos`), nunca de uma inferência nova |
 
 ---
 
