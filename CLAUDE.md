@@ -297,11 +297,37 @@ este princípio quando a fonte pública dava uma gama, não um número único.
 | Parâmetro | Valor | Fonte |
 |---|---|---|
 | Taxa de conversão de penáltis | **0,76** | Ligas europeias de topo, ~75-78% de conversão; xG médio de um penálti ~0,76-0,79 |
-| Golos por minuto — equipa da casa | **0,0171** (1,54 golos/jogo ÷ 90) | Primeira Liga 2025/26: 821 golos em 306 jogos = 2,68 golos/jogo. Sem repartição casa/fora publicada para a Liga portuguesa; repartido pela proporção geral europeia de golos marcados em casa vs. fora (~1,35:1) |
-| Golos por minuto — equipa de fora | **0,0127** (1,14 golos/jogo ÷ 90) | Idem |
+| **Duração total do jogo (D30)** | **97 minutos** | Ver justificação abaixo |
+| Golos por minuto — equipa da casa | **0,0159** (1,54 golos/jogo ÷ 97) | Primeira Liga 2025/26: 821 golos em 306 jogos = 2,68 golos/jogo. Sem repartição casa/fora publicada para a Liga portuguesa; repartido pela proporção geral europeia de golos marcados em casa vs. fora (~1,35:1) |
+| Golos por minuto — equipa de fora | **0,0118** (1,14 golos/jogo ÷ 97) | Idem |
 | `p` — escalões da família 6 | 0,35 / 0,15 / 0,03 | Ver tabela de escalões acima |
 | Efeito de jogar com dez — a marcar | **×0,70** | Estudo académico sobre expulsões em Mundiais (não é liga de clubes — ver aviso abaixo) |
 | Efeito de jogar com dez — a sofrer | **×1,25** | Idem |
+
+**No código, as taxas por minuto derivam-se sempre de `golos/jogo ÷ duração
+total`, nunca de uma constante pré-arredondada** — assim, se a duração alguma
+vez for revista, a taxa segue automaticamente, e a soma dos golos esperados
+de um jogo completo simulado dá sempre exatamente 2,68, sem deriva de
+arredondamento.
+
+**Duração total do jogo (D30) — justificação.** Sem dado específico da Liga
+portuguesa (mesma limitação da repartição casa/fora), a melhor referência
+pública é a Premier League: 2023/24 mediu **101m35s** de duração média; a
+regra de 2024/25 (30 segundos fixos após golo) visa aproximar dos **100
+minutos**. Escolhi **97 minutos** — acima do suficiente para não subestimar
+o tempo que resta em lances tardios (esse era o risco original, jogar tudo a
+90'), mas sem assumir que a Liga portuguesa acrescenta tanto tempo como a
+Premier League atual, para a qual não há confirmação.
+
+**Direção do parâmetro, declarada por transparência:** quanto maior a
+duração total, menor o impacto calculado dos erros tardios (mais tempo
+restante dilui a certeza do resultado). Por ser **inferior** aos ~100-101
+minutos medidos na Premier League, os 97 minutos escolhidos puxam os
+impactos de erros tardios **ligeiramente para cima** face a essa referência.
+Não foi escolhido por inflacionar correções — foi escolhido por
+incerteza sobre o valor real em Portugal, mas o efeito na direção
+"mais correção" fica registado aqui e vai para a página de método, para
+ninguém poder dizer que se escolheu o número que convinha.
 
 **Vantagem caseira (D27):** as taxas de golos por minuto são diferentes para
 quem joga em casa e para quem joga fora. Isto **não contraria a D11** — a D11
@@ -437,6 +463,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D27 | A taxa de golos por minuto é diferente para quem joga em casa e para quem joga fora | O modelo estava a dar a mesma taxa às duas equipas, o que punha o termómetro em 1,5-1,5 pontos esperados ao apito inicial — falso, a casa espera mais. **Não contraria a D11**: a vantagem caseira aplica-se por igual a todas as equipas, não modela a força de nenhum clube em particular |
 | D28 | Efeito de jogar com dez selado em ×0,70 (a marcar) / ×1,25 (a sofrer), mas marcado como o parâmetro mais fraco do modelo | A fonte (estudo de Mundiais) mistura minutos em 11-contra-11 com minutos em inferioridade no mesmo número, diluindo o efeito real — os multiplicadores estão provavelmente abaixo do verdadeiro. Selado por D26 (subestimar é seguro), mas tem de estar declarado na página de método como fragilidade |
 | D29 | O impacto de um lance mede-se no instante desse lance, contra o estado real nesse minuto — nunca se volta a simular o resto do jogo real. Vários lances no mesmo jogo somam-se independentemente | Precisava de estar escrito antes do motor de cálculo (Entregável 4), para não haver ambiguidade depois sobre como tratar jogos com mais do que um erro |
+| D30 | Duração total do jogo, para efeitos de simulação: 97 minutos (não 90). As taxas de golos por minuto (casa/fora) recalculadas com este divisor | Sem esta correção, a simulação teria menos tempo por jogar do que o real, o que pesa mais nos lances tardios — exatamente os de maior impacto. 97 fica entre os ~100-101 minutos medidos na Premier League (sem dado específico de Portugal) e os 90' de regulamento puro. Ver secção 6 para a justificação completa e a direção do efeito (97 < 101 puxa os impactos tardios ligeiramente para cima, e isso fica declarado por transparência) |
 
 ---
 
@@ -526,6 +553,13 @@ Não são letra pequena. São parte do argumento.
   modelo.** Vem de um estudo de Mundiais, não de liga de clubes, e a fonte
   mistura minutos em 11-contra-11 com minutos em inferioridade no mesmo
   número — o efeito real é provavelmente maior do que o valor usado.
+- **A simulação assume que os golos se distribuem por igual ao longo do
+  jogo** (taxa constante, minuto a minuto). Na realidade marcam-se mais na
+  parte final. Simplificação aceite conscientemente (D30), não corrigida na
+  v1.
+- **A duração total do jogo usada na simulação (97 minutos) é uma estimativa
+  sem confirmação específica para a Liga portuguesa** (D30) — baseada em
+  dados da Premier League, a liga mais escrutinada, não a portuguesa.
 - O modelo tem escolhas discutíveis. **Não é irrefutável, e não se apresenta
   como tal.** O que oferece é que quem discorde tem de discordar de um número
   publicado, e não de uma pessoa.
