@@ -10,7 +10,7 @@ inteiro, anexa as imagens da jornada e escreve apenas *"Jornada N. Transcreve."*
 **O que sai:** um bloco de texto, uma lista de perguntas, e — depois de o João
 responder — a versão final para colar no Claude Code.
 
-**Versão 5 — 2026-08-13.** Ver histórico no fim.
+**Versão 5.1 — 2026-08-13. Estável.** Ver histórico no fim.
 
 ---
 
@@ -213,7 +213,12 @@ Para cada lance:
   adversária; um cartão por mostrar beneficia a equipa do jogador. Vale para
   todos os cartões, certos ou errados
 - **Um veredicto por analista que comentou**: nome, jornal, data de publicação,
-  `certo` ou `errado`
+  **número da página**, `certo` ou `errado`
+
+**O número da página é obrigatório para fontes de papel.** Sem ele, ninguém
+consegue verificar a citação — e a verificabilidade é a razão de ser do
+projeto. O número está impresso num dos cantos da página digitalizada. Se não
+for legível, marca `[EM FALTA: página]` e pergunta.
 
 ### Certo ou errado — como se decide
 
@@ -283,6 +288,7 @@ Corre esta lista e só entrega depois:
    não pode; marca por determinar e pergunta.
 4. Todos os golos e cartões têm minuto e equipa? → se não, `[EM FALTA]`.
 5. Todos os lances têm beneficiário?
+5b. Todas as opiniões têm número de página?
 6. Está algum analista fora da lista fechada?
 7. Está algum jogo fora do âmbito?
 
@@ -315,18 +321,18 @@ LANCES:
 --- Lance 14' | beneficiou: casa ---
 Ioannidis cai na área após contacto com Max Scholze. O árbitro não
 assinala penálti.
-- Pedro Henriques | A Bola | 2026-08-09 | certo
-- Jorge Coroado | O Jogo | 2026-08-09 | certo
+- Pedro Henriques | A Bola | 2026-08-09 | p.28 | certo
+- Jorge Coroado | O Jogo | 2026-08-09 | p.4 | certo
 
 --- Lance 67a | beneficiou: casa ---
 Doué agarra e puxa Luis Suárez por trás. O árbitro não mostra o
 segundo cartão amarelo a Doué.
-- Pedro Henriques | A Bola | 2026-08-09 | errado
-- Jorge Faustino | Record | 2026-08-09 | errado
+- Pedro Henriques | A Bola | 2026-08-09 | p.28 | errado
+- Jorge Faustino | Record | 2026-08-09 | p.5 | errado
 
 --- Lance 67b | beneficiou: casa ---
 Suárez reage à falta de Doué. O árbitro mostra-lhe cartão amarelo.
-- Marco Ferreira | Record | 2026-08-09 | certo
+- Marco Ferreira | Record | 2026-08-09 | p.5 | certo
 
 PROVAS UTILIZADAS:
 J01_2026-08-09_abola_henriques.jpeg
@@ -368,6 +374,34 @@ ninguém dá por isso.
 Responde às perguntas acima e confere os veredictos contra os
 recortes. Só depois cola no Claude Code.
 ```
+
+---
+
+## ESTADO: ESTÁVEL DESDE 2026-08-13
+
+Este ficheiro foi afinado em cinco voltas sobre a jornada 1 e **considera-se
+fechado**. A v5 produziu zero classes de erro novas.
+
+### Quando voltar a mexer-lhe
+
+Só quando a **realidade** mudar:
+
+- um jornal muda o grafismo ou a rubrica
+- entra ou sai um analista
+- aparece um tipo de lance que o catálogo do CLAUDE.md não previa
+- surge uma situação que estas instruções não cobrem
+
+**Não mexer preventivamente.**
+
+### Como distinguir os dois tipos de erro
+
+| Tipo | Exemplo | Corrige-se com |
+|------|---------|----------------|
+| **Erro de classe** | Não saber que duas decisões no mesmo minuto são dois lances | Uma regra nova aqui. Nunca mais acontece |
+| **Erro de leitura** | Ver um selo verde onde está um vermelho | **Nada aqui corrige isto.** Só a conferência do João |
+
+Se uma jornada só produzir erros de leitura, o ficheiro está bem — o que falhou
+foi a conferência ou a qualidade da imagem.
 
 ---
 
@@ -413,3 +447,13 @@ Se, ao transcreveres, encontrares um caso que estas instruções não previam,
   - **Sem mapa de leitura**, o transcritor tinha de deduzir que texto pertence
     a que analista — sobretudo no Record, que tem duas colunas. Passa a estar
     descrito.
+- **2026-08-13 (v5 validada)** — quarto ensaio da jornada 1. Zero classes de
+  erro novas: leu o Record com o mapa de leitura, separou 67a/67b, contou 11
+  lances, e perguntou pela data do jogo em vez de a deduzir do jornal.
+  **Ficheiro dado como estável.** A partir daqui, alterações só reativas.
+- **2026-08-13 (v5.1, reativa)** — ao rever o primeiro `dados/2026-27.json`
+  verificou-se que todos os campos `pagina` estavam a `null`: o ficheiro nunca
+  tinha pedido o número da página. Sem ele, uma citação de papel não é
+  verificável, que é o oposto do objetivo do projeto. **Página passa a ser
+  obrigatória por opinião.** Primeira alteração reativa, ao abrigo da regra de
+  paragem.
