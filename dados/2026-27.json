@@ -601,6 +601,479 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j01-porto-alverca",
+      "jornada": 1,
+      "data": "2026-08-09",
+      "casa": "FC Porto",
+      "fora": "Alverca",
+      "resultado": {
+        "casa": 2,
+        "fora": 0
+      },
+      "arbitro": "Luís Godinho",
+      "var": "Bruno Esteves",
+      "golos": [
+        {
+          "minuto": 9,
+          "equipa": "casa",
+          "marcador": "André Silva",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j01-porto-alverca-5"
+        },
+        {
+          "minuto": 44,
+          "equipa": "casa",
+          "marcador": "Gabri Veiga",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j01-porto-alverca-40"
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j01-porto-alverca-5",
+          "minuto": "5",
+          "tipo": "penalti_assinalado",
+          "descricao": "André Silva (FC Porto) cabeceia primeiro à bola; o guarda-redes do Alverca, Matheus Mendes, chega depois e abre o braço esquerdo de forma deliberada/negligente, atingindo o peito do avançado. Penálti assinalado e amarelo a Mendes.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-11",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-11_record_iturralde.jpg"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-11",
+          "minuto": "11",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Livre pontapeado por William Gomes bate no cotovelo esquerdo de Chiquinho (Alverca), que tinha o braço dobrado e junto ao corpo, sem volumetria extra. O árbitro não assinala penálti.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-15",
+          "minuto": "15",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do FC Porto, Gabri Veiga disputa a bola ombro com ombro com Figueiredo (Alverca) e consegue roubá-la. Sem infração assinalada.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-21",
+          "minuto": "21",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "William Gomes joga a bola ainda dentro das quatro linhas — a bola não saiu completamente pela linha lateral — mas o assistente assinala lateral, travando um ataque promissor do FC Porto pelo corredor direito.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-28",
+          "minuto": "28",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Isaac James toca na bola e esta bate no pé de William Gomes; árbitro e assistente assinalam canto de forma incorreta, mas o VAR reverte a decisão para pontapé de baliza (decisão final avaliada pelo analista).",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-40",
+          "minuto": "40",
+          "tipo": "penalti_assinalado",
+          "descricao": "Nabil Touaizi (Alverca), de forma deliberada, agarra e puxa por trás a camisola de André Silva, derrubando-o e impedindo-o de disputar a bola. Penálti assinalado após revisão do VAR e amarelo a Touaizi.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-11",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-11_record_iturralde.jpg"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-52",
+          "minuto": "52",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Yahya Bojang (Alverca) pontapeia com o pé direito o joelho direito de Pepê à entrada da área do Alverca, cortando um ataque promissor. Cartão amarelo mostrado a Bojang.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-porto-alverca-70",
+          "minuto": "70",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Davy (Alverca) chega atrasado e toca, de forma imprudente, na canela de Pablo Rosário (FC Porto), perto da área do Alverca. O árbitro assinala falta e não mostra cartão amarelo a Davy.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_porto-alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
