@@ -417,8 +417,10 @@ Todas em **2026-08-13**, salvo indicação.
 
 1. ~~**Esqueleto e publicação.**~~ **CONCLUÍDO.** Repositório, `.gitignore`,
    `index.html` mínimo, `servidor.bat`, GitHub Pages ativo.
-2. **Formato dos dados.** `dados/2026-27.json` + 2-3 incidentes reais da
-   jornada 1 como teste. **EM CURSO.**
+2. ~~**Formato dos dados.**~~ **CONCLUÍDO.** `dados/2026-27.json` com a
+   jornada 1 completa: 3 jogos (Estrela da Amadora-Sporting, FC Porto-Alverca,
+   Benfica-Ac. Viseu), 34 lances reais e citados. Falta ainda a
+   `classificacao_oficial` (totais das 18 equipas) para o Entregável 3.
 3. **Liga real.** Ler o JSON e desenhar a classificação oficial.
 4. **Motor de cálculo.** O termómetro, com testes visíveis em `?teste=1`,
    incluindo os dois casos de referência (penálti aos 2' vs. 88'; expulsão aos
