@@ -188,7 +188,7 @@ opinião.
 |---|---------|------------------|-----------------|
 | 1 | Golo validado indevidamente | `golo_validado` | Estado real (com golo) vs. estado sem golo |
 | 2 | Golo anulado indevidamente | `golo_anulado` | Simétrico do anterior |
-| 3 | Golo nascido de decisão errada anterior | `golo_apos_decisao_anterior`; `penalti_assinalado` (se convertido) | Mundo corrigido = o que o analista diz que devia ter acontecido (pontapé de baliza, canto, livre, **ou a atribuição do reinício — canto vs. lateral vs. pontapé de baliza**), com o `p` correspondente |
+| 3 | Golo nascido de decisão errada anterior | `golo_apos_decisao_anterior`; `penalti_assinalado` (se convertido) | Mundo corrigido = estado sem o golo (`p = 0`, ver D31 — o reinício fica guardado como facto em `reinicio_corrigido`, não entra no cálculo) |
 | 4 | Grande penalidade por assinalar | `penalti_nao_assinalado` | Mistura com `p` = taxa de conversão de penáltis |
 | 5 | Penálti mal assinalado e falhado | `penalti_assinalado` (se falhado) | Regista-se; impacto 0 |
 | 6 | Ocasião de golo interrompida por decisão errada | `ocasiao_interrompida` (exige `escalao`) | Mistura com `p` por escalão (ver abaixo). Inclui travar a jogada por um reinício mal atribuído (canto, lateral, pontapé de baliza), não só falta/fora de jogo fantasma |
@@ -257,6 +257,41 @@ transcreve, não julga.
 
 **Se a descrição não chegar, aplica-se o escalão mais baixo.** A dúvida nunca
 joga a favor de ninguém.
+
+### Família 3 — `p = 0`, e porquê (D31)
+
+O mundo corrigido da família 3 vai sempre para a equipa **prejudicada** pelo
+erro, nunca para a equipa que beneficiou. No lance 71-72' (Antonetti), a
+falta é sobre o Quaresma (Sporting) — o mundo corrigido é **livre para o
+Sporting**, com o Estrela da Amadora sem o golo, não "talvez o Estrela
+marcasse na mesma".
+
+Isto significa que, **tal como nas famílias 4 e 6, um `p` mais alto empurra o
+mundo corrigido para pior para quem beneficiou do erro — e aumenta o
+impacto.** Não há inversão de sentido: a D26 (na dúvida, o valor mais baixo)
+aplica-se normalmente.
+
+**O valor escolhido é `p = 0`.** Não é só o lado conservador — evita **contar
+o mesmo golo duas vezes**. Depois do reinício corrigido, a simulação já
+continua a contar golos à taxa base a partir desse minuto; um canto vale
+~0,03 de probabilidade de golo, e um minuto inteiro de jogo à taxa base vale
+~0,028 — quase o mesmo número. Somar um `p` do reinício **por cima** da
+simulação normal contaria duas vezes a mesma janela de oportunidade. Com
+`p = 0`, o mundo corrigido é simplesmente o estado sem o golo, e a simulação
+do tempo que resta trata do resto — o mesmo mecanismo da família 1/2.
+
+**Aviso para quem mexer nisto no futuro:** subir este `p` não é uma correção
+inofensiva — aumenta as correções calculadas, e arrisca contar o mesmo golo
+duas vezes se não se retirar o efeito equivalente da simulação normal.
+
+**O reinício corrigido guarda-se na mesma, como facto.** Campo
+`reinicio_corrigido` no incidente (`livre` / `canto` / `pontape_baliza` /
+`lateral`), preenchido a partir do que o analista disse. **Não entra no
+cálculo** — só se mostra no site, pelo mesmo princípio de guardar opiniões em
+bruto: se um dia se decidir que o reinício deve pesar, os dados já lá estão.
+Aplica-se só a `golo_apos_decisao_anterior` — um `penalti_assinalado`
+corrigido não tem um "reinício" claro (a jogada só continua), por isso não
+usa este campo.
 
 ### Duas propriedades verificadas
 
@@ -464,6 +499,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D28 | Efeito de jogar com dez selado em ×0,70 (a marcar) / ×1,25 (a sofrer), mas marcado como o parâmetro mais fraco do modelo | A fonte (estudo de Mundiais) mistura minutos em 11-contra-11 com minutos em inferioridade no mesmo número, diluindo o efeito real — os multiplicadores estão provavelmente abaixo do verdadeiro. Selado por D26 (subestimar é seguro), mas tem de estar declarado na página de método como fragilidade |
 | D29 | O impacto de um lance mede-se no instante desse lance, contra o estado real nesse minuto — nunca se volta a simular o resto do jogo real. Vários lances no mesmo jogo somam-se independentemente | Precisava de estar escrito antes do motor de cálculo (Entregável 4), para não haver ambiguidade depois sobre como tratar jogos com mais do que um erro |
 | D30 | Duração total do jogo, para efeitos de simulação: 97 minutos (não 90). As taxas de golos por minuto (casa/fora) recalculadas com este divisor | Sem esta correção, a simulação teria menos tempo por jogar do que o real, o que pesa mais nos lances tardios — exatamente os de maior impacto. 97 fica entre os ~100-101 minutos medidos na Premier League (sem dado específico de Portugal) e os 90' de regulamento puro. Ver secção 6 para a justificação completa e a direção do efeito (97 < 101 puxa os impactos tardios ligeiramente para cima, e isso fica declarado por transparência) |
+| D31 | Família 3: `p = 0`. O mundo corrigido vai para a equipa prejudicada (não para quem beneficiou), por isso um `p` mais alto aumenta o impacto — mesma direção das famílias 4 e 6, a D26 aplica-se normalmente. `p = 0` evita contar o mesmo golo duas vezes (a simulação do tempo que resta já cobre a probabilidade de golo do reinício). O reinício corrigido guarda-se como facto (`reinicio_corrigido`), sem entrar no cálculo | Erro meu na primeira proposta: tinha a mistura ao contrário, o que teria subestimado o impacto da família 3 exatamente onde a D26 pede o oposto. Corrigido pelo João antes de qualquer código ser escrito. Aviso registado para quem no futuro propuser subir este `p`: está a aumentar correções e a arriscar dupla contagem |
 
 ---
 
