@@ -168,7 +168,8 @@ estado corresponde um valor em **pontos esperados**:
 `pontos esperados = 3 × P(vitória) + 1 × P(empate)`
 
 As probabilidades saem de uma simulação simples do tempo que falta, a partir da
-taxa média de golos por minuto da Liga. Determinística: o mesmo lance dá sempre
+taxa média de golos por minuto da Liga — **uma taxa para quem joga em casa,
+outra para quem joga fora** (D27). Determinística: o mesmo lance dá sempre
 exatamente o mesmo número.
 
 ### Erros que não produzem um estado certo
@@ -248,11 +249,11 @@ de qualquer revisão.
 **Quem classifica o escalão é o analista, pelas palavras que usou.** O João
 transcreve, não julga.
 
-| Escalão | Descrição típica do analista |
-|---------|------------------------------|
-| Isolado com o guarda-redes | "ficava isolado", "cara a cara" |
-| Remate claro na área | "em zona de finalização", "boa posição de remate" |
-| Ataque sem finalização iminente | tudo o resto |
+| Escalão | Descrição típica do analista | `p` | Porquê |
+|---------|------------------------------|-----|--------|
+| Isolado com o guarda-redes | "ficava isolado", "cara a cara" | **0,35** | P(chegar ao remate) × xG do remate ≈ 0,6 × 0,6. Mesmo "isolado", falta ainda controlar a bola e rematar — o lance nunca chegou a acontecer |
+| Remate claro na área | "em zona de finalização", "boa posição de remate" | **0,15** | xG médio de um remate dentro da área (~0,10-0,12), arredondado para cima por a descrição implicar posição acima da média. **Não** se usa o xG de "big chance" (~0,3) — isso é um caso particular, não a descrição genérica |
+| Ataque sem finalização iminente | tudo o resto | **0,03** | Valor mais baixo, por defeito — não há remate nem posição descrita |
 
 **Se a descrição não chegar, aplica-se o escalão mais baixo.** A dúvida nunca
 joga a favor de ninguém.
@@ -270,14 +271,56 @@ Em jogos entre dois dos três grandes, calcular os pontos esperados de **cada
 equipa separadamente** nos dois mundos. Com empates possíveis, o ganho de uma
 não é o simétrico da perda da outra.
 
+### Como se mede o impacto (D29)
+
+**O impacto de um lance mede-se no instante desse lance** — compara-se o
+estado real do jogo nesse minuto com o estado corrigido nesse mesmo minuto,
+pela mesma simulação de pontos esperados. **Nunca se volta a simular o resto
+do jogo real** a partir daí; o que aconteceu depois, aconteceu.
+
+**Se um jogo tiver vários lances com impacto, cada um calcula-se
+independentemente, contra o estado real no seu próprio minuto, e os impactos
+somam-se.** Não há efeito cascata de um lance sobre o cálculo de outro no
+mesmo jogo — cada erro é a sua própria pergunta contrafactual, isolada.
+
 ### Da soma à tabela
 
 `pontos Liga da Verdade = pontos reais − impactos a favor + impactos contra`
 
-### Parâmetros
+### Parâmetros — selados em 2026-08-14
 
-Meia dúzia, **todos publicados no site**, todos medíveis em dados públicos.
-**Selados antes da jornada 1 e imutáveis durante a época.**
+**Princípio (D26): na dúvida sobre um parâmetro, escolhe-se sempre o valor
+mais baixo.** Subestimar um erro é seguro; sobrestimar infla a correção e dá
+munição a quem queira desacreditar o projeto. Todos os valores abaixo seguem
+este princípio quando a fonte pública dava uma gama, não um número único.
+
+| Parâmetro | Valor | Fonte |
+|---|---|---|
+| Taxa de conversão de penáltis | **0,76** | Ligas europeias de topo, ~75-78% de conversão; xG médio de um penálti ~0,76-0,79 |
+| Golos por minuto — equipa da casa | **0,0171** (1,54 golos/jogo ÷ 90) | Primeira Liga 2025/26: 821 golos em 306 jogos = 2,68 golos/jogo. Sem repartição casa/fora publicada para a Liga portuguesa; repartido pela proporção geral europeia de golos marcados em casa vs. fora (~1,35:1) |
+| Golos por minuto — equipa de fora | **0,0127** (1,14 golos/jogo ÷ 90) | Idem |
+| `p` — escalões da família 6 | 0,35 / 0,15 / 0,03 | Ver tabela de escalões acima |
+| Efeito de jogar com dez — a marcar | **×0,70** | Estudo académico sobre expulsões em Mundiais (não é liga de clubes — ver aviso abaixo) |
+| Efeito de jogar com dez — a sofrer | **×1,25** | Idem |
+
+**Vantagem caseira (D27):** as taxas de golos por minuto são diferentes para
+quem joga em casa e para quem joga fora. Isto **não contraria a D11** — a D11
+proíbe modelar a força individual de cada clube (o que abriria o flanco a
+"puseste o teu clube mais forte"); a vantagem caseira aplica-se por igual a
+todas as equipas, consoante jogam em casa ou fora, e não favorece clube
+nenhum.
+
+**Aviso (D28) — o efeito de jogar com dez é o parâmetro mais fraco do
+modelo.** O estudo de origem mede médias por jogo inteiro de equipas que
+levaram um vermelho, incluindo os minutos em que ainda jogavam 11 contra 11
+— isso dilui o efeito real (uma expulsão aos 80' não é o mesmo que jogar toda
+a Liga em inferioridade). Os multiplicadores estão provavelmente **abaixo**
+do efeito verdadeiro. Como subestimar é o lado seguro, o valor fica selado
+assim mesmo, mas **isto tem de estar declarado na página de método**
+(Entregável 6) como a fragilidade mais séria do modelo.
+
+**Todos os parâmetros ficam publicados no site (página de método) com a
+respetiva fonte, e são imutáveis durante a época 2026/27.**
 
 ---
 
@@ -390,6 +433,10 @@ Todas em **2026-08-13**, salvo indicação.
 | D23 | O JSON não guarda "familia". Guarda um `tipo` de vocabulário fechado (dez valores) e a família deriva-se dele em código, no Entregável 4 | `familia` era redundante com `tipo` e nada garantia que os dois campos continuassem de acordo ao longo da época. Fechar o vocabulário de `tipo` agora evita ter de reclassificar lances de jornadas passadas quando aparecer um caso novo a meio da época. Princípio: a família deriva do `tipo` mais os factos do jogo já registados (ex.: se um `penalti_assinalado` teve golo, via o bloco `golos`), nunca de uma inferência nova |
 | D24 | Vocabulário de `tipo` renomeado: `penalti_indevido` → `penalti_assinalado`, `expulsao_indevida` → `expulsao_mostrada`. O `tipo` descreve o que o árbitro fez, nunca se acertou; a família só se aplica quando o veredicto é `errado` | Ao recolher o jogo FC Porto-Alverca, apareceram dois penáltis corretamente assinalados. `penalti_indevido` já continha um juízo no próprio nome, o que contraria o princípio do projeto: quem julga são os analistas, o `tipo` só descreve a decisão |
 | D25 | Regra do VAR: regista-se sempre a decisão final. Um erro corrigido pelo VAR antes de produzir consequências é contexto na descrição, não um incidente com impacto. O minuto do incidente é o do lance, não o do golo que vier depois da revisão | Apareceu no jogo FC Porto-Alverca (canto assinalado por engano e corrigido para pontapé de baliza; penáltis com golo alguns minutos depois da revisão do VAR) e vai repetir-se todas as semanas. Sem esta regra, o `resultado_antes` de um lance ficaria calculado com o resultado errado |
+| D26 | Princípio: na dúvida sobre um parâmetro do modelo, escolhe-se sempre o valor mais baixo | Subestimar um erro é seguro; sobrestimar infla a correção e dá munição a quem queira desacreditar o projeto. Aplicado a todos os parâmetros selados (ver secção 6) |
+| D27 | A taxa de golos por minuto é diferente para quem joga em casa e para quem joga fora | O modelo estava a dar a mesma taxa às duas equipas, o que punha o termómetro em 1,5-1,5 pontos esperados ao apito inicial — falso, a casa espera mais. **Não contraria a D11**: a vantagem caseira aplica-se por igual a todas as equipas, não modela a força de nenhum clube em particular |
+| D28 | Efeito de jogar com dez selado em ×0,70 (a marcar) / ×1,25 (a sofrer), mas marcado como o parâmetro mais fraco do modelo | A fonte (estudo de Mundiais) mistura minutos em 11-contra-11 com minutos em inferioridade no mesmo número, diluindo o efeito real — os multiplicadores estão provavelmente abaixo do verdadeiro. Selado por D26 (subestimar é seguro), mas tem de estar declarado na página de método como fragilidade |
+| D29 | O impacto de um lance mede-se no instante desse lance, contra o estado real nesse minuto — nunca se volta a simular o resto do jogo real. Vários lances no mesmo jogo somam-se independentemente | Precisava de estar escrito antes do motor de cálculo (Entregável 4), para não haver ambiguidade depois sobre como tratar jogos com mais do que um erro |
 
 ---
 
@@ -439,12 +486,12 @@ Todas em **2026-08-13**, salvo indicação.
 
 ## 13. SUPOSIÇÕES E PONTOS POR CONFIRMAR
 
-- **[SUPOSIÇÃO] Valores de `p`.** Taxa de conversão de penáltis (~0,76) e os
-  `p` dos escalões da família 6 (~0,35 / ~0,15 / ~0,03) são estimativas.
-  **Verificar contra fontes públicas de xG e apresentar ao João com origem,
-  antes de selar.** É a primeira coisa a fechar antes do entregável 4.
-- **[SUPOSIÇÃO] Taxa média de golos por minuto e efeito de jogar com dez** na I
-  Liga. A confirmar em dados públicos.
+- ~~[SUPOSIÇÃO] Valores de `p`~~ **SELADO em 2026-08-14.** Ver secção 6,
+  "Parâmetros" — penáltis 0,76; família 6 em 0,35/0,15/0,03, com justificação.
+- ~~[SUPOSIÇÃO] Taxa média de golos por minuto e efeito de jogar com dez~~
+  **SELADO em 2026-08-14.** Ver secção 6. **O efeito de jogar com dez fica
+  marcado como o parâmetro mais fraco do modelo (D28)** — a fonte pública
+  dilui o efeito real, e isto tem de estar na página de método.
 - **[POR DECIDIR] A tabela mostra 18 equipas ou só 4?** Os clubes fora dos
   grandes só têm correções nos jogos contra eles. Se mostrar 18, a correção
   parcial tem de estar declarada em letra visível.
@@ -473,7 +520,12 @@ Não são letra pequena. São parte do argumento.
   1.
 - A cobertura não é igual entre jogos: os clássicos recebem mais atenção.
 - Cartões amarelos e tempo de compensação não entram no cálculo.
-- Todas as equipas são tratadas como iguais em força.
+- Todas as equipas são tratadas como iguais em força — só se modela a
+  vantagem de jogar em casa (D27), igual para todos os clubes.
+- **O efeito de jogar com dez em campo (D28) é o parâmetro mais fraco do
+  modelo.** Vem de um estudo de Mundiais, não de liga de clubes, e a fonte
+  mistura minutos em 11-contra-11 com minutos em inferioridade no mesmo
+  número — o efeito real é provavelmente maior do que o valor usado.
 - O modelo tem escolhas discutíveis. **Não é irrefutável, e não se apresenta
   como tal.** O que oferece é que quem discorde tem de discordar de um número
   publicado, e não de uma pessoa.
