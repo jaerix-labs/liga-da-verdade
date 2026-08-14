@@ -421,7 +421,9 @@ Todas em **2026-08-13**, salvo indicação.
    jornada 1 completa: 3 jogos (Estrela da Amadora-Sporting, FC Porto-Alverca,
    Benfica-Ac. Viseu), 34 lances reais e citados. Falta ainda a
    `classificacao_oficial` (totais das 18 equipas) para o Entregável 3.
-3. **Liga real.** Ler o JSON e desenhar a classificação oficial.
+3. ~~**Liga real.**~~ **CONCLUÍDO.** `index.html` lê o `dados/2026-27.json`
+   com `fetch()` e desenha a classificação oficial (18 equipas), ordenada por
+   `posicao`. Testado em desktop e telemóvel (375px), sem overflow horizontal.
 4. **Motor de cálculo.** O termómetro, com testes visíveis em `?teste=1`,
    incluindo os dois casos de referência (penálti aos 2' vs. 88'; expulsão aos
    10' vs. 85').
