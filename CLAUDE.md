@@ -498,9 +498,13 @@ Todas em **2026-08-13**, salvo indicação.
 3. ~~**Liga real.**~~ **CONCLUÍDO.** `index.html` lê o `dados/2026-27.json`
    com `fetch()` e desenha a classificação oficial (18 equipas), ordenada por
    `posicao`. Testado em desktop e telemóvel (375px), sem overflow horizontal.
-4. **Motor de cálculo.** O termómetro, com testes visíveis em `?teste=1`,
-   incluindo os dois casos de referência (penálti aos 2' vs. 88'; expulsão aos
-   10' vs. 85').
+4. ~~**Motor de cálculo.**~~ **CONCLUÍDO.** `pontosEsperados()` (simulação de
+   Poisson, casa/fora, D26-D30) e `misturaPontosEsperados()` no `index.html`.
+   Testes em `?teste=1`: os dois casos de referência (penálti aos 2' vs. 88';
+   expulsão aos 10' vs. 85') mais 7 testes com valores conhecidos de fora do
+   modelo (fim de jogo exato, soma entre 2-3, impacto de golo no último
+   instante, determinismo, total de golos = 2,68). 9 de 9 a passar. Ainda não
+   lê o `dados/2026-27.json` nem calcula lances reais — isso é o Entregável 5.
 5. **Liga da Verdade.** A tabela corrigida, com detalhe por lance.
 6. **Página de método.** Regras, parâmetros, fontes, limitações. **Bloqueia a
    publicação se não estiver pronta.**
