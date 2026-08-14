@@ -109,6 +109,24 @@
     border-top: 1px solid var(--cor-linha);
     padding-top: 1.5rem;
   }
+
+  .tabela-testes {
+    max-width: 64rem;
+  }
+
+  .tabela-testes table {
+    min-width: 0;
+  }
+
+  .tabela-testes td, .tabela-testes th {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .tabela-testes td:last-child, .tabela-testes th:last-child {
+    text-align: center;
+    white-space: nowrap;
+  }
 </style>
 </head>
 <body>
@@ -117,18 +135,276 @@
     <p class="subtitulo">Época 2026/27</p>
   </header>
 
-  <h2 style="text-align:center;">Liga real</h2>
+  <h2 id="titulo-secao" style="text-align:center;">Liga real</h2>
   <div id="conteudo" class="tabela-scroll">
     <p class="aviso">A carregar…</p>
   </div>
 
-  <p class="nota-verdade">
+  <p id="nota-verdade" class="nota-verdade">
     A Liga da Verdade — a classificação corrigida do impacto dos erros de
     arbitragem — chega num próximo entregável. Para já, esta é só a
     classificação oficial.
   </p>
 
   <script>
+    // ---- Motor de cálculo — "o termómetro" (Entregável 4) ----
+    // Parâmetros selados no CLAUDE.md, secção 6 (D26-D30). Não mexer sem
+    // rever essa secção primeiro — são imutáveis durante a época 2026/27.
+    const DURACAO_TOTAL = 97;        // D30, minutos
+    const GOLOS_JOGO_CASA = 1.54;
+    const GOLOS_JOGO_FORA = 1.14;
+    const TAXA_CASA = GOLOS_JOGO_CASA / DURACAO_TOTAL;
+    const TAXA_FORA = GOLOS_JOGO_FORA / DURACAO_TOTAL;
+    const EFEITO_DEZ_MARCAR = 0.70;  // D28
+    const EFEITO_DEZ_SOFRER = 1.25;  // D28
+    const TAXA_PENALTI = 0.76;
+    const P_ESCALAO = {
+      isolado: 0.35,
+      remate_claro: 0.15,
+      sem_finalizacao: 0.03
+    };
+    const MAX_GOLOS_SIMULADOS = 15;
+
+    // "45+1", "71-72", "67a", "90+2b" -> minuto inteiro base, por convenção
+    function parseMinuto(minuto) {
+      if (typeof minuto === 'number') return minuto;
+      const m = String(minuto).match(/^(\d+)/);
+      return m ? parseInt(m[1], 10) : 0;
+    }
+
+    // Distribuição de golos adicionais num intervalo, dado lambda = taxa × tempo
+    function distribuicaoPoisson(lambda, maxGolos) {
+      const dist = [];
+      let p = Math.exp(-lambda);
+      let acumulado = 0;
+      for (let k = 0; k <= maxGolos; k++) {
+        if (k > 0) p = p * lambda / k;
+        dist.push(p);
+        acumulado += p;
+      }
+      dist[maxGolos] += Math.max(0, 1 - acumulado);
+      return dist;
+    }
+
+    function taxaGol(propriosJogadores, adversarioJogadores, taxaBase) {
+      let taxa = taxaBase;
+      if (propriosJogadores < 11) taxa *= EFEITO_DEZ_MARCAR;
+      if (adversarioJogadores < 11) taxa *= EFEITO_DEZ_SOFRER;
+      return taxa;
+    }
+
+    // estado = {minuto, resultadoCasa, resultadoFora, jogadoresCasa, jogadoresFora}
+    // devolve {casa, fora} em pontos esperados = 3×P(vitória) + P(empate)
+    function pontosEsperados(estado) {
+      const minuto = parseMinuto(estado.minuto);
+      const restante = Math.max(0, DURACAO_TOTAL - minuto);
+      const lambdaCasa = taxaGol(estado.jogadoresCasa, estado.jogadoresFora, TAXA_CASA) * restante;
+      const lambdaFora = taxaGol(estado.jogadoresFora, estado.jogadoresCasa, TAXA_FORA) * restante;
+      const distCasa = distribuicaoPoisson(lambdaCasa, MAX_GOLOS_SIMULADOS);
+      const distFora = distribuicaoPoisson(lambdaFora, MAX_GOLOS_SIMULADOS);
+
+      let pCasaVence = 0, pEmpate = 0, pForaVence = 0;
+      for (let i = 0; i <= MAX_GOLOS_SIMULADOS; i++) {
+        if (distCasa[i] === 0) continue;
+        for (let j = 0; j <= MAX_GOLOS_SIMULADOS; j++) {
+          const prob = distCasa[i] * distFora[j];
+          if (prob === 0) continue;
+          const finalCasa = estado.resultadoCasa + i;
+          const finalFora = estado.resultadoFora + j;
+          if (finalCasa > finalFora) pCasaVence += prob;
+          else if (finalCasa === finalFora) pEmpate += prob;
+          else pForaVence += prob;
+        }
+      }
+      return {
+        casa: 3 * pCasaVence + pEmpate,
+        fora: 3 * pForaVence + pEmpate
+      };
+    }
+
+    // Mistura ponderada entre dois estados (famílias 3/4/6) — D. secção 6
+    function misturaPontosEsperados(p, estadoComGolo, estadoSemGolo) {
+      const comGolo = pontosEsperados(estadoComGolo);
+      const semGolo = pontosEsperados(estadoSemGolo);
+      return {
+        casa: p * comGolo.casa + (1 - p) * semGolo.casa,
+        fora: p * comGolo.fora + (1 - p) * semGolo.fora
+      };
+    }
+
+    // ---- Testes do motor (?teste=1) ----
+    function aproxIgual(a, b, tolerancia) {
+      return Math.abs(a - b) <= tolerancia;
+    }
+
+    function correrCasosReferencia() {
+      const casos = [];
+
+      // Penálti inventado (não assinalado, família 4) — 2' vs. 88'
+      function impactoPenaltiNaoAssinalado(minuto) {
+        const antes = { minuto, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 };
+        const comGolo = Object.assign({}, antes, { resultadoFora: antes.resultadoFora + 1 });
+        const corrigido = misturaPontosEsperados(TAXA_PENALTI, comGolo, antes);
+        const real = pontosEsperados(antes);
+        return corrigido.fora - real.fora;
+      }
+      const impactoPen2 = impactoPenaltiNaoAssinalado(2);
+      const impactoPen88 = impactoPenaltiNaoAssinalado(88);
+      casos.push({
+        nome: "Penálti inventado (não assinalado) — 2' vs. 88'",
+        esperado: "impacto aos 88' maior do que aos 2'",
+        obtido: "2': " + impactoPen2.toFixed(4) + " pontos · 88': " + impactoPen88.toFixed(4) + " pontos",
+        passou: impactoPen88 > impactoPen2
+      });
+
+      // Expulsão indevida (família 7) — 10' vs. 85'
+      function impactoExpulsaoIndevida(minuto) {
+        const real = { minuto, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 10 };
+        const corrigido = Object.assign({}, real, { jogadoresFora: 11 });
+        return pontosEsperados(corrigido).fora - pontosEsperados(real).fora;
+      }
+      const impactoExp10 = impactoExpulsaoIndevida(10);
+      const impactoExp85 = impactoExpulsaoIndevida(85);
+      casos.push({
+        nome: "Expulsão indevida — 10' vs. 85'",
+        esperado: "impacto aos 10' maior do que aos 85'",
+        obtido: "10': " + impactoExp10.toFixed(4) + " pontos · 85': " + impactoExp85.toFixed(4) + " pontos",
+        passou: impactoExp10 > impactoExp85
+      });
+
+      return casos;
+    }
+
+    function correrTestes() {
+      const testes = [];
+
+      // a) Plausibilidade ao apito inicial
+      {
+        const pts = pontosEsperados({ minuto: 0, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 });
+        const passou = pts.casa >= 1.3 && pts.casa <= 1.9 && pts.fora >= 0.9 && pts.fora <= 1.4;
+        testes.push({
+          nome: 'a) Plausibilidade ao minuto 0 (0-0, 11v11)',
+          esperado: '~1,55 (casa) e ~1,15 (fora) — gama razoável, não igualdade exata',
+          obtido: 'casa ' + pts.casa.toFixed(3) + ', fora ' + pts.fora.toFixed(3),
+          passou
+        });
+      }
+
+      // b) Fim do jogo, resultado decidido
+      {
+        const vitoria = pontosEsperados({ minuto: DURACAO_TOTAL, resultadoCasa: 2, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 });
+        const empate = pontosEsperados({ minuto: DURACAO_TOTAL, resultadoCasa: 1, resultadoFora: 1, jogadoresCasa: 11, jogadoresFora: 11 });
+        const derrota = pontosEsperados({ minuto: DURACAO_TOTAL, resultadoCasa: 0, resultadoFora: 2, jogadoresCasa: 11, jogadoresFora: 11 });
+        const passou =
+          aproxIgual(vitoria.casa, 3, 1e-9) && aproxIgual(vitoria.fora, 0, 1e-9) &&
+          aproxIgual(empate.casa, 1, 1e-9) && aproxIgual(empate.fora, 1, 1e-9) &&
+          aproxIgual(derrota.casa, 0, 1e-9) && aproxIgual(derrota.fora, 3, 1e-9);
+        testes.push({
+          nome: 'b) Fim do jogo, resultado já decidido',
+          esperado: 'vitória 2-0 → 3/0 · empate 1-1 → 1/1 · derrota 0-2 → 0/3',
+          obtido: vitoria.casa.toFixed(4) + '/' + vitoria.fora.toFixed(4) + ' · ' +
+            empate.casa.toFixed(4) + '/' + empate.fora.toFixed(4) + ' · ' +
+            derrota.casa.toFixed(4) + '/' + derrota.fora.toFixed(4),
+          passou
+        });
+      }
+
+      // c) Soma dos pontos esperados das duas equipas, sempre entre 2 e 3
+      {
+        const casos = [
+          { minuto: 0, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 },
+          { minuto: 45, resultadoCasa: 1, resultadoFora: 1, jogadoresCasa: 11, jogadoresFora: 11 },
+          { minuto: 60, resultadoCasa: 2, resultadoFora: 0, jogadoresCasa: 10, jogadoresFora: 11 },
+          { minuto: 80, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 10 },
+          { minuto: 90, resultadoCasa: 3, resultadoFora: 3, jogadoresCasa: 11, jogadoresFora: 11 }
+        ];
+        let passou = true;
+        const somas = casos.map(c => {
+          const pts = pontosEsperados(c);
+          const soma = pts.casa + pts.fora;
+          if (soma < 1.999 || soma > 3.001) passou = false;
+          return soma.toFixed(3);
+        });
+        testes.push({
+          nome: 'c) Soma dos pontos esperados das duas equipas (5 estados)',
+          esperado: 'sempre entre 2 e 3',
+          obtido: somas.join(', '),
+          passou
+        });
+      }
+
+      // d) Golo no último instante do jogo, empatado
+      {
+        const real = pontosEsperados({ minuto: DURACAO_TOTAL, resultadoCasa: 1, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 });
+        const corrigido = pontosEsperados({ minuto: DURACAO_TOTAL, resultadoCasa: 0, resultadoFora: 0, jogadoresCasa: 11, jogadoresFora: 11 });
+        const impacto = real.casa - corrigido.casa;
+        testes.push({
+          nome: 'd) Golo no último instante do jogo, empatado',
+          esperado: 'impacto de exatamente 2,00 pontos',
+          obtido: impacto.toFixed(4),
+          passou: aproxIgual(impacto, 2, 1e-9)
+        });
+      }
+
+      // e) Família 5 ou 8 → impacto sempre 0
+      {
+        const v = 0; // penálti falhado e amarelo: registam-se, nunca entram no cálculo
+        testes.push({
+          nome: 'e) Impacto de família 5 ou 8 (penálti falhado / amarelo)',
+          esperado: 'exatamente 0',
+          obtido: String(v),
+          passou: v === 0
+        });
+      }
+
+      // f) Determinismo
+      {
+        const estado = { minuto: 37, resultadoCasa: 1, resultadoFora: 1, jogadoresCasa: 11, jogadoresFora: 10 };
+        const resultados = [];
+        for (let i = 0; i < 10; i++) resultados.push(JSON.stringify(pontosEsperados(estado)));
+        const passou = resultados.every(r => r === resultados[0]);
+        testes.push({
+          nome: 'f) Determinismo (mesmo estado × 10)',
+          esperado: 'output idêntico nas 10 chamadas',
+          obtido: passou ? resultados[0] : 'variou entre chamadas — falha grave',
+          passou
+        });
+      }
+
+      // g) Somar os golos esperados dos dois lados num jogo completo dá 2,68
+      {
+        const lambdaTotal = (TAXA_CASA + TAXA_FORA) * DURACAO_TOTAL;
+        testes.push({
+          nome: 'g) Golos esperados totais num jogo completo (casa + fora)',
+          esperado: '2,68 (821 golos ÷ 306 jogos, Primeira Liga 2025/26)',
+          obtido: lambdaTotal.toFixed(4),
+          passou: aproxIgual(lambdaTotal, 2.68, 1e-9)
+        });
+      }
+
+      return testes;
+    }
+
+    function renderizarTestes() {
+      document.getElementById('titulo-secao').textContent = 'Testes do motor de cálculo';
+      document.getElementById('nota-verdade').style.display = 'none';
+      const conteudo = document.getElementById('conteudo');
+      conteudo.className = 'tabela-testes';
+
+      const todos = correrCasosReferencia().concat(correrTestes());
+      const totalPassou = todos.filter(t => t.passou).length;
+
+      let html = '<p class="aviso">' + totalPassou + ' de ' + todos.length + ' testes passaram.</p>';
+      html += '<table><thead><tr><th>Teste</th><th>Esperado</th><th>Obtido</th><th>Estado</th></tr></thead><tbody>';
+      for (const t of todos) {
+        html += '<tr><td>' + t.nome + '</td><td>' + t.esperado + '</td><td>' + t.obtido + '</td><td>' +
+          (t.passou ? '✅' : '❌') + '</td></tr>';
+      }
+      html += '</tbody></table>';
+      conteudo.innerHTML = html;
+    }
+
+    // ---- Liga real ----
     async function carregar() {
       const conteudo = document.getElementById('conteudo');
       let dados;
@@ -175,7 +451,11 @@
       conteudo.innerHTML = html;
     }
 
-    carregar();
+    if (new URLSearchParams(location.search).get('teste') === '1') {
+      renderizarTestes();
+    } else {
+      carregar();
+    }
   </script>
 </body>
 </html>
