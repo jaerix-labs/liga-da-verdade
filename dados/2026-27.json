@@ -1074,6 +1074,698 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j01-benfica-viseu",
+      "jornada": 1,
+      "data": "2026-08-09",
+      "casa": "Benfica",
+      "fora": "Académico de Viseu",
+      "resultado": {
+        "casa": 2,
+        "fora": 2
+      },
+      "arbitro": "David Rafael Silva",
+      "var": "Manuel Mota",
+      "golos": [
+        {
+          "minuto": 10,
+          "equipa": "casa",
+          "marcador": "Vangelis Pavlidis",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j01-benfica-viseu-9"
+        },
+        {
+          "minuto": 55,
+          "equipa": "fora",
+          "marcador": "Rúben Pereira",
+          "conta": true
+        },
+        {
+          "minuto": 58,
+          "equipa": "casa",
+          "marcador": "Gianluca Prestianni",
+          "conta": true
+        },
+        {
+          "minuto": 67,
+          "equipa": "fora",
+          "marcador": "André Clóvis",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j01-benfica-viseu-68"
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j01-benfica-viseu-9",
+          "minuto": "9",
+          "tipo": "golo_validado",
+          "descricao": "Golo de Vangelis Pavlidis (1-0). No momento do passe/assistência de Gianluca Prestianni, Pavlidis tinha mais de dois adversários entre ele e a linha de baliza — sem infração ao fora de jogo.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-11",
+          "minuto": "11",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "André Clóvis (Académico de Viseu) é agarrado por trás e derrubado na área por Alexander Bah (Benfica). O árbitro não assinala penálti.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-15",
+          "minuto": "15",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Sem qualquer interesse em jogar a bola, Alejandro Mestanza (Académico de Viseu) agarra e puxa a camisola de Prestianni (Benfica), travando a jogada. Cartão amarelo mostrado a Mestanza.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-16",
+          "minuto": "16",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Ewerton (guarda-redes do Académico de Viseu) chuta a bola para longe para retardar deliberadamente a reposição em jogo. O árbitro não mostra cartão amarelo.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-18",
+          "minuto": "18",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Anthony Correia (Académico de Viseu) agarra e puxa com ambas as mãos o braço direito de Vangelis Pavlidis (Benfica), sem disputar a bola, impedindo-o de prosseguir. Cartão amarelo mostrado a Correia.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-25",
+          "minuto": "25",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Sudakov (Benfica) estica a perna para jogar a bola, falha-a e pisa, de sola e com os pitons, o pé direito de Alejandro Mestanza (Académico de Viseu). Cartão amarelo mostrado a Sudakov.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-42",
+          "minuto": "42",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Académico de Viseu, um remate de Alexander Bah (Benfica) bate na zona lateral esquerda do tronco de Rúben Pereira (Académico de Viseu), sem tocar no braço. O árbitro não assinala penálti.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-45+1",
+          "minuto": "45+1",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Tomás Araújo (Benfica) entra fora de tempo e por trás sobre Álvaro Zamora (Académico de Viseu). Cartão amarelo mostrado a Araújo.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-68",
+          "minuto": "68",
+          "tipo": "golo_validado",
+          "descricao": "Golo de André Clóvis, do empate (2-2). No momento do passe/cruzamento de Robinho para Clóvis, este tinha mais de dois adversários entre ele e a linha de baliza — sem infração ao fora de jogo.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-70",
+          "minuto": "70",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na sequência de um canto, a bola é desviada de cabeça por Rafa e por Robinho e acaba por bater na mão de Messeguem (Académico de Viseu), que tinha o braço junto ao corpo, em posição natural. O árbitro não assinala penálti e marca falta atacante.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-11",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-11_record_iturralde.jpg"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-80",
+          "minuto": "80",
+          "tipo": "amarelo_mostrado",
+          "descricao": "André Ceitil (Académico de Viseu) agarra e derruba Richard Ríos (Benfica) numa falta tática clara, com o objetivo de parar e destruir a jogada. Cartão amarelo mostrado a Ceitil.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-83",
+          "minuto": "83",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Pavlidis (Benfica) cai na área do Académico de Viseu após disputa de posição com André Ceitil, chegando tarde à bola. O árbitro não assinala penálti.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-90+2",
+          "minuto": "90+2",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Igor Milioransa (Académico de Viseu) estica a perna e rasteira Dodi Lukebakio (Benfica) à entrada da área, cortando um ataque promissor. Cartão amarelo mostrado a Milioransa.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-90+3",
+          "minuto": "90+3",
+          "tipo": "golo_anulado",
+          "descricao": "Remate de Dodi Lukebakio (Benfica) é defendido em cima da linha de golo pelo pé esquerdo de Ewerton (Académico de Viseu). A bola não transpõe totalmente a linha de baliza — sem golo.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j01-benfica-viseu-90+4",
+          "minuto": "90+4",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Jhon Durán (Benfica) falha o remate e atira-se ao relvado reclamando toque de Cristian Ferreira (Académico de Viseu), sem que as repetições mostrem qualquer contacto. O árbitro não assinala penálti.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-10",
+              "pagina": "-",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "J01_2026-08-10_benfica-viseu_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
