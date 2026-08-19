@@ -1984,6 +1984,641 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j02-sporting-guimaraes",
+      "jornada": 2,
+      "data": "2026-08-14",
+      "casa": "Sporting",
+      "fora": "V. Guimarães",
+      "resultado": {
+        "casa": 3,
+        "fora": 2
+      },
+      "arbitro": "David Rafael Silva",
+      "var": "Manuel Oliveira",
+      "golos": [
+        {
+          "minuto": 9,
+          "equipa": "casa",
+          "marcador": "Flávio Gonçalves",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j02-sporting-guimaraes-9"
+        },
+        {
+          "minuto": 22,
+          "equipa": "casa",
+          "marcador": "Fotis Ioannidis",
+          "conta": true
+        },
+        {
+          "minuto": 41,
+          "equipa": "casa",
+          "marcador": "Sergi Altimira",
+          "conta": true
+        },
+        {
+          "minuto": 66,
+          "equipa": "fora",
+          "marcador": "Samu",
+          "conta": true
+        },
+        {
+          "minuto": 68,
+          "equipa": "fora",
+          "marcador": "A. Ndoye",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j02-sporting-guimaraes-68-69"
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j02-sporting-guimaraes-6",
+          "minuto": "6",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Camara (V. Guimarães) joga a bola com a mão, deliberadamente, cortando contra-ataque promissor do Sporting. Sem cartão mostrado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-9",
+          "minuto": "9",
+          "tipo": "golo_validado",
+          "descricao": "Fotis Ioannidis colocado em jogo pelo central Óscar Rivas (V. Guimarães) durante a construção do 1-0. Lance dado como legal (sem fora de jogo); VAR confirma.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-24",
+          "minuto": "24",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Sergi Altimira (Sporting) entra com sola e pitons sobre Gustavo Silva (V. Guimarães). Cartão amarelo mostrado.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-26",
+          "minuto": "26",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Thiago Balieiro (V. Guimarães) chega atrasado e pisa Flávio Gonçalves (Sporting). Cartão amarelo mostrado.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-37-38",
+          "minuto": "37-38",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Cartão amarelo mostrado a Óscar Rivas (V. Guimarães).",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-39",
+          "minuto": "39",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Maxi Araújo (Sporting) levanta a perna e atinge Gustavo Silva (V. Guimarães), cortando ataque promissor do V. Guimarães. Falta e amarelo não assinalados.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-19",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-19_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-45+2-47",
+          "minuto": "45+2-47",
+          "tipo": "golo_anulado",
+          "descricao": "Remate de Samu (V. Guimarães); Rui Silva encosta a bola ao poste, sem ultrapassar totalmente a linha. Golo não validado.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-45+2b",
+          "minuto": "45+2b",
+          "tipo": "expulsao_nao_mostrada",
+          "descricao": "Beni Mukendi (V. Guimarães) derruba deliberadamente Geny Catamo (Sporting). Segundo amarelo não mostrado.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-57",
+          "minuto": "57",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Contacto entre Rui Silva (Sporting) e Samu (V. Guimarães) na área. Penálti não assinalado.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-61-62",
+          "minuto": "61-62",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "João Mendes (V. Guimarães) pisa Geny Catamo (Sporting) de forma negligente. Falta assinalada, amarelo não mostrado.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-63",
+          "minuto": "63",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Miguel Nogueira (V. Guimarães) agarra Maxi Araújo (Sporting) com os dois braços. Cartão amarelo mostrado.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-68-69",
+          "minuto": "68-69",
+          "tipo": "golo_validado",
+          "descricao": "Zalazar (Sporting) perde a bola para Strata (V. Guimarães); cruzamento e cabeceamento de Ndoye para o 3-2. Sem infração assinalada.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-sporting-guimaraes-78",
+          "minuto": "78",
+          "tipo": "expulsao_nao_mostrada",
+          "descricao": "Gustavo Silva (V. Guimarães) entra sobre Vagiannidis pisando-lhe o tornozelo. Cartão amarelo mostrado (não vermelho) — em discussão se devia ter sido expulsão.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-15",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-15",
+              "pagina": "7",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-15",
+              "pagina": "8",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_15-02-26_sporting-guimaraes_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
