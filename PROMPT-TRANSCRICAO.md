@@ -10,7 +10,7 @@ inteiro, anexa as imagens da jornada e escreve apenas *"Jornada N. Transcreve."*
 **O que sai:** um bloco de texto, uma lista de perguntas, e — depois de o João
 responder — a versão final para colar no Claude Code.
 
-**Versão 5.2 — 2026-08-13. Estável.** Ver histórico no fim.
+**Versão 5.3 — 2026-08-19. Estável.** Ver histórico no fim.
 
 ---
 
@@ -103,6 +103,16 @@ analista:
 Se um recorte não corresponder a esta descrição — mudança de grafismo, analista
 novo, coluna a mais — **para e pergunta.**
 
+**Fontes fora deste mapa (ex.: cronologia/timeline de app ou site, sem
+analista):** não têm veredicto próprio — servem só como apoio para os dados do
+jogo (golos, cartões, minutos), nunca como fonte de opinião. Duas armadilhas
+conhecidas:
+- **Colunas sem legenda de equipa** (ex.: casa à esquerda, fora à direita) —
+  não presumir a ordem; perguntar sempre qual é qual, mesmo que pareça óbvio
+  pelos golos.
+- **Linha de golo com dois nomes** (marcador e assistência) — não presumir a
+  ordem nem qual dos dois marcou; perguntar sempre.
+
 ### Quando não consegues ler
 
 Diz **exatamente que blocos** estão ilegíveis, por analista e por lance, e pede
@@ -153,6 +163,15 @@ Lance 67b — amarelo ao Suárez pela reação: Ferreira certo
 
 **Na dúvida sobre se são um ou dois lances, separa e pergunta.**
 
+### Cartão mencionado sem veredicto não é lance
+
+Um cartão pode aparecer nos dados do jogo (GOLOS/VERMELHOS/AMARELOS) sem que
+nenhum analista se pronuncie sobre se foi bem ou mal mostrado — por exemplo um
+amarelo por protestos que uma fonte só menciona de passagem. **Isso não é um
+lance.** Só entra em LANCES se pelo menos um analista da lista fechada avaliar
+explicitamente o lance como certo/errado. Silêncio não é voto, e uma menção
+puramente informativa também não é avaliação.
+
 ### Não confundir com o minuto composto
 
 | Caso | O que é | Como se escreve |
@@ -193,6 +212,10 @@ golos e dos vermelhos, um lance ao minuto 67 não tem valor calculável.
 - **Minuto de cada vermelho**, com jogador e equipa
 - **Minuto de cada amarelo**, com jogador e equipa — precisos sempre que houver
   discussão de segundo amarelo
+
+**Formato de cada cartão:** `minuto' Jogador (Clube)` — o clube vai sempre
+entre parênteses a seguir ao nome, em GOLOS, VERMELHOS, AMARELOS e em qualquer
+referência a um cartão dentro de um lance. Sem exceção.
 
 O que não constar dos recortes: `[EM FALTA: ...]`, e **pergunta**.
 
@@ -402,10 +425,12 @@ recortes. Só depois cola no Claude Code.
 
 ---
 
-## ESTADO: ESTÁVEL DESDE 2026-08-13
+## ESTADO: ESTÁVEL DESDE 2026-08-13 (última alteração reativa: 2026-08-19)
 
 Este ficheiro foi afinado em cinco voltas sobre a jornada 1 e **considera-se
-fechado**. A v5 produziu zero classes de erro novas.
+fechado**. A v5 produziu zero classes de erro novas. A jornada 2 (v5.3)
+produziu três classes novas, todas ligadas a uma fonte fora do mapa de leitura
+original — ver histórico.
 
 ### Quando voltar a mexer-lhe
 
@@ -488,3 +513,19 @@ Se, ao transcreveres, encontrares um caso que estas instruções não previam,
   falha numa decisão anterior (família 3). O transcritor não classifica a
   família, mas **tem de dizer onde está a falha** — sem isso a distinção
   perde-se. Mesma coisa para penáltis indevidos: convertido ou falhado.
+- **2026-08-19 (v5.3, reativa)** — jornada 2, primeiro ensaio com quatro
+  fontes em vez de três. O João anexou uma cronologia/timeline (app ou site,
+  sem analista) para os dados do jogo. Três problemas novos:
+  - **Fonte sem legenda de equipa.** A cronologia tinha duas colunas sem dizer
+    qual era casa e qual era fora — foi preciso perguntar. Passa a ser regra:
+    nunca presumir a ordem das colunas numa fonte deste tipo.
+  - **Linha de golo com dois nomes.** A mesma cronologia mostrava marcador e
+    assistência lado a lado, sem indicar qual era qual — foi preciso
+    perguntar em cada golo. Passa a ser regra: nunca presumir a ordem.
+  - **Cartão sem veredicto tratado como dúvida a mais.** Dois cartões (amarelo
+    por protestos ao G. Inácio, amarelo informativo a G. Catamo) geraram
+    perguntas desnecessárias sobre se deviam entrar como lance, quando nenhum
+    analista os tinha avaliado. Fixada a regra: sem veredicto de nenhum
+    analista, não é lance — não perguntar, simplesmente não incluir.
+  - Fixado também, por pedido direto do João: todo o cartão (em GOLOS,
+    VERMELHOS, AMARELOS ou dentro de um lance) leva o clube entre parênteses.
