@@ -2619,6 +2619,512 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j02-rioave-porto",
+      "jornada": 2,
+      "data": "2026-08-15",
+      "casa": "Rio Ave",
+      "fora": "Porto",
+      "resultado": {
+        "casa": 0,
+        "fora": 2
+      },
+      "arbitro": "Miguel Fonseca",
+      "var": "Cláudia Ribeiro",
+      "golos": [
+        {
+          "minuto": 11,
+          "equipa": "fora",
+          "marcador": "Nehuén Pérez",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j02-rioave-porto-11"
+        },
+        {
+          "minuto": 34,
+          "equipa": "fora",
+          "marcador": "Kiwior",
+          "conta": false,
+          "incidente_relacionado": "2026-27-j02-rioave-porto-34"
+        },
+        {
+          "minuto": 82,
+          "equipa": "fora",
+          "marcador": "Borja Sainz",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j02-rioave-porto-11",
+          "minuto": "11",
+          "tipo": "golo_validado",
+          "descricao": "Golo de Nehuén Pérez (FC Porto) de cabeça, na sequência de canto. Pablo Rosário não obstrui nem bloqueia o guarda-redes Van der Gouw (Rio Ave). Golo validado como legal.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-19",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-19_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-18",
+          "minuto": "18",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Bednarek (FC Porto) empurra pelas costas Tamble (Rio Ave), derrubando-o. Falta assinalada, sem cartão.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-34",
+          "minuto": "34",
+          "tipo": "golo_anulado",
+          "descricao": "Golo de Kiwior (FC Porto) anulado por fora de jogo de Deniz Gul (FC Porto), 73cm, na fase ativa da jogada. Confirmado pelo VAR.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-42-43",
+          "minuto": "42-43",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Deniz Gul (FC Porto), após ser empurrado pelas costas por Diogo Nascimento (Rio Ave), roda o braço e atinge-o na boca/rosto, de forma negligente. Cartão amarelo não mostrado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-19",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-19_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-45+1",
+          "minuto": "45+1",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Tamble (Rio Ave) queixa-se do rosto ao cabecear rodeado de jogadores do FC Porto; contacto normal, sem infração. Sem penálti assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-58",
+          "minuto": "58",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "William Gomes (FC Porto) cai na área do Rio Ave após lance com Nikitscher (Rio Ave), sem contacto. Sem penálti assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-rioave-porto-79-80-81",
+          "minuto": "79-80-81",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Lomboto (Rio Ave) intercepta a bola, que ressalta do seu próprio pé para a mão, sem qualquer movimento deliberado. Sem penálti assinalado a favor do FC Porto.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-16",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-16",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-16",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-16_rioave-porto_abola_henriques.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
