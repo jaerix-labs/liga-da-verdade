@@ -318,6 +318,32 @@ independentemente, contra o estado real no seu próprio minuto, e os impactos
 somam-se.** Não há efeito cascata de um lance sobre o cálculo de outro no
 mesmo jogo — cada erro é a sua própria pergunta contrafactual, isolada.
 
+### A fração de opiniões multiplica o impacto (D32)
+
+**Não há gaveta binária "conta / não conta".** O impacto de um lance
+calculado pelo motor é sempre multiplicado pela fração de analistas que
+disseram `errado`, entre os que se pronunciaram:
+
+`impacto final = (nº de "errado" ÷ total de opiniões) × impacto bruto`
+
+Não é maioria, não é unanimidade, não é "qualquer erro conta". É o mesmo
+raciocínio já usado para o penálti (vale 0,76 de golo, não 1 nem 0): não se
+sabe se houve erro, sabe-se que uma certa fração do painel diz que sim.
+
+Exemplos reais (jornada 1):
+- Lance 71-72' (Estrela-Sporting): 3 errado, 4 certo → **3/7 = 0,43** do
+  impacto bruto.
+- Lance 30' (Estrela-Sporting): 2 errado, 5 certo → **2/7 = 0,29**.
+- Lance 67a (Estrela-Sporting): 2 errado, 0 certo → **2/2 = 1,00** — a
+  fragilidade da D7 (silêncio não é voto) a aparecer num lance real: só 2
+  analistas comentaram, os dois concordam, logo 100%, apesar da amostra
+  pequena. Está registada e assumida, não se contorna aqui.
+
+**A fração tem de estar visível no site ao lado de cada correção** (ex.: "3
+de 7 analistas consideraram erro") — não é um detalhe técnico para a página
+de método, é o que distingue este projeto das "Ligas da Verdade" dos
+jornais.
+
 ### Da soma à tabela
 
 `pontos Liga da Verdade = pontos reais − impactos a favor + impactos contra`
@@ -404,8 +430,9 @@ respetiva fonte, e são imutáveis durante a época 2026/27.**
 - **Registar também os "certos"**: fazem falta ao denominador.
 - **Cada incidente guarda a citação**: jornal, data de publicação, página,
   analista, e ligação quando existir online.
-- **O site mostra quantas opiniões sustentam cada lance.** Não altera o
-  cálculo; deixa quem olha julgar por si.
+- **O site mostra quantas opiniões sustentam cada lance.** A partir de D32,
+  essa fração **entra diretamente no cálculo** (deixou de ser só uma
+  informação de contexto) — ver secção 6.
 
 ### Identificador do lance
 
@@ -500,6 +527,8 @@ Todas em **2026-08-13**, salvo indicação.
 | D29 | O impacto de um lance mede-se no instante desse lance, contra o estado real nesse minuto — nunca se volta a simular o resto do jogo real. Vários lances no mesmo jogo somam-se independentemente | Precisava de estar escrito antes do motor de cálculo (Entregável 4), para não haver ambiguidade depois sobre como tratar jogos com mais do que um erro |
 | D30 | Duração total do jogo, para efeitos de simulação: 97 minutos (não 90). As taxas de golos por minuto (casa/fora) recalculadas com este divisor | Sem esta correção, a simulação teria menos tempo por jogar do que o real, o que pesa mais nos lances tardios — exatamente os de maior impacto. 97 fica entre os ~100-101 minutos medidos na Premier League (sem dado específico de Portugal) e os 90' de regulamento puro. Ver secção 6 para a justificação completa e a direção do efeito (97 < 101 puxa os impactos tardios ligeiramente para cima, e isso fica declarado por transparência) |
 | D31 | Família 3: `p = 0`. O mundo corrigido vai para a equipa prejudicada (não para quem beneficiou), por isso um `p` mais alto aumenta o impacto — mesma direção das famílias 4 e 6, a D26 aplica-se normalmente. `p = 0` evita contar o mesmo golo duas vezes (a simulação do tempo que resta já cobre a probabilidade de golo do reinício). O reinício corrigido guarda-se como facto (`reinicio_corrigido`), sem entrar no cálculo | Erro meu na primeira proposta: tinha a mistura ao contrário, o que teria subestimado o impacto da família 3 exatamente onde a D26 pede o oposto. Corrigido pelo João antes de qualquer código ser escrito. Aviso registado para quem no futuro propuser subir este `p`: está a aumentar correções e a arriscar dupla contagem |
+| D32 | O impacto final de um lance é o impacto bruto do motor **multiplicado pela fração de opiniões "errado"** entre as que se pronunciaram — nunca um interruptor de maioria/unanimidade/qualquer-erro. A fração tem de estar visível no site junto de cada correção, não só na página de método | Um interruptor binário deitava fora a informação central do projeto (o grau de desacordo entre especialistas) e criava um precipício: 3/7 dava zero, 4/7 dava tudo. Mesmo raciocínio já usado para o penálti (0,76 de golo, não 1 nem 0). Exemplo real: lance 67a (2 errado, 0 certo) dá 100% — a fragilidade da D7 a aparecer num lance real, registada e assumida |
+| D33 | A Liga da Verdade mostra as 18 equipas, não só os 3 grandes, com duas salvaguardas: as 15 equipas fora do âmbito ficam visualmente marcadas como parcialmente corrigidas, e cada equipa mostra "X de Y jogos analisados" | Uma tabela de 3 linhas perde o efeito de comparação lado a lado com a Liga real, que é o objetivo central do site. Resolve o "[POR DECIDIR]" da secção 13 |
 
 ---
 
@@ -559,11 +588,12 @@ Todas em **2026-08-13**, salvo indicação.
   **SELADO em 2026-08-14.** Ver secção 6. **O efeito de jogar com dez fica
   marcado como o parâmetro mais fraco do modelo (D28)** — a fonte pública
   dilui o efeito real, e isto tem de estar na página de método.
-- **[POR DECIDIR] A tabela mostra 18 equipas ou só 4?** Os clubes fora dos
-  grandes só têm correções nos jogos contra eles. Se mostrar 18, a correção
-  parcial tem de estar declarada em letra visível.
-- **[POR DECIDIR] Como se apresenta a Liga da Verdade nas primeiras jornadas**,
-  quando é quase igual à real.
+- ~~[POR DECIDIR] A tabela mostra 18 equipas ou só os grandes?~~ **DECIDIDO
+  em 2026-08-14 (D33).** Mostra as 18, com equipas fora do âmbito marcadas e
+  "X de Y jogos analisados" por equipa.
+- ~~[POR DECIDIR] Como se apresenta a Liga da Verdade nas primeiras
+  jornadas~~ **RESOLVIDO em 2026-08-14.** Uma nota simples por cima da
+  tabela ("N lances registados até agora") — sem solução estrutural à parte.
 - **[RISCO ACEITE] Nome "Liga da Verdade".** Antes de divulgar: consultar a
   base de marcas do INPI; não copiar o grafismo de nenhum jornal; pôr no rodapé
   que o site não tem ligação a nenhum jornal. **Isto não é aconselhamento
