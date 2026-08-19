@@ -3125,6 +3125,577 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j02-casapia-benfica",
+      "jornada": 2,
+      "data": "2026-08-17",
+      "casa": "Casa Pia",
+      "fora": "Benfica",
+      "resultado": {
+        "casa": 0,
+        "fora": 7
+      },
+      "arbitro": "João Pinheiro",
+      "var": "Rui Costa",
+      "golos": [
+        {
+          "minuto": 3,
+          "equipa": "fora",
+          "marcador": "Gonçalo Prestianni",
+          "conta": true
+        },
+        {
+          "minuto": 14,
+          "equipa": "fora",
+          "marcador": "Rafa Silva",
+          "conta": true
+        },
+        {
+          "minuto": 47,
+          "equipa": "fora",
+          "marcador": "Vangelis Pavlidis",
+          "conta": true
+        },
+        {
+          "minuto": 49,
+          "equipa": "fora",
+          "marcador": "Vangelis Pavlidis",
+          "conta": true
+        },
+        {
+          "minuto": 54,
+          "equipa": "fora",
+          "marcador": "Vangelis Pavlidis",
+          "conta": true
+        },
+        {
+          "minuto": 58,
+          "equipa": "fora",
+          "marcador": "L. Ofori",
+          "conta": true
+        },
+        {
+          "minuto": 61,
+          "equipa": "fora",
+          "marcador": "Jhon Durán",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [
+        {
+          "minuto": "90+2",
+          "equipa": "casa",
+          "jogador": "Khaly Bandeira",
+          "incidente_relacionado": "2026-27-j02-casapia-benfica-90+2"
+        }
+      ],
+      "incidentes": [
+        {
+          "id": "2026-27-j02-casapia-benfica-10",
+          "minuto": "10",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Contacto entre Clément Lenglet (Benfica) e Henrique Araújo (Casa Pia) na área. Penálti não assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-23-24",
+          "minuto": "23-24",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Gabi Pereira (Casa Pia) entra em tackle deslizante e atinge o tornozelo de Sudakov (Benfica) com sola e pitons. Sem falta nem amarelo assinalados.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-44",
+          "minuto": "44",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Clément Lenglet (Benfica) atropela Kevin Prieto (Casa Pia) e derruba-o à entrada da área. Livre direto assinalado (não penálti).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-44-45",
+          "minuto": "44-45",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Ofori (Casa Pia) e Alexander Bah (Benfica) disputam a bola; Bah cai. Penálti não assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-19",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-19_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-62",
+          "minuto": "62",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Sebastián Pérez (Casa Pia) atinge Alexander Bah (Benfica) em falta antidesportiva, chegando tarde. Livre direto e cartão amarelo mostrados.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 6
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-65",
+          "minuto": "65",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Andreas Schjelderup (Benfica) cai na área do Casa Pia. Penálti não assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 7
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-19",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-19_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-68",
+          "minuto": "68",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Alassane Jatta (Casa Pia) pisa involuntariamente o calcanhar de Manu (Benfica). Sem cartão assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 7
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-79",
+          "minuto": "79",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Khaly Bandeira (Casa Pia) entra com a perna esquerda sem bola jogável e derruba Jhon Durán (Benfica). Cartão amarelo mostrado (1.º amarelo).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 7
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-87",
+          "minuto": "87",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Richard Ríos (Benfica) faz falta tática por trás sobre Ofori (Casa Pia) para travar contra-ataque. Sem cartão assinalado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 7
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j02-casapia-benfica-90+2",
+          "minuto": "90+2",
+          "tipo": "expulsao_mostrada",
+          "descricao": "Khaly Bandeira (Casa Pia), de forma deliberada, atinge Prestianni (Benfica) na cara com a mão. Segundo cartão amarelo e vermelho mostrados.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 7
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-18",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-18",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-18",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j02_2026-08-18_casapia-benfica_abola_henriques.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
