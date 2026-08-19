@@ -127,6 +127,61 @@
     text-align: center;
     white-space: nowrap;
   }
+
+  .tabela-verdade tr.linha-clube {
+    cursor: pointer;
+  }
+
+  .tabela-verdade tr.linha-clube:hover {
+    background: var(--cor-cabecalho);
+  }
+
+  .tabela-verdade .marcador {
+    color: var(--cor-texto-fraco);
+    font-weight: 400;
+  }
+
+  .tabela-verdade .delta-pos { color: #6fbf73; }
+  .tabela-verdade .delta-neg { color: #e08080; }
+  .tabela-verdade .delta-zero { color: var(--cor-texto-fraco); }
+
+  .tabela-verdade .jogos-analisados {
+    font-size: 0.8rem;
+    color: var(--cor-texto-fraco);
+    white-space: nowrap;
+  }
+
+  .linha-detalhe td {
+    text-align: left;
+    white-space: normal;
+    background: var(--cor-cabecalho);
+    padding: 0.75rem 1rem;
+  }
+
+  .lance-detalhe {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--cor-linha);
+    font-size: 0.85rem;
+  }
+
+  .lance-detalhe:last-child {
+    border-bottom: none;
+  }
+
+  .lance-detalhe .cabecalho-lance {
+    color: var(--cor-texto);
+    margin-bottom: 0.2rem;
+  }
+
+  .lance-detalhe .fracao {
+    color: var(--cor-destaque);
+    font-weight: 600;
+  }
+
+  .lance-detalhe .fonte {
+    color: var(--cor-texto-fraco);
+    font-size: 0.8rem;
+  }
 </style>
 </head>
 <body>
@@ -135,16 +190,29 @@
     <p class="subtitulo">Época 2026/27</p>
   </header>
 
-  <h2 id="titulo-secao" style="text-align:center;">Liga real</h2>
-  <div id="conteudo" class="tabela-scroll">
-    <p class="aviso">A carregar…</p>
+  <div id="vista-normal">
+    <h2 style="text-align:center;">Liga real</h2>
+    <div id="conteudo-real" class="tabela-scroll">
+      <p class="aviso">A carregar…</p>
+    </div>
+
+    <h2 style="text-align:center;">Liga da Verdade</h2>
+    <p id="aviso-verdade" class="aviso" style="margin-bottom:1rem;"></p>
+    <div id="conteudo-verdade" class="tabela-scroll tabela-verdade"></div>
+
+    <p class="nota-verdade">
+      A Liga da Verdade corrige, em pontos decimais, o impacto de erros de
+      arbitragem apontados por analistas publicados — nunca opinião própria
+      do site. Equipas marcadas com <strong>†</strong> só têm correção nos
+      jogos em que enfrentaram um dos 3 grandes. Toca numa equipa para ver
+      os lances que a afetaram.
+    </p>
   </div>
 
-  <p id="nota-verdade" class="nota-verdade">
-    A Liga da Verdade — a classificação corrigida do impacto dos erros de
-    arbitragem — chega num próximo entregável. Para já, esta é só a
-    classificação oficial.
-  </p>
+  <div id="vista-testes" style="display:none;">
+    <h2 style="text-align:center;">Testes do motor de cálculo</h2>
+    <div id="conteudo-testes" class="tabela-scroll"></div>
+  </div>
 
   <script>
     // ---- Motor de cálculo — "o termómetro" (Entregável 4) ----
@@ -159,10 +227,11 @@
     const EFEITO_DEZ_SOFRER = 1.25;  // D28
     const TAXA_PENALTI = 0.76;
     const P_ESCALAO = {
-      isolado: 0.35,
-      remate_claro: 0.15,
-      sem_finalizacao: 0.03
+      isolado_com_guarda_redes: 0.35,
+      remate_claro_na_area: 0.15,
+      ataque_sem_finalizacao_iminente: 0.03
     };
+    const GRANDES = ['Benfica', 'Porto', 'Sporting'];
     const MAX_GOLOS_SIMULADOS = 15;
 
     // "45+1", "71-72", "67a", "90+2b" -> minuto inteiro base, por convenção
@@ -230,6 +299,156 @@
         casa: p * comGolo.casa + (1 - p) * semGolo.casa,
         fora: p * comGolo.fora + (1 - p) * semGolo.fora
       };
+    }
+
+    // ---- Aplicar o motor aos lances reais (Entregável 5) ----
+    function outraEquipa(eq) { return eq === 'casa' ? 'fora' : 'casa'; }
+
+    function estadoComGolo(base, equipaQueMarca) {
+      const novo = Object.assign({}, base);
+      if (equipaQueMarca === 'casa') novo.resultadoCasa = base.resultadoCasa + 1;
+      else novo.resultadoFora = base.resultadoFora + 1;
+      return novo;
+    }
+
+    function estadoComJogadorAMenos(base, equipa) {
+      const novo = Object.assign({}, base);
+      if (equipa === 'casa') novo.jogadoresCasa = base.jogadoresCasa - 1;
+      else novo.jogadoresFora = base.jogadoresFora - 1;
+      return novo;
+    }
+
+    function estadoBase(incidente) {
+      return {
+        minuto: incidente.minuto,
+        resultadoCasa: incidente.resultado_antes.casa,
+        resultadoFora: incidente.resultado_antes.fora,
+        jogadoresCasa: incidente.jogadores_antes.casa,
+        jogadoresFora: incidente.jogadores_antes.fora
+      };
+    }
+
+    // Deriva a família do tipo + factos do jogo já registados (D23) — nunca por inferência nova
+    function derivarFamilia(incidente, jogo) {
+      switch (incidente.tipo) {
+        case 'golo_validado': return 1;
+        case 'golo_anulado': return 2;
+        case 'golo_apos_decisao_anterior': return 3;
+        case 'penalti_nao_assinalado': return 4;
+        case 'penalti_assinalado':
+          return jogo.golos.some(g => g.incidente_relacionado === incidente.id) ? 3 : 5;
+        case 'ocasiao_interrompida': return 6;
+        case 'expulsao_nao_mostrada':
+        case 'expulsao_mostrada': return 7;
+        case 'amarelo_mostrado':
+        case 'amarelo_nao_mostrado': return 8;
+        default:
+          throw new Error('Tipo de lance desconhecido: "' + incidente.tipo + '" (' + incidente.id +
+            '). O catálogo de famílias do CLAUDE.md tem uma lacuna — não se inventa um tipo novo aqui.');
+      }
+    }
+
+    // Impacto BRUTO (antes da fração de opiniões, D32) para {casa, fora}, em pontos
+    function impactoBruto(incidente, jogo) {
+      const familia = derivarFamilia(incidente, jogo);
+      const base = estadoBase(incidente);
+      const beneficiada = incidente.equipa_beneficiada;
+      const prejudicada = outraEquipa(beneficiada);
+      let real, corrigido;
+
+      switch (familia) {
+        case 1: // golo validado indevidamente
+          real = estadoComGolo(base, beneficiada);
+          corrigido = base;
+          break;
+        case 2: // golo anulado indevidamente — quem marcou é a prejudicada
+          real = base;
+          corrigido = estadoComGolo(base, prejudicada);
+          break;
+        case 3: // golo após decisão anterior, ou penálti convertido — p=0 (D31)
+          real = estadoComGolo(base, beneficiada);
+          corrigido = base;
+          break;
+        case 4: { // penálti não assinalado — mistura com taxa de conversão
+          const comGolo = estadoComGolo(base, prejudicada);
+          const pReal = pontosEsperados(base);
+          const pCorrigido = misturaPontosEsperados(TAXA_PENALTI, comGolo, base);
+          return { casa: pCorrigido.casa - pReal.casa, fora: pCorrigido.fora - pReal.fora };
+        }
+        case 5: // penálti mal assinalado e falhado
+          return { casa: 0, fora: 0 };
+        case 6: { // ocasião de golo interrompida — mistura por escalão
+          const p = P_ESCALAO[incidente.escalao];
+          if (p === undefined) {
+            throw new Error('Escalão em falta ou desconhecido no lance ' + incidente.id + ': "' + incidente.escalao + '"');
+          }
+          const comGolo = estadoComGolo(base, prejudicada);
+          const pReal = pontosEsperados(base);
+          const pCorrigido = misturaPontosEsperados(p, comGolo, base);
+          return { casa: pCorrigido.casa - pReal.casa, fora: pCorrigido.fora - pReal.fora };
+        }
+        case 7: // expulsão indevida ou por mostrar
+          if (incidente.tipo === 'expulsao_nao_mostrada') {
+            real = base; // ninguém foi expulso — o jogo continuou com 11, que é o que aconteceu
+            corrigido = estadoComJogadorAMenos(base, beneficiada); // devia ter ficado com 10
+          } else {
+            real = estadoComJogadorAMenos(base, prejudicada); // foi expulso — o jogo continuou com 10, que é o que aconteceu
+            corrigido = base; // não devia ter sido expulso, continuava com 11
+          }
+          break;
+        case 8: // cartão amarelo indevido — impacto 0 na v1
+          return { casa: 0, fora: 0 };
+      }
+
+      const pReal = pontosEsperados(real);
+      const pCorrigido = pontosEsperados(corrigido);
+      return { casa: pCorrigido.casa - pReal.casa, fora: pCorrigido.fora - pReal.fora };
+    }
+
+    // Aplica D32 (fração de opiniões) e agrega por clube, para as 18 equipas
+    function calcularLigaDaVerdade(dados) {
+      const porClube = {};
+      const erros = [];
+
+      for (const eq of dados.classificacao_oficial) {
+        porClube[eq.clube] = { impacto: 0, jogosComLance: new Set(), lances: [] };
+      }
+
+      for (const jogo of dados.jogos) {
+        if (!porClube[jogo.casa]) porClube[jogo.casa] = { impacto: 0, jogosComLance: new Set(), lances: [] };
+        if (!porClube[jogo.fora]) porClube[jogo.fora] = { impacto: 0, jogosComLance: new Set(), lances: [] };
+
+        for (const inc of jogo.incidentes) {
+          const total = inc.opinioes.length;
+          const nErrado = inc.opinioes.filter(o => o.veredicto === 'errado').length;
+          const fracao = total > 0 ? nErrado / total : 0;
+
+          porClube[jogo.casa].jogosComLance.add(jogo.id);
+          porClube[jogo.fora].jogosComLance.add(jogo.id);
+
+          let bruto;
+          try {
+            bruto = impactoBruto(inc, jogo);
+          } catch (erro) {
+            erros.push(erro.message);
+            continue;
+          }
+
+          const impactoCasa = fracao * bruto.casa;
+          const impactoFora = fracao * bruto.fora;
+          porClube[jogo.casa].impacto += impactoCasa;
+          porClube[jogo.fora].impacto += impactoFora;
+
+          if (impactoCasa !== 0) {
+            porClube[jogo.casa].lances.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoCasa });
+          }
+          if (impactoFora !== 0) {
+            porClube[jogo.fora].lances.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoFora });
+          }
+        }
+      }
+
+      return { porClube, erros };
     }
 
     // ---- Testes do motor (?teste=1) ----
@@ -386,10 +605,8 @@
     }
 
     function renderizarTestes() {
-      document.getElementById('titulo-secao').textContent = 'Testes do motor de cálculo';
-      document.getElementById('nota-verdade').style.display = 'none';
-      const conteudo = document.getElementById('conteudo');
-      conteudo.className = 'tabela-testes';
+      const conteudo = document.getElementById('conteudo-testes');
+      conteudo.className = 'tabela-scroll tabela-testes';
 
       const todos = correrCasosReferencia().concat(correrTestes());
       const totalPassou = todos.filter(t => t.passou).length;
@@ -404,21 +621,14 @@
       conteudo.innerHTML = html;
     }
 
-    // ---- Liga real ----
-    async function carregar() {
-      const conteudo = document.getElementById('conteudo');
-      let dados;
-      try {
-        const resposta = await fetch('dados/2026-27.json');
-        if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
-        dados = await resposta.json();
-      } catch (erro) {
-        conteudo.innerHTML = '<p class="erro">Não foi possível carregar os dados (' +
-          erro.message + '). Se estiveres a abrir este ficheiro diretamente do ' +
-          'disco, usa o servidor.bat em vez disso.</p>';
-        return;
-      }
+    function escaparHtml(texto) {
+      const d = document.createElement('div');
+      d.textContent = texto;
+      return d.innerHTML;
+    }
 
+    function renderizarLigaReal(dados) {
+      const conteudo = document.getElementById('conteudo-real');
       const equipas = (dados.classificacao_oficial || []).slice()
         .sort((a, b) => a.posicao - b.posicao);
 
@@ -435,7 +645,7 @@
       for (const eq of equipas) {
         html += '<tr>' +
           '<td>' + eq.posicao + '</td>' +
-          '<td class="clube">' + eq.clube + '</td>' +
+          '<td class="clube">' + escaparHtml(eq.clube) + '</td>' +
           '<td>' + eq.pd + '</td>' +
           '<td>' + eq.v + '</td>' +
           '<td>' + eq.e + '</td>' +
@@ -451,10 +661,122 @@
       conteudo.innerHTML = html;
     }
 
+    function textoLance(item) {
+      const inc = item.incidente;
+      const jogo = item.jogo;
+      const fontes = inc.opinioes.map(o =>
+        escaparHtml(o.analista) + ' (' + escaparHtml(o.fonte) + ', ' + o.data_publicacao + ', ' + o.veredicto + ')'
+      ).join('; ');
+      const sinal = item.impacto > 0 ? '+' : '';
+      return '<div class="lance-detalhe">' +
+        '<div class="cabecalho-lance"><strong>' + escaparHtml(jogo.casa) + ' ' + jogo.resultado.casa + '-' + jogo.resultado.fora + ' ' +
+          escaparHtml(jogo.fora) + '</strong> — minuto ' + escaparHtml(String(inc.minuto)) + '</div>' +
+        '<div>' + escaparHtml(inc.descricao) + '</div>' +
+        '<div class="fracao">' + item.nErrado + ' de ' + item.total + ' analistas consideraram erro — impacto ' +
+          sinal + item.impacto.toFixed(3) + ' pontos</div>' +
+        '<div class="fonte">' + fontes + '</div>' +
+        '</div>';
+    }
+
+    function renderizarLigaDaVerdade(dados) {
+      const avisoEl = document.getElementById('aviso-verdade');
+      const conteudo = document.getElementById('conteudo-verdade');
+
+      const totalLances = dados.jogos.reduce((n, j) => n + j.incidentes.length, 0);
+      avisoEl.textContent = totalLances + ' lance' + (totalLances === 1 ? '' : 's') + ' registado' +
+        (totalLances === 1 ? '' : 's') + ' até agora.';
+
+      const { porClube, erros } = calcularLigaDaVerdade(dados);
+
+      if (erros.length > 0) {
+        conteudo.innerHTML = '<p class="erro">Não foi possível calcular todos os lances: ' +
+          escaparHtml(erros.join(' · ')) + '</p>';
+        return;
+      }
+
+      const reaisPorClube = {};
+      for (const eq of dados.classificacao_oficial) reaisPorClube[eq.clube] = eq.pts;
+
+      const linhas = Object.keys(porClube).map(clube => {
+        const c = porClube[clube];
+        const ptsReais = reaisPorClube[clube] || 0;
+        const ptsVerdade = ptsReais + c.impacto;
+        const eqOficial = dados.classificacao_oficial.find(e => e.clube === clube);
+        const pd = eqOficial ? eqOficial.pd : 0;
+        return {
+          clube,
+          ptsReais,
+          ptsVerdade,
+          delta: c.impacto,
+          jogosAnalisados: c.jogosComLance.size,
+          pd,
+          lances: c.lances.sort((a, b) => a.jogo.jornada - b.jogo.jornada || parseMinuto(a.incidente.minuto) - parseMinuto(b.incidente.minuto))
+        };
+      }).sort((a, b) => b.ptsVerdade - a.ptsVerdade);
+
+      let html = '<table><thead><tr>' +
+        '<th>#</th><th class="clube">Clube</th><th>Pts reais</th><th>Pts LV</th><th>Δ</th><th>Jogos</th>' +
+        '</tr></thead><tbody>';
+
+      linhas.forEach((l, i) => {
+        const foraDoAmbito = GRANDES.indexOf(l.clube) === -1;
+        const deltaClasse = l.delta > 0 ? 'delta-pos' : (l.delta < 0 ? 'delta-neg' : 'delta-zero');
+        const deltaTexto = (l.delta > 0 ? '+' : '') + l.delta.toFixed(3);
+        const idLinha = 'clube-' + i;
+        html += '<tr class="linha-clube" data-alvo="' + idLinha + '">' +
+          '<td>' + (i + 1) + '</td>' +
+          '<td class="clube">' + escaparHtml(l.clube) + (foraDoAmbito ? ' <span class="marcador">†</span>' : '') + '</td>' +
+          '<td>' + l.ptsReais.toFixed(2) + '</td>' +
+          '<td class="pts">' + l.ptsVerdade.toFixed(2) + '</td>' +
+          '<td class="' + deltaClasse + '">' + deltaTexto + '</td>' +
+          '<td class="jogos-analisados">' + l.jogosAnalisados + ' de ' + l.pd + '</td>' +
+          '</tr>';
+
+        html += '<tr id="' + idLinha + '" class="linha-detalhe" style="display:none;"><td colspan="6">';
+        if (l.lances.length === 0) {
+          html += '<span class="aviso">Sem lances com impacto até agora.</span>';
+        } else {
+          html += l.lances.map(textoLance).join('');
+        }
+        html += '</td></tr>';
+      });
+
+      html += '</tbody></table>';
+      conteudo.innerHTML = html;
+
+      conteudo.querySelectorAll('tr.linha-clube').forEach(tr => {
+        tr.addEventListener('click', () => {
+          const alvo = document.getElementById(tr.getAttribute('data-alvo'));
+          alvo.style.display = alvo.style.display === 'none' ? 'table-row' : 'none';
+        });
+      });
+    }
+
+    async function carregarTudo() {
+      let dados;
+      try {
+        const resposta = await fetch('dados/2026-27.json');
+        if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+        dados = await resposta.json();
+      } catch (erro) {
+        const mensagem = '<p class="erro">Não foi possível carregar os dados (' +
+          erro.message + '). Se estiveres a abrir este ficheiro diretamente do ' +
+          'disco, usa o servidor.bat em vez disso.</p>';
+        document.getElementById('conteudo-real').innerHTML = mensagem;
+        document.getElementById('conteudo-verdade').innerHTML = '';
+        return;
+      }
+
+      renderizarLigaReal(dados);
+      renderizarLigaDaVerdade(dados);
+    }
+
     if (new URLSearchParams(location.search).get('teste') === '1') {
+      document.getElementById('vista-normal').style.display = 'none';
+      document.getElementById('vista-testes').style.display = 'block';
       renderizarTestes();
     } else {
-      carregar();
+      carregarTudo();
     }
   </script>
 </body>
