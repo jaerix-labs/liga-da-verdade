@@ -100,6 +100,11 @@ analista:
 | **Record** — *Liga da Verdade* | Um único analista (Iturralde González). Lances numerados 1, 2, 3… **de vários jogos na mesma página**. A legenda de cada foto diz a que jogo pertence |
 | **O Jogo** — *Tribunal* | **Matriz.** Cada linha é um lance, escrito como pergunta. Cada coluna é um analista: Jorge Coroado, José Leirós, Fortunato Azevedo, por esta ordem. Seta verde = concorda com o árbitro, seta vermelha = discorda |
 
+**Cor do selo no Record (qualquer rubrica — Casos R ou Liga da Verdade):**
+selo vermelho = errado, selo verde = certo. Regra fixa, não é preciso
+perguntar por cor — só perguntar se o selo estiver ilegível ou parecer
+contradizer o texto (ver regra absoluta 6).
+
 Se um recorte não corresponder a esta descrição — mudança de grafismo, analista
 novo, coluna a mais — **para e pergunta.**
 
@@ -529,3 +534,8 @@ Se, ao transcreveres, encontrares um caso que estas instruções não previam,
     analista, não é lance — não perguntar, simplesmente não incluir.
   - Fixado também, por pedido direto do João: todo o cartão (em GOLOS,
     VERMELHOS, AMARELOS ou dentro de um lance) leva o clube entre parênteses.
+- **2026-08-19 (v5.4, reativa)** — mesma jornada 2, segunda entrega (Record
+  Liga da Verdade, Iturralde). Fixada a cor do selo no Record: vermelho =
+  errado, verde = certo, para qualquer rubrica (Casos R ou Liga da Verdade).
+  Deixa de ser preciso perguntar pela cor — só perguntar se o selo estiver
+  ilegível ou contradizer o texto.
