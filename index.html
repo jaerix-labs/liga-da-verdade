@@ -405,6 +405,13 @@
       return { casa: pCorrigido.casa - pReal.casa, fora: pCorrigido.fora - pReal.fora };
     }
 
+    // Pontos reais de UMA equipa, só neste jogo (3/1/0) — usado para aplicar o teto/piso do D34
+    function pontosReaisJogo(jogo, lado) {
+      const rc = jogo.resultado.casa, rf = jogo.resultado.fora;
+      if (lado === 'casa') return rc > rf ? 3 : (rc === rf ? 1 : 0);
+      return rf > rc ? 3 : (rc === rf ? 1 : 0);
+    }
+
     // Aplica D32 (fração de opiniões) e agrega por clube, para as 18 equipas
     function calcularLigaDaVerdade(dados) {
       const porClube = {};
@@ -418,13 +425,18 @@
         if (!porClube[jogo.casa]) porClube[jogo.casa] = { impacto: 0, jogosComLance: new Set(), lances: [] };
         if (!porClube[jogo.fora]) porClube[jogo.fora] = { impacto: 0, jogosComLance: new Set(), lances: [] };
 
+        if (jogo.incidentes.length === 0) continue;
+
+        porClube[jogo.casa].jogosComLance.add(jogo.id);
+        porClube[jogo.fora].jogosComLance.add(jogo.id);
+
+        let somaCasa = 0, somaFora = 0;
+        const lancesCasa = [], lancesFora = [];
+
         for (const inc of jogo.incidentes) {
           const total = inc.opinioes.length;
           const nErrado = inc.opinioes.filter(o => o.veredicto === 'errado').length;
           const fracao = total > 0 ? nErrado / total : 0;
-
-          porClube[jogo.casa].jogosComLance.add(jogo.id);
-          porClube[jogo.fora].jogosComLance.add(jogo.id);
 
           let bruto;
           try {
@@ -436,16 +448,28 @@
 
           const impactoCasa = fracao * bruto.casa;
           const impactoFora = fracao * bruto.fora;
-          porClube[jogo.casa].impacto += impactoCasa;
-          porClube[jogo.fora].impacto += impactoFora;
+          somaCasa += impactoCasa;
+          somaFora += impactoFora;
 
           if (impactoCasa !== 0) {
-            porClube[jogo.casa].lances.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoCasa });
+            lancesCasa.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoCasa });
           }
           if (impactoFora !== 0) {
-            porClube[jogo.fora].lances.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoFora });
+            lancesFora.push({ jogo, incidente: inc, total, nErrado, fracao, impacto: impactoFora });
           }
         }
+
+        // D34: os pontos corrigidos de UM jogo nunca podem sair de [0,3], mesmo que a
+        // soma dos lances isolados (D29) o ultrapasse — o jogo em si é o teto/piso.
+        const ptsReaisCasa = pontosReaisJogo(jogo, 'casa');
+        const ptsReaisFora = pontosReaisJogo(jogo, 'fora');
+        const ptsVerdadeCasa = Math.min(3, Math.max(0, ptsReaisCasa + somaCasa));
+        const ptsVerdadeFora = Math.min(3, Math.max(0, ptsReaisFora + somaFora));
+
+        porClube[jogo.casa].impacto += ptsVerdadeCasa - ptsReaisCasa;
+        porClube[jogo.fora].impacto += ptsVerdadeFora - ptsReaisFora;
+        porClube[jogo.casa].lances.push(...lancesCasa);
+        porClube[jogo.fora].lances.push(...lancesFora);
       }
 
       return { porClube, erros };

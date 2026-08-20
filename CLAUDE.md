@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-08-13
+Última atualização: 2026-08-20
 
 ---
 
@@ -529,6 +529,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D31 | Família 3: `p = 0`. O mundo corrigido vai para a equipa prejudicada (não para quem beneficiou), por isso um `p` mais alto aumenta o impacto — mesma direção das famílias 4 e 6, a D26 aplica-se normalmente. `p = 0` evita contar o mesmo golo duas vezes (a simulação do tempo que resta já cobre a probabilidade de golo do reinício). O reinício corrigido guarda-se como facto (`reinicio_corrigido`), sem entrar no cálculo | Erro meu na primeira proposta: tinha a mistura ao contrário, o que teria subestimado o impacto da família 3 exatamente onde a D26 pede o oposto. Corrigido pelo João antes de qualquer código ser escrito. Aviso registado para quem no futuro propuser subir este `p`: está a aumentar correções e a arriscar dupla contagem |
 | D32 | O impacto final de um lance é o impacto bruto do motor **multiplicado pela fração de opiniões "errado"** entre as que se pronunciaram — nunca um interruptor de maioria/unanimidade/qualquer-erro. A fração tem de estar visível no site junto de cada correção, não só na página de método | Um interruptor binário deitava fora a informação central do projeto (o grau de desacordo entre especialistas) e criava um precipício: 3/7 dava zero, 4/7 dava tudo. Mesmo raciocínio já usado para o penálti (0,76 de golo, não 1 nem 0). Exemplo real: lance 67a (2 errado, 0 certo) dá 100% — a fragilidade da D7 a aparecer num lance real, registada e assumida |
 | D33 | A Liga da Verdade mostra as 18 equipas, não só os 3 grandes, com duas salvaguardas: as 15 equipas fora do âmbito ficam visualmente marcadas como parcialmente corrigidas, e cada equipa mostra "X de Y jogos analisados" | Uma tabela de 3 linhas perde o efeito de comparação lado a lado com a Liga real, que é o objetivo central do site. Resolve o "[POR DECIDIR]" da secção 13 |
+| D34 | Os pontos corrigidos de **um jogo** nunca podem sair do intervalo [0,3], mesmo que a soma dos lances isolados desse jogo (D29) desse um valor fora dessa gama. O limite aplica-se **por jogo, por equipa**, antes de somar ao longo da época — não se limita o total da época diretamente | O João reparou que o Porto aparecia com 6,01 pontos na Liga da Verdade ao fim de 2 jogos (máximo matematicamente possível: 6). Causa: os pontos reais de um jogo já ganho são um valor fixo (3, o teto), e o impacto de um lance é uma diferença de pontos esperados calculada isoladamente nesse minuto (D29) — somar os dois pode ultrapassar o teto/piso do próprio jogo quando a equipa já lá estava antes da correção. Confirmado com dados reais: 4 violações nos 2 primeiros jogos com lances (Porto-Alverca J1, Sporting-V.Guimarães J2), duas acima de 3 e duas abaixo de 0. A correção não mexe em `pontosEsperados()` (já bem limitada, testes b/c continuam a passar) — só na forma como `calcularLigaDaVerdade()` soma as correções ao longo da época. **Aviso:** a lista de lances de cada equipa continua a mostrar o impacto bruto de cada lance isoladamente (não limitado) — por transparência do que cada analista disse — por isso a soma dos lances listados pode não bater certo com o Δ da equipa quando um jogo específico já estava no teto ou no piso antes da correção |
 
 ---
 
@@ -570,7 +571,10 @@ Todas em **2026-08-13**, salvo indicação.
    modelo (fim de jogo exato, soma entre 2-3, impacto de golo no último
    instante, determinismo, total de golos = 2,68). 9 de 9 a passar. Ainda não
    lê o `dados/2026-27.json` nem calcula lances reais — isso é o Entregável 5.
-5. **Liga da Verdade.** A tabela corrigida, com detalhe por lance.
+5. ~~**Liga da Verdade.**~~ **CONCLUÍDO.** A tabela corrigida das 18 equipas,
+   com fração de opiniões (D32) e detalhe por lance expansível. Corrigido em
+   2026-08-20 um problema em que os pontos corrigidos de um jogo podiam sair
+   do intervalo [0,3] — ver D34.
 6. **Página de método.** Regras, parâmetros, fontes, limitações. **Bloqueia a
    publicação se não estiver pronta.**
 7. **Modo de edição** (`?admin=1`): formulário para registar um lance em menos
@@ -638,5 +642,26 @@ Não são letra pequena. São parte do argumento.
 
 ## 15. BUGS CORRIGIDOS E AVISOS PARA NÃO DESFAZER
 
-*(Vazio. Preencher à medida que aparecerem, com a causa e um aviso explícito
-para não reverter a correção.)*
+### 2026-08-20 — Pontos da Liga da Verdade podiam ultrapassar o máximo do jogo
+
+**Sintoma:** o João reparou que o Porto aparecia com 6,01 pontos na Liga da
+Verdade ao fim de 2 jogos — impossível, o máximo é 6 (2 vitórias).
+
+**Causa:** `calcularLigaDaVerdade()` somava o impacto de cada lance
+diretamente aos pontos reais acumulados da equipa, sem nunca verificar se o
+resultado desse jogo em particular ainda fazia sentido (entre 0 e 3). Um jogo
+já ganho (3 pontos, o teto) mais uma correção a favor da equipa dava mais de
+3; um jogo já perdido (0 pontos, o piso) mais uma correção contra dava menos
+de 0. Confirmado com dados reais: 4 casos nos 2 primeiros jogos com lances.
+
+**Correção (D34):** `calcularLigaDaVerdade()` agrupa agora os lances por
+jogo, soma o impacto de cada equipa **dentro desse jogo**, aplica
+`Math.min(3, Math.max(0, ...))` ao resultado, e só depois acumula a
+diferença ao longo da época. Ver secção 10, D34, para a explicação completa.
+
+**Aviso para quem mexer nisto no futuro:** não voltar a somar o impacto dos
+lances diretamente ao total da época sem passar primeiro pelo limite por
+jogo — é exatamente isso que causava o bug. A lista de lances por equipa
+continua a mostrar o valor bruto (não limitado) de cada lance, de propósito
+(transparência do que cada analista disse); só o agregado por jogo é
+limitado.
