@@ -575,8 +575,13 @@ Todas em **2026-08-13**, salvo indicação.
    com fração de opiniões (D32) e detalhe por lance expansível. Corrigido em
    2026-08-20 um problema em que os pontos corrigidos de um jogo podiam sair
    do intervalo [0,3] — ver D34.
-6. **Página de método.** Regras, parâmetros, fontes, limitações. **Bloqueia a
-   publicação se não estiver pronta.**
+6. ~~**Página de método.**~~ **CONCLUÍDO.** Nova vista (`#metodo`, link
+   "Método" no cabeçalho, ao lado de "Classificações") com o princípio único,
+   o catálogo das 8 famílias, a fração de opiniões (D32), o limite por jogo
+   (D34), os parâmetros — lidos diretamente das constantes do motor de
+   cálculo, nunca escritos numa segunda vez —, as 7 fontes e as limitações da
+   secção 14. Testado em desktop e telemóvel (375px), sem overflow
+   horizontal.
 7. **Modo de edição** (`?admin=1`): formulário para registar um lance em menos
    de um minuto, escrita no JSON, com o caminho alternativo de download
    testado.

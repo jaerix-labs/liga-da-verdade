@@ -182,12 +182,77 @@
     color: var(--cor-texto-fraco);
     font-size: 0.8rem;
   }
+
+  .nav-principal {
+    margin-top: 0.85rem;
+  }
+
+  .nav-principal a {
+    color: var(--cor-texto-fraco);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-size: 0.9rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-principal a.ativo {
+    color: var(--cor-destaque);
+    border-bottom-color: var(--cor-destaque);
+  }
+
+  .metodo {
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    font-size: 0.92rem;
+  }
+
+  .metodo h2 {
+    text-align: left;
+    color: var(--cor-destaque);
+    font-size: 1.05rem;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .metodo h2:first-child {
+    margin-top: 0;
+  }
+
+  .metodo p, .metodo ul {
+    margin: 0 0 1rem;
+  }
+
+  .metodo ul {
+    padding-left: 1.2rem;
+  }
+
+  .metodo table {
+    width: 100%;
+    min-width: 0;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .metodo td, .metodo th {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .metodo .fonte-param {
+    color: var(--cor-texto-fraco);
+    font-size: 0.8rem;
+  }
 </style>
 </head>
 <body>
   <header>
     <h1>Liga da Verdade</h1>
     <p class="subtitulo">Época 2026/27</p>
+    <nav class="nav-principal">
+      <a href="#classificacoes" id="link-classificacoes">Classificações</a>
+      <a href="#metodo" id="link-metodo">Método</a>
+    </nav>
   </header>
 
   <div id="vista-normal">
@@ -206,6 +271,193 @@
       do site. Equipas marcadas com <strong>†</strong> só têm correção nos
       jogos em que enfrentaram um dos 3 grandes. Toca numa equipa para ver
       os lances que a afetaram.
+    </p>
+  </div>
+
+  <div id="vista-metodo" class="metodo" style="display:none;">
+    <h2>O princípio único</h2>
+    <p>
+      A Liga da Verdade não avalia lances — isso é trabalho de analistas de
+      arbitragem publicados na imprensa, ex-árbitros, com contraditório
+      próprio. O site pega nessas opiniões e converte-as em pontos, com uma
+      única pergunta, sempre a mesma:
+    </p>
+    <p>
+      <em>Quantos pontos esperava esta equipa fazer neste jogo, no instante
+      anterior ao lance — e quantos esperaria se o árbitro tivesse
+      acertado?</em>
+    </p>
+    <p>
+      A diferença entre os dois números, calculada por uma simulação do
+      tempo que resta de jogo, é o impacto do lance, em pontos decimais. Não
+      há uma tabela de pesos por tipo de erro — é a mesma regra para todos.
+    </p>
+
+    <h2>O catálogo de erros</h2>
+    <p>Todo o lance registado cai numa destas oito famílias:</p>
+    <table>
+      <thead><tr><th>Família</th><th>Como se corrige</th></tr></thead>
+      <tbody>
+        <tr><td>Golo validado indevidamente</td><td>Tira-se o golo ao resultado.</td></tr>
+        <tr><td>Golo anulado indevidamente</td><td>Devolve-se o golo à equipa prejudicada.</td></tr>
+        <tr><td>Golo nascido de uma decisão errada anterior</td><td>Tira-se o golo, como se a jogada tivesse parado no erro (um reinício mal dado, ou um penálti que nunca devia ter sido assinalado).</td></tr>
+        <tr><td>Grande penalidade por assinalar</td><td>Mistura-se o resultado com penálti convertido (76% das vezes, a taxa média europeia) e sem golo (24%).</td></tr>
+        <tr><td>Penálti mal assinalado e falhado</td><td>Regista-se, sem impacto — o erro não chegou a mudar o resultado.</td></tr>
+        <tr><td>Ocasião de golo interrompida</td><td>Mistura-se com uma probabilidade de golo que depende de quão perigosa a jogada era, nas palavras do próprio analista.</td></tr>
+        <tr><td>Expulsão indevida ou por mostrar</td><td>Refaz-se o resto do jogo com o número certo de jogadores em campo.</td></tr>
+        <tr><td>Cartão amarelo indevido</td><td>Regista-se, sem impacto — o efeito existe, mas é indireto; pôr um número seria inventar.</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Um erro corrigido pelo VAR antes de produzir consequências não conta
+      como incidente — fica só na descrição do lance, como contexto. Regista-se
+      sempre a decisão final, a que ficou em vigor no jogo.
+    </p>
+
+    <h2>Nem todo o erro conta por igual</h2>
+    <p>
+      Não há uma gaveta binária "conta / não conta". O impacto calculado pelo
+      motor é sempre multiplicado pela fração de analistas que disseram
+      "errado", entre os que se pronunciaram sobre aquele lance:
+    </p>
+    <p><em>impacto final = (nº de analistas que disseram "errado" ÷ total de opiniões) × impacto bruto</em></p>
+    <p>
+      Não é maioria, não é unanimidade. Um lance com 3 de 7 analistas a dizer
+      "errado" conta 3/7 = 43% do impacto — o mesmo raciocínio já usado para
+      o penálti (vale 76% de golo, não 100% nem 0%). A fração aparece sempre
+      ao lado da correção, para se poder verificar.
+    </p>
+    <p>
+      <strong>Só conta quem se pronunciou.</strong> O silêncio não é voto — se
+      um lance foi comentado por um único analista, esse analista vale 1 de
+      1, ou seja 100%, mesmo sendo uma amostra pequena. É uma fragilidade
+      conhecida e assumida, não escondida: o número de opiniões está sempre
+      visível ao lado de cada correção.
+    </p>
+
+    <h2>Nenhum jogo vale mais de 3 pontos, nem menos de 0</h2>
+    <p>
+      Cada lance calcula-se de forma independente, contra o estado real do
+      jogo no seu próprio minuto — nunca se volta a simular o resto do jogo
+      já sabendo o que de facto aconteceu. Quando um jogo tem vários lances
+      com impacto, os valores somam-se.
+    </p>
+    <p>
+      Essa independência tem um efeito secundário: sozinho, o cálculo de um
+      lance poderia empurrar os pontos corrigidos de um jogo para lá do que é
+      matematicamente possível (mais de 3, ou menos de 0). Por isso, depois
+      de somados todos os lances de um mesmo jogo, o resultado desse jogo
+      fica sempre travado entre 0 e 3 pontos, antes de se somar aos outros
+      jogos da época.
+    </p>
+
+    <h2>Os parâmetros, e a fonte de cada um</h2>
+    <p>
+      Sempre que uma fonte pública dava uma gama de valores em vez de um
+      número único, escolheu-se sempre o valor mais baixo — subestimar um
+      erro é seguro; sobrestimar infla a correção. Todos os parâmetros abaixo
+      são lidos diretamente do motor de cálculo desta página, nunca escritos
+      à parte, e ficam imutáveis durante a época 2026/27.
+    </p>
+    <table>
+      <thead><tr><th>Parâmetro</th><th>Valor</th><th>Fonte</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Duração total do jogo, para a simulação</td>
+          <td><span id="p-duracao"></span> minutos</td>
+          <td class="fonte-param">Sem dado específico da Liga portuguesa. Entre os ~90' de regulamento e os ~100-101' medidos na Premier League 2023/24, a liga mais escrutinada.</td>
+        </tr>
+        <tr>
+          <td>Golos por jogo — equipa da casa</td>
+          <td><span id="p-golos-casa"></span> (taxa/min: <span id="p-taxa-casa"></span>)</td>
+          <td class="fonte-param">Primeira Liga 2025/26: 821 golos em 306 jogos. Repartição casa/fora pela proporção geral europeia (~1,35:1), por falta de dado específico de Portugal.</td>
+        </tr>
+        <tr>
+          <td>Golos por jogo — equipa de fora</td>
+          <td><span id="p-golos-fora"></span> (taxa/min: <span id="p-taxa-fora"></span>)</td>
+          <td class="fonte-param">Idem.</td>
+        </tr>
+        <tr>
+          <td>Taxa de conversão de penáltis</td>
+          <td><span id="p-penalti"></span></td>
+          <td class="fonte-param">Ligas europeias de topo, ~75-78% de conversão.</td>
+        </tr>
+        <tr>
+          <td>Ocasião interrompida — "isolado com o guarda-redes"</td>
+          <td><span id="p-esc-isolado"></span></td>
+          <td class="fonte-param">P(chegar ao remate) × xG do remate ≈ 0,6 × 0,6. Mesmo isolado, falta ainda rematar.</td>
+        </tr>
+        <tr>
+          <td>Ocasião interrompida — "remate claro na área"</td>
+          <td><span id="p-esc-remate"></span></td>
+          <td class="fonte-param">xG médio de um remate dentro da área (~0,10-0,12).</td>
+        </tr>
+        <tr>
+          <td>Ocasião interrompida — resto dos casos</td>
+          <td><span id="p-esc-ataque"></span></td>
+          <td class="fonte-param">Valor mais baixo por defeito — sem remate nem posição descrita.</td>
+        </tr>
+        <tr>
+          <td>Jogar com dez — efeito a marcar</td>
+          <td>×<span id="p-dez-marcar"></span></td>
+          <td class="fonte-param">Estudo académico sobre expulsões em Mundiais. <strong>O parâmetro mais fraco do modelo</strong> — ver limitações abaixo.</td>
+        </tr>
+        <tr>
+          <td>Jogar com dez — efeito a sofrer</td>
+          <td>×<span id="p-dez-sofrer"></span></td>
+          <td class="fonte-param">Idem.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>As fontes</h2>
+    <p>
+      Um lance só entra no site se pelo menos um destes 7 analistas o
+      comentou publicamente. Todos são ex-árbitros, de três jornais com três
+      donos diferentes:
+    </p>
+    <ul>
+      <li>Pedro Henriques — A Bola</li>
+      <li>Jorge Faustino — Record</li>
+      <li>Marco Ferreira — Record</li>
+      <li>Iturralde González — Record (ex-árbitro internacional espanhol)</li>
+      <li>Jorge Coroado — O Jogo</li>
+      <li>José Leirós — O Jogo</li>
+      <li>Fortunato Azevedo — O Jogo</li>
+    </ul>
+    <p>
+      A lista fechou antes da contagem começar e não muda durante a época.
+      O painel não é equilibrado por jornal — Record traz 3 analistas, O
+      Jogo 3, A Bola 1 — porque se contam pessoas, não jornais.
+    </p>
+    <p>
+      Cada lance guarda a opinião de cada analista, nome a nome — nunca só a
+      fração já calculada — com jornal, data de publicação, página e
+      ligação, quando existir online. Notas globais que os jornais dão ao
+      árbitro são ignoradas: interessa o lance, não o árbitro.
+    </p>
+
+    <h2>Limitações</h2>
+    <p>Não são letra pequena. São parte do argumento.</p>
+    <ul>
+      <li>Só se analisam os jogos dos três grandes — Benfica, FC Porto, Sporting. O Sp. Braga foi retirado do âmbito por não ter nenhuma cobertura do painel na primeira jornada.</li>
+      <li>Os analistas escolhem os lances que comentam. O conjunto registado está naturalmente inclinado para o erro, e para os clubes cujos adeptos mais reclamam.</li>
+      <li>Um lance sustentado por uma só opinião vale tanto no cálculo como um sustentado por sete. O número de opiniões está sempre à vista.</li>
+      <li>A cobertura não é igual entre jogos — os clássicos recebem mais atenção do que um jogo qualquer entre os restantes clubes.</li>
+      <li>Cartões amarelos e tempo de compensação não entram no cálculo.</li>
+      <li>Todas as equipas são tratadas como iguais em força — só se modela a vantagem de jogar em casa, igual para todos os clubes.</li>
+      <li><strong>O efeito de jogar com dez em campo é o parâmetro mais fraco do modelo.</strong> Vem de um estudo de Mundiais, não de liga de clubes, e mistura minutos em 11-contra-11 com minutos em inferioridade — o efeito real é provavelmente maior do que o valor usado.</li>
+      <li>A simulação assume que os golos se distribuem por igual ao longo do jogo. Na realidade marcam-se mais na parte final — simplificação aceite conscientemente.</li>
+      <li>A duração total do jogo usada na simulação é uma estimativa sem confirmação específica para a Liga portuguesa.</li>
+      <li>O modelo tem escolhas discutíveis. Não é irrefutável, e não se apresenta como tal — o que oferece é que quem discorde tem de discordar de um número publicado, e não de uma pessoa.</li>
+    </ul>
+
+    <h2>Auditabilidade</h2>
+    <p>
+      O código e os dados deste site — cada lance, cada opinião, cada
+      parâmetro — estão públicos no GitHub, com o histórico completo de
+      alterações. Não há Excel escondido, não há cálculo feito à parte: o
+      que se vê aqui é o que corre no browser.
     </p>
   </div>
 
@@ -776,6 +1028,41 @@
       });
     }
 
+    // ---- Página de método (Entregável 6) — parâmetros lidos do próprio motor ----
+    function renderizarMetodo() {
+      const fixar = (id, texto) => { document.getElementById(id).textContent = texto; };
+      fixar('p-duracao', String(DURACAO_TOTAL));
+      fixar('p-golos-casa', GOLOS_JOGO_CASA.toFixed(2));
+      fixar('p-taxa-casa', TAXA_CASA.toFixed(4));
+      fixar('p-golos-fora', GOLOS_JOGO_FORA.toFixed(2));
+      fixar('p-taxa-fora', TAXA_FORA.toFixed(4));
+      fixar('p-penalti', TAXA_PENALTI.toFixed(2));
+      fixar('p-esc-isolado', P_ESCALAO.isolado_com_guarda_redes.toFixed(2));
+      fixar('p-esc-remate', P_ESCALAO.remate_claro_na_area.toFixed(2));
+      fixar('p-esc-ataque', P_ESCALAO.ataque_sem_finalizacao_iminente.toFixed(2));
+      fixar('p-dez-marcar', EFEITO_DEZ_MARCAR.toFixed(2));
+      fixar('p-dez-sofrer', EFEITO_DEZ_SOFRER.toFixed(2));
+    }
+
+    // ---- Navegação entre "Classificações" e "Método" (sem recarregar a página) ----
+    function mostrarVista(nome) {
+      document.getElementById('vista-normal').style.display = nome === 'metodo' ? 'none' : '';
+      document.getElementById('vista-metodo').style.display = nome === 'metodo' ? '' : 'none';
+      document.getElementById('link-classificacoes').classList.toggle('ativo', nome !== 'metodo');
+      document.getElementById('link-metodo').classList.toggle('ativo', nome === 'metodo');
+    }
+
+    document.getElementById('link-classificacoes').addEventListener('click', (e) => {
+      e.preventDefault();
+      location.hash = 'classificacoes';
+      mostrarVista('classificacoes');
+    });
+    document.getElementById('link-metodo').addEventListener('click', (e) => {
+      e.preventDefault();
+      location.hash = 'metodo';
+      mostrarVista('metodo');
+    });
+
     async function carregarTudo() {
       let dados;
       try {
@@ -796,10 +1083,14 @@
     }
 
     if (new URLSearchParams(location.search).get('teste') === '1') {
+      document.querySelector('.nav-principal').style.display = 'none';
       document.getElementById('vista-normal').style.display = 'none';
+      document.getElementById('vista-metodo').style.display = 'none';
       document.getElementById('vista-testes').style.display = 'block';
       renderizarTestes();
     } else {
+      renderizarMetodo();
+      mostrarVista(location.hash === '#metodo' ? 'metodo' : 'classificacoes');
       carregarTudo();
     }
   </script>
