@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-08-20
+Última atualização: 2026-09-04
 
 ---
 
@@ -39,6 +39,14 @@ Claude.
    ficheiro, avisar em vez de assumir que ele mudou de ideias.
 7. **ERROS COLAM-SE INTEIROS.** Quando algo falhar, dar instruções para o João
    colar o erro completo. Nunca pedir que descreva o sintoma.
+8. **NENHUMA MÉTRICA SE ESCONDE POR SER FRACA.** Uma amostra pequena, um
+   denominador de poucas opiniões, uma incerteza no modelo — mostra-se sempre,
+   ao lado do número, nunca em vez dele. Esconder decide por quem lê; mostrar
+   com a fragilidade à vista deixa o julgamento com quem lê. Aplicação
+   concreta: cada métrica mostra o que a sustenta (nº de jogos, nº de
+   opiniões); métricas com amostra insuficiente ganham marca visual (mais
+   esbatidas, símbolo de aviso), mas **aparecem sempre**, nunca desaparecem.
+   Ver D35.
 
 ---
 
@@ -530,6 +538,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D32 | O impacto final de um lance é o impacto bruto do motor **multiplicado pela fração de opiniões "errado"** entre as que se pronunciaram — nunca um interruptor de maioria/unanimidade/qualquer-erro. A fração tem de estar visível no site junto de cada correção, não só na página de método | Um interruptor binário deitava fora a informação central do projeto (o grau de desacordo entre especialistas) e criava um precipício: 3/7 dava zero, 4/7 dava tudo. Mesmo raciocínio já usado para o penálti (0,76 de golo, não 1 nem 0). Exemplo real: lance 67a (2 errado, 0 certo) dá 100% — a fragilidade da D7 a aparecer num lance real, registada e assumida |
 | D33 | A Liga da Verdade mostra as 18 equipas, não só os 3 grandes, com duas salvaguardas: as 15 equipas fora do âmbito ficam visualmente marcadas como parcialmente corrigidas, e cada equipa mostra "X de Y jogos analisados" | Uma tabela de 3 linhas perde o efeito de comparação lado a lado com a Liga real, que é o objetivo central do site. Resolve o "[POR DECIDIR]" da secção 13 |
 | D34 | Os pontos corrigidos de **um jogo** nunca podem sair do intervalo [0,3], mesmo que a soma dos lances isolados desse jogo (D29) desse um valor fora dessa gama. O limite aplica-se **por jogo, por equipa**, antes de somar ao longo da época — não se limita o total da época diretamente | O João reparou que o Porto aparecia com 6,01 pontos na Liga da Verdade ao fim de 2 jogos (máximo matematicamente possível: 6). Causa: os pontos reais de um jogo já ganho são um valor fixo (3, o teto), e o impacto de um lance é uma diferença de pontos esperados calculada isoladamente nesse minuto (D29) — somar os dois pode ultrapassar o teto/piso do próprio jogo quando a equipa já lá estava antes da correção. Confirmado com dados reais: 4 violações nos 2 primeiros jogos com lances (Porto-Alverca J1, Sporting-V.Guimarães J2), duas acima de 3 e duas abaixo de 0. A correção não mexe em `pontosEsperados()` (já bem limitada, testes b/c continuam a passar) — só na forma como `calcularLigaDaVerdade()` soma as correções ao longo da época. **Aviso:** a lista de lances de cada equipa continua a mostrar o impacto bruto de cada lance isoladamente (não limitado) — por transparência do que cada analista disse — por isso a soma dos lances listados pode não bater certo com o Δ da equipa quando um jogo específico já estava no teto ou no piso antes da correção |
+| D35 | Princípio geral do projeto (não só da Segunda Parte): nenhuma métrica se esconde por ter amostra fraca ou incerteza. Mostra-se sempre, com a limitação visível ao lado (nº de jogos, nº de opiniões, aviso de amostra pequena) | Esconder um número obriga o site a decidir por quem lê, e é indefensável perante quem perguntar porque falta uma métrica. É o mesmo raciocínio já usado para a fração de opiniões (D32) e para a fragilidade da D7 (um lance com 1 opinião ainda aparece, com o "1 de 1" ao lado). Surgiu ao desenhar a Segunda Parte (estatísticas de arbitragem): na jornada 4 uma equipa pode ter 0 ou 1 cartão vermelho, tornando o percentil quase aleatório — decidido mostrar mesmo assim, com aviso, em vez de esconder até a amostra crescer |
 
 ---
 
