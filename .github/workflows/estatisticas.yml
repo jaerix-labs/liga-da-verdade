@@ -1,0 +1,32 @@
+name: Recolha de estatísticas (Segunda Parte)
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  recolher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Correr a recolha
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python scripts/recolher_estatisticas.py
+
+      - name: Commit e push, se o ficheiro mudou
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dados/estatisticas-2026-27.json
+          git diff --staged --quiet || git commit -m "Recolha automática de estatísticas (Segunda Parte)"
+          git push
