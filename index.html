@@ -243,6 +243,45 @@
     color: var(--cor-texto-fraco);
     font-size: 0.8rem;
   }
+
+  .tabela-percurso td.celula-jogo {
+    cursor: pointer;
+    text-align: center;
+    white-space: normal;
+    min-width: 6rem;
+    vertical-align: top;
+  }
+
+  .tabela-percurso td.celula-jogo:hover {
+    background: var(--cor-cabecalho);
+  }
+
+  .tabela-percurso .adversario {
+    font-weight: 600;
+  }
+
+  .tabela-percurso .casa-fora {
+    color: var(--cor-texto-fraco);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .tabela-percurso .ved {
+    font-weight: 700;
+  }
+
+  .tabela-percurso .delta {
+    font-size: 0.8rem;
+  }
+
+  .ved-v, .delta-pos { color: #6fbf73; }
+  .ved-d, .delta-neg { color: #e08080; }
+  .ved-e, .delta-zero { color: var(--cor-texto-fraco); }
+
+  .detalhe-percurso {
+    max-width: 48rem;
+    margin: 1rem auto 2rem;
+  }
 </style>
 </head>
 <body>
@@ -272,6 +311,10 @@
       jogos em que enfrentaram um dos 3 grandes. Toca numa equipa para ver
       os lances que a afetaram.
     </p>
+
+    <h2 style="text-align:center;">Percurso da época</h2>
+    <div id="conteudo-percurso" class="tabela-scroll tabela-percurso"></div>
+    <div id="detalhe-percurso" class="detalhe-percurso"></div>
   </div>
 
   <div id="vista-metodo" class="metodo" style="display:none;">
@@ -667,6 +710,7 @@
     // Aplica D32 (fração de opiniões) e agrega por clube, para as 18 equipas
     function calcularLigaDaVerdade(dados) {
       const porClube = {};
+      const deltaPorJogo = {};
       const erros = [];
 
       for (const eq of dados.classificacao_oficial) {
@@ -722,9 +766,14 @@
         porClube[jogo.fora].impacto += ptsVerdadeFora - ptsReaisFora;
         porClube[jogo.casa].lances.push(...lancesCasa);
         porClube[jogo.fora].lances.push(...lancesFora);
+
+        if (!deltaPorJogo[jogo.casa]) deltaPorJogo[jogo.casa] = {};
+        if (!deltaPorJogo[jogo.fora]) deltaPorJogo[jogo.fora] = {};
+        deltaPorJogo[jogo.casa][jogo.id] = ptsVerdadeCasa - ptsReaisCasa;
+        deltaPorJogo[jogo.fora][jogo.id] = ptsVerdadeFora - ptsReaisFora;
       }
 
-      return { porClube, erros };
+      return { porClube, deltaPorJogo, erros };
     }
 
     // ---- Testes do motor (?teste=1) ----
@@ -937,21 +986,41 @@
       conteudo.innerHTML = html;
     }
 
-    function textoLance(item) {
+    function textoLance(item, mostrarJogo) {
+      if (mostrarJogo === undefined) mostrarJogo = true;
       const inc = item.incidente;
       const jogo = item.jogo;
       const fontes = inc.opinioes.map(o =>
         escaparHtml(o.analista) + ' (' + escaparHtml(o.fonte) + ', ' + o.data_publicacao + ', ' + o.veredicto + ')'
       ).join('; ');
       const sinal = item.impacto > 0 ? '+' : '';
+      const cabecalhoJogo = mostrarJogo
+        ? '<strong>' + escaparHtml(jogo.casa) + ' ' + jogo.resultado.casa + '-' + jogo.resultado.fora + ' ' +
+          escaparHtml(jogo.fora) + '</strong> — '
+        : '';
       return '<div class="lance-detalhe">' +
-        '<div class="cabecalho-lance"><strong>' + escaparHtml(jogo.casa) + ' ' + jogo.resultado.casa + '-' + jogo.resultado.fora + ' ' +
-          escaparHtml(jogo.fora) + '</strong> — minuto ' + escaparHtml(String(inc.minuto)) + '</div>' +
+        '<div class="cabecalho-lance">' + cabecalhoJogo + 'minuto ' + escaparHtml(String(inc.minuto)) + '</div>' +
         '<div>' + escaparHtml(inc.descricao) + '</div>' +
         '<div class="fracao">' + item.nErrado + ' de ' + item.total + ' analistas consideraram erro — impacto ' +
           sinal + item.impacto.toFixed(3) + ' pontos</div>' +
         '<div class="fonte">' + fontes + '</div>' +
         '</div>';
+    }
+
+    // Todos os lances de um jogo (mesmo os de impacto 0), do ponto de vista de um lado
+    function construirItensLances(jogo, ladoClube) {
+      return jogo.incidentes.map(inc => {
+        const total = inc.opinioes.length;
+        const nErrado = inc.opinioes.filter(o => o.veredicto === 'errado').length;
+        const fracao = total > 0 ? nErrado / total : 0;
+        let bruto;
+        try {
+          bruto = impactoBruto(inc, jogo);
+        } catch (erro) {
+          bruto = { casa: 0, fora: 0 };
+        }
+        return { jogo, incidente: inc, total, nErrado, fracao, impacto: fracao * bruto[ladoClube] };
+      });
     }
 
     function renderizarLigaDaVerdade(dados) {
@@ -1063,10 +1132,77 @@
       mostrarVista('metodo');
     });
 
+    function renderizarPercurso(dados) {
+      const conteudo = document.getElementById('conteudo-percurso');
+      const detalhe = document.getElementById('detalhe-percurso');
+      detalhe.innerHTML = '<p class="aviso">Toca numa célula para ver os lances desse jogo.</p>';
+
+      const jornadas = Array.from(new Set(dados.jogos.map(j => j.jornada))).sort((a, b) => a - b);
+
+      if (jornadas.length === 0) {
+        conteudo.innerHTML = '<p class="aviso">Ainda não há jogos registados.</p>';
+        return;
+      }
+
+      // D34: usa o Δ já limitado por jogo (teto/piso 0-3), não a soma bruta dos lances
+      const { deltaPorJogo } = calcularLigaDaVerdade(dados);
+
+      let html = '<table><thead><tr><th class="clube">Equipa</th>';
+      for (const jr of jornadas) html += '<th>J' + jr + '</th>';
+      html += '</tr></thead><tbody>';
+
+      for (const clube of GRANDES) {
+        html += '<tr><td class="clube">' + escaparHtml(clube) + '</td>';
+        for (const jr of jornadas) {
+          const jogo = dados.jogos.find(j => j.jornada === jr && (j.casa === clube || j.fora === clube));
+          if (!jogo) {
+            html += '<td></td>';
+            continue;
+          }
+          const souCasa = jogo.casa === clube;
+          const lado = souCasa ? 'casa' : 'fora';
+          const adversario = souCasa ? jogo.fora : jogo.casa;
+          const golosClube = souCasa ? jogo.resultado.casa : jogo.resultado.fora;
+          const golosAdversario = souCasa ? jogo.resultado.fora : jogo.resultado.casa;
+          const ved = golosClube > golosAdversario ? 'V' : (golosClube === golosAdversario ? 'E' : 'D');
+          const vedClasse = 'ved-' + ved.toLowerCase();
+          const delta = (deltaPorJogo[clube] && deltaPorJogo[clube][jogo.id]) || 0;
+          const deltaClasse = delta > 0 ? 'delta-pos' : (delta < 0 ? 'delta-neg' : 'delta-zero');
+          const deltaTexto = (delta > 0 ? '+' : '') + delta.toFixed(3);
+
+          html += '<td class="celula-jogo" data-jogo-id="' + jogo.id + '" data-lado="' + lado + '">' +
+            '<div class="adversario">' + (souCasa ? '' : '@ ') + escaparHtml(adversario) + '</div>' +
+            '<div class="casa-fora">' + lado + '</div>' +
+            '<div class="resultado">' + golosClube + '-' + golosAdversario + '</div>' +
+            '<div class="ved ' + vedClasse + '">' + ved + '</div>' +
+            '<div class="delta ' + deltaClasse + '">' + deltaTexto + '</div>' +
+            '</td>';
+        }
+        html += '</tr>';
+      }
+
+      html += '</tbody></table>';
+      conteudo.innerHTML = html;
+
+      conteudo.querySelectorAll('td.celula-jogo').forEach(td => {
+        td.addEventListener('click', () => {
+          const jogo = dados.jogos.find(j => j.id === td.getAttribute('data-jogo-id'));
+          const lado = td.getAttribute('data-lado');
+          const itens = construirItensLances(jogo, lado);
+          let htmlDetalhe = '<h3>' + escaparHtml(jogo.casa) + ' ' + jogo.resultado.casa + '-' + jogo.resultado.fora + ' ' +
+            escaparHtml(jogo.fora) + ' — Jornada ' + jogo.jornada + '</h3>';
+          htmlDetalhe += itens.length === 0
+            ? '<p class="aviso">Nenhum lance registado neste jogo.</p>'
+            : itens.map(item => textoLance(item, false)).join('');
+          detalhe.innerHTML = htmlDetalhe;
+        });
+      });
+    }
+
     async function carregarTudo() {
       let dados;
       try {
-        const resposta = await fetch('dados/2026-27.json');
+        const resposta = await fetch('dados/2026-27.json', { cache: 'no-store' });
         if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
         dados = await resposta.json();
       } catch (erro) {
@@ -1080,6 +1216,7 @@
 
       renderizarLigaReal(dados);
       renderizarLigaDaVerdade(dados);
+      renderizarPercurso(dados);
     }
 
     if (new URLSearchParams(location.search).get('teste') === '1') {

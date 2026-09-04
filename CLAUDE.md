@@ -670,3 +670,29 @@ jogo — é exatamente isso que causava o bug. A lista de lances por equipa
 continua a mostrar o valor bruto (não limitado) de cada lance, de propósito
 (transparência do que cada analista disse); só o agregado por jogo é
 limitado.
+
+### 2026-08-20 — Equipa "fantasma" na Liga da Verdade (nomes inconsistentes)
+
+**Sintoma:** o V. Guimarães apareceu como 19.ª linha na Liga da Verdade, com
+"1 de 0" jogos analisados — a tabela devia ter sempre 18 equipas.
+
+**Causa:** o jogo Sporting-V.Guimarães (J02) guardava `"casa": "V. Guimarães"`,
+mas a `classificacao_oficial` usa o nome oficial `"Vitória SC"`. Como o motor
+agrega por nome exato de clube, o nome diferente criou uma equipa nova em vez
+de somar à já existente. Corrigido diretamente no `dados/2026-27.json`.
+
+**Aviso:** sempre que entrar um jogo novo, o nome em `casa`/`fora` tem de
+bater certo, carácter a carácter, com o nome em `classificacao_oficial` — a
+prosa das descrições dos lances pode usar qualquer variante do nome (é só
+texto), mas os campos estruturados não.
+
+### 2026-08-20 — `fetch()` sem `cache: 'no-store'` podia mostrar dados antigos
+
+**Sintoma:** durante testes, o browser continuou a mostrar uma versão antiga
+do `dados/2026-27.json` mesmo depois do ficheiro mudar no disco/servidor, até
+se forçar um pedido sem cache.
+
+**Correção:** o `fetch('dados/2026-27.json')` em `carregarTudo()` passou a
+incluir `{ cache: 'no-store' }`, para nunca servir uma cópia em cache do
+browser. Sem isto, um visitante que volte ao site depois de uma atualização
+pode continuar a ver a jornada anterior sem se aperceber.
