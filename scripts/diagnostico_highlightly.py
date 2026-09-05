@@ -78,6 +78,10 @@ def main():
 
     print(f"\n>>> RESUMO FINAL: { {ALVOS[p][1]: lid for p, (lid, _) in encontrados.items()} }")
 
+    id_premier = encontrados.get("GB-ENG", (None,))[0]
+    if id_premier:
+        pedir("standings", {"leagueId": id_premier, "season": 2026})
+
 
 if __name__ == "__main__":
     main()
