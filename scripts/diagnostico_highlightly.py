@@ -31,13 +31,17 @@ def pedir(caminho, params):
 
 
 def main():
-    ligas = pedir("leagues", {"name": "Premier League"})
+    ligas = pedir("leagues", {})
     liga_id = None
     if ligas:
         lista = ligas if isinstance(ligas, list) else ligas.get("data", [])
-        if lista:
-            liga_id = lista[0].get("id") or lista[0].get("leagueId")
-            print(f"\n>>> A usar leagueId={liga_id} para os próximos pedidos")
+        for item in lista:
+            nome = (item.get("name") or "").lower()
+            if "premier league" in nome and "u2" not in nome and "women" not in nome:
+                liga_id = item.get("id") or item.get("leagueId")
+                print(f"\n>>> Encontrado: {item}")
+                break
+        print(f"\n>>> A usar leagueId={liga_id} para os próximos pedidos")
 
     if liga_id is None:
         print("\nNão consegui obter um leagueId — a parar aqui.", file=sys.stderr)
