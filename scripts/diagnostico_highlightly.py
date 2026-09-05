@@ -44,10 +44,14 @@ def testar_liga(liga_id, etiqueta):
         terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
         print(f"\n>>> offset={offset}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
         if terminados:
-            match_id = terminados[-1].get("id")
-            print(f">>> A usar match_id={match_id}: {terminados[-1]}")
-            pedir(f"statistics/{match_id}", {})
-            pedir(f"events/{match_id}", {})
+            for jogo in terminados[:5]:
+                mid = jogo.get("id")
+                marcador = jogo["state"]["score"]["current"]
+                nome_casa = jogo["homeTeam"]["name"]
+                nome_fora = jogo["awayTeam"]["name"]
+                eventos = pedir(f"events/{mid}", {})
+                n_eventos = len(eventos) if isinstance(eventos, list) else 0
+                print(f">>> match_id={mid} {nome_casa} {marcador} {nome_fora} -> {n_eventos} eventos")
             return
         if not lista:
             break
