@@ -22,6 +22,9 @@ def pedir(caminho, params):
     try:
         with request.urlopen(req, timeout=30) as resp:
             corpo = resp.read().decode()
+            cabecalhos_limite = {k: v for k, v in resp.getheaders() if "rate" in k.lower() or "limit" in k.lower() or "quota" in k.lower()}
+            if cabecalhos_limite:
+                print(f">>> cabeçalhos de limite: {cabecalhos_limite}")
     except error.HTTPError as e:
         print(f"ERRO HTTP {e.code}: {e.read().decode(errors='replace')}", file=sys.stderr)
         return None
@@ -44,7 +47,7 @@ def testar_liga(liga_id, etiqueta):
         terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
         print(f"\n>>> offset={offset}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
         if terminados:
-            for jogo in terminados[:5]:
+            for jogo in terminados[:1]:
                 mid = jogo.get("id")
                 marcador = jogo["state"]["score"]["current"]
                 nome_casa = jogo["homeTeam"]["name"]
