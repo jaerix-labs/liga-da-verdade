@@ -25,41 +25,51 @@ def pedir(caminho, params):
     except error.HTTPError as e:
         print(f"ERRO HTTP {e.code}: {e.read().decode(errors='replace')}", file=sys.stderr)
         return None
-    print(corpo[:4000])
+    print(corpo[:3000])
+    dados = json.loads(corpo)
+    if isinstance(dados, dict):
+        print(f">>> chaves de topo: {list(dados.keys())}")
+        for k in ("plan", "pagination", "meta", "page", "totalPages", "hasNextPage"):
+            if k in dados:
+                print(f">>> {k} = {dados[k]}")
     time.sleep(2)
-    return json.loads(corpo)
+    return dados
 
 
 def main():
     ligas = pedir("leagues", {})
     liga_id = None
+    tem_primeira_liga = False
     if ligas:
         lista = ligas if isinstance(ligas, list) else ligas.get("data", [])
         for item in lista:
             nome = (item.get("name") or "").lower()
+            pais = ((item.get("country") or {}).get("code") or "")
             if "premier league" in nome and "u2" not in nome and "women" not in nome:
                 liga_id = item.get("id") or item.get("leagueId")
                 print(f"\n>>> Encontrado: {item}")
-                break
-        print(f"\n>>> A usar leagueId={liga_id} para os próximos pedidos")
+            if pais == "PT" or "primeira liga" in nome:
+                tem_primeira_liga = True
+                print(f"\n>>> Primeira Liga encontrada: {item}")
+        print(f"\n>>> A usar leagueId={liga_id}. Primeira Liga existe nesta API: {tem_primeira_liga}")
 
     if liga_id is None:
         print("\nNão consegui obter um leagueId — a parar aqui.", file=sys.stderr)
         return
 
-    for season in (2026, 2025):
-        jogos = pedir("matches", {"leagueId": liga_id, "season": season})
+    for pagina in (1, 2, 3, 4, 5):
+        jogos = pedir("matches", {"leagueId": liga_id, "season": 2026, "page": pagina})
         lista = jogos if isinstance(jogos, list) else (jogos or {}).get("data", [])
         terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
-        print(f"\n>>> season={season}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
+        print(f"\n>>> page={pagina}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
         if terminados:
             match_id = terminados[-1].get("id")
             print(f">>> A usar match_id={match_id}: {terminados[-1]}")
             pedir(f"statistics/{match_id}", {})
             pedir(f"events/{match_id}", {})
-            break
-    else:
-        print("\nNenhuma das duas épocas testadas (2025, 2026) devolveu jogos.", file=sys.stderr)
+            return
+
+    print("\nNenhuma das páginas testadas (season=2026) devolveu jogos terminados.", file=sys.stderr)
 
 
 if __name__ == "__main__":
