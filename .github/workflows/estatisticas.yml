@@ -20,7 +20,7 @@ jobs:
 
       - name: Correr a recolha
         env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          HIGHLIGHTLY_KEY: ${{ secrets.HIGHLIGHTLY_KEY }}
         run: python scripts/recolher_estatisticas.py
 
       - name: Commit e push, se o ficheiro mudou

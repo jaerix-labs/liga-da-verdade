@@ -5,22 +5,23 @@ import time
 from pathlib import Path
 from urllib import error, parse, request
 
-BASE_URL = "https://v3.football.api-sports.io"
+BASE_URL = "https://soccer.highlightly.net"
 SEASON = 2026
 LIGAS = {
-    94: "Primeira Liga",
-    39: "Premier League",
-    140: "La Liga",
-    135: "Serie A",
-    78: "Bundesliga",
-    61: "Ligue 1",
+    80778: "Primeira Liga",
+    33973: "Premier League",
+    119924: "La Liga",
+    115669: "Serie A",
+    67162: "Bundesliga",
+    52695: "Ligue 1",
 }
-LIGA_GRANDES = 94
+LIGA_GRANDES = 80778
 NOMES_GRANDES = ["Benfica", "Porto", "Sporting"]
 
-# Margem de segurança sob o limite de 100 pedidos/dia do plano gratuito da
-# API-Football. Se uma corrida precisar de mais do que isto, o resto fica
-# para a corrida seguinte — ver CLAUDE.md, Segunda Parte.
+# Margem de segurança sob o limite de 100 pedidos/dia do plano gratuito do
+# Highlightly (confirmado no cabeçalho x-ratelimit-requests-limit). Se uma
+# corrida precisar de mais do que isto, o resto fica para a corrida seguinte
+# — ver CLAUDE.md, Segunda Parte.
 MAX_PEDIDOS_POR_CORRIDA = 90
 
 SAIDA = Path(__file__).resolve().parent.parent / "dados" / "estatisticas-2026-27.json"
@@ -35,13 +36,20 @@ def pedir(caminho, params):
     if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
         return None
 
-    espera = 6.5 - (time.monotonic() - ultimo_pedido)
+    espera = 1.0 - (time.monotonic() - ultimo_pedido)
     if espera > 0:
         time.sleep(espera)
 
     qs = parse.urlencode(params)
-    url = f"{BASE_URL}/{caminho}?{qs}"
-    req = request.Request(url, headers={"x-apisports-key": os.environ["API_FOOTBALL_KEY"]})
+    url = f"{BASE_URL}/{caminho}?{qs}" if params else f"{BASE_URL}/{caminho}"
+    req = request.Request(
+        url,
+        headers={
+            "x-rapidapi-key": os.environ["HIGHLIGHTLY_KEY"],
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "application/json",
+        },
+    )
 
     try:
         with request.urlopen(req, timeout=30) as resp:
@@ -52,11 +60,7 @@ def pedir(caminho, params):
 
     pedidos_feitos += 1
     ultimo_pedido = time.monotonic()
-
-    if corpo.get("errors"):
-        print(f"AVISO — a API devolveu erros em {caminho}: {corpo['errors']}", file=sys.stderr)
-
-    return corpo["response"]
+    return corpo
 
 
 def carregar_existente():
@@ -66,52 +70,63 @@ def carregar_existente():
 
 
 def resolver_grandes():
-    equipas = pedir("teams", {"league": LIGA_GRANDES, "season": SEASON})
-    if equipas is None:
-        return {}
     grandes = {}
-    for item in equipas:
-        nome = item["team"]["name"]
-        if any(alvo.lower() in nome.lower() for alvo in NOMES_GRANDES):
-            grandes[item["team"]["id"]] = nome
+    for offset in (0, 100):
+        jogos = pedir("matches", {"leagueId": LIGA_GRANDES, "season": SEASON, "offset": offset, "limit": 100})
+        lista = (jogos or {}).get("data", [])
+        for jogo in lista:
+            for lado in ("homeTeam", "awayTeam"):
+                equipa = jogo[lado]
+                if any(alvo.lower() in equipa["name"].lower() for alvo in NOMES_GRANDES):
+                    grandes[equipa["id"]] = equipa["name"]
+        if len(grandes) >= len(NOMES_GRANDES):
+            break
     return grandes
 
 
 def top3_liga(liga_id):
-    classificacao = pedir("standings", {"league": liga_id, "season": SEASON})
+    classificacao = pedir("standings", {"leagueId": liga_id, "season": SEASON})
     if not classificacao:
         return {}
-    tabela = classificacao[0]["league"]["standings"][0]
+    grupos = classificacao.get("groups") or []
+    if not grupos:
+        return {}
+    tabela = sorted(grupos[0].get("standings", []), key=lambda linha: linha.get("position", 999))
     return {linha["team"]["id"]: linha["team"]["name"] for linha in tabela[:3]}
 
 
 def fixtures_terminados(liga_id):
-    jogos = pedir("fixtures", {"league": liga_id, "season": SEASON})
-    if jogos is None:
-        return []
-    return [j for j in jogos if j["fixture"]["status"]["short"] == "FT"]
+    terminados = []
+    for offset in (0, 100, 200, 300, 400):
+        jogos = pedir("matches", {"leagueId": liga_id, "season": SEASON, "offset": offset, "limit": 100})
+        if jogos is None:
+            break
+        lista = jogos.get("data", [])
+        if not lista:
+            break
+        terminados.extend(j for j in lista if (j.get("state") or {}).get("description") == "Finished")
+        if len(lista) < 100:
+            break
+    return terminados
 
 
-def valor_stat(stats_equipa, tipo):
-    for item in stats_equipa["statistics"]:
-        if item["type"] == tipo:
-            return item["value"] or 0
+def valor_stat(stats_equipa, nome_campo):
+    for item in stats_equipa.get("statistics", []):
+        if item.get("displayName") == nome_campo:
+            return item.get("value") or 0
     return 0
 
 
 def processar_fixture(fixture_id, id_casa, id_fora):
-    stats = pedir("fixtures/statistics", {"fixture": fixture_id})
-    eventos = pedir("fixtures/events", {"fixture": fixture_id})
+    stats = pedir(f"statistics/{fixture_id}", {})
+    eventos = pedir(f"events/{fixture_id}", {})
     if stats is None or eventos is None:
         return None
-    if len(stats) < 2:
+    if not isinstance(stats, list) or len(stats) < 2:
         return None
 
     stats_por_equipa = {s["team"]["id"]: s for s in stats}
-    delta = {
-        id_casa: _delta_vazio(),
-        id_fora: _delta_vazio(),
-    }
+    delta = {id_casa: _delta_vazio(), id_fora: _delta_vazio()}
 
     for equipa_id, adversario_id in ((id_casa, id_fora), (id_fora, id_casa)):
         s = stats_por_equipa.get(equipa_id)
@@ -119,28 +134,36 @@ def processar_fixture(fixture_id, id_casa, id_fora):
             continue
         delta[equipa_id]["faltas_cometidas"] += valor_stat(s, "Fouls")
         delta[adversario_id]["faltas_sofridas"] += valor_stat(s, "Fouls")
-        delta[equipa_id]["remates_area_propria"] += valor_stat(s, "Shots insidebox")
-        delta[adversario_id]["remates_area_adversario"] += valor_stat(s, "Shots insidebox")
+        delta[equipa_id]["remates_area_propria"] += valor_stat(s, "Shots within penalty area")
+        delta[adversario_id]["remates_area_adversario"] += valor_stat(s, "Shots within penalty area")
 
+    # O Highlightly não distingue vermelho direto de 2º amarelo num campo
+    # próprio: emite dois eventos "Yellow Card" para o mesmo jogador e depois
+    # um "Red Card" — a consequência do 2º amarelo, não uma expulsão nova.
+    # Por isso contamos amarelos por jogador e ignoramos o "Red Card" que se
+    # segue a um 2º amarelo já contado, para não duplicar a expulsão.
+    amarelos_por_jogador = {}
+    expulso_por_segundo_amarelo = set()
     for ev in eventos:
         equipa_id = ev["team"]["id"]
         adversario_id = id_fora if equipa_id == id_casa else id_casa
-        tipo = ev["type"]
-        detalhe = (ev.get("detail") or "").lower()
+        tipo = ev.get("type")
+        jogador = ev.get("playerId")
 
-        if tipo == "Card":
-            if "yellow" in detalhe and "red" in detalhe:
+        if tipo == "Yellow Card":
+            amarelos_por_jogador[jogador] = amarelos_por_jogador.get(jogador, 0) + 1
+            if amarelos_por_jogador[jogador] >= 2:
                 delta[equipa_id]["segundo_amarelo_propria_equipa"] += 1
                 delta[adversario_id]["segundo_amarelo_adversario"] += 1
-            elif "yellow" in detalhe:
+                expulso_por_segundo_amarelo.add(jogador)
+            else:
                 delta[equipa_id]["amarelos_propria_equipa"] += 1
                 delta[adversario_id]["amarelos_adversario"] += 1
-            elif "red" in detalhe:
+        elif tipo == "Red Card":
+            if jogador not in expulso_por_segundo_amarelo:
                 delta[equipa_id]["vermelhos_propria_equipa"] += 1
                 delta[adversario_id]["vermelhos_adversario"] += 1
-            else:
-                print(f"AVISO — cartão com detalhe desconhecido no jogo {fixture_id}: {ev.get('detail')}", file=sys.stderr)
-        elif tipo == "Goal" and detalhe in ("penalty", "missed penalty"):
+        elif tipo in ("Penalty", "Missed Penalty"):
             delta[equipa_id]["penaltis_a_favor"] += 1
             delta[adversario_id]["penaltis_contra"] += 1
 
@@ -185,8 +208,7 @@ def main():
 
 def processar_tudo(dados, equipas):
     grupo_desta_corrida = {}
-    grandes = resolver_grandes()
-    for equipa_id, nome in grandes.items():
+    for equipa_id, nome in resolver_grandes().items():
         grupo_desta_corrida[equipa_id] = (nome, LIGAS[LIGA_GRANDES])
 
     for liga_id, liga_nome in LIGAS.items():
@@ -223,9 +245,9 @@ def processar_tudo(dados, equipas):
                 print("Limite de pedidos desta corrida atingido — o resto fica para a próxima.", file=sys.stderr)
                 break
 
-            fid = jogo["fixture"]["id"]
-            id_casa = jogo["teams"]["home"]["id"]
-            id_fora = jogo["teams"]["away"]["id"]
+            fid = jogo["id"]
+            id_casa = jogo["homeTeam"]["id"]
+            id_fora = jogo["awayTeam"]["id"]
 
             if id_casa not in grupo_desta_corrida and id_fora not in grupo_desta_corrida:
                 continue
