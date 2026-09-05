@@ -50,9 +50,11 @@ def main():
     for season in (2026, 2025):
         jogos = pedir("matches", {"leagueId": liga_id, "season": season})
         lista = jogos if isinstance(jogos, list) else (jogos or {}).get("data", [])
-        if lista:
-            print(f"\n>>> season={season} devolveu {len(lista)} jogos — a usar este.")
-            match_id = lista[0].get("id")
+        terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
+        print(f"\n>>> season={season}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
+        if terminados:
+            match_id = terminados[-1].get("id")
+            print(f">>> A usar match_id={match_id}: {terminados[-1]}")
             pedir(f"statistics/{match_id}", {})
             pedir(f"events/{match_id}", {})
             break
