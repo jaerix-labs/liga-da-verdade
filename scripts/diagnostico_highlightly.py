@@ -10,7 +10,14 @@ BASE_URL = "https://soccer.highlightly.net"
 def pedir(caminho, params):
     qs = parse.urlencode(params)
     url = f"{BASE_URL}/{caminho}?{qs}" if params else f"{BASE_URL}/{caminho}"
-    req = request.Request(url, headers={"x-rapidapi-key": os.environ["HIGHLIGHTLY_KEY"]})
+    req = request.Request(
+        url,
+        headers={
+            "x-rapidapi-key": os.environ["HIGHLIGHTLY_KEY"],
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "application/json",
+        },
+    )
     print(f"\n=== PEDIDO: {url} ===")
     try:
         with request.urlopen(req, timeout=30) as resp:
