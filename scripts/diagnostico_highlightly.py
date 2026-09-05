@@ -39,48 +39,44 @@ def pedir(caminho, params):
     return dados
 
 
-def testar_liga(liga_id, etiqueta):
-    print(f"\n########## {etiqueta} (leagueId={liga_id}) ##########")
-    for offset in (0, 100, 200, 300):
-        jogos = pedir("matches", {"leagueId": liga_id, "season": 2026, "offset": offset, "limit": 100})
-        lista = jogos if isinstance(jogos, list) else (jogos or {}).get("data", [])
-        terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
-        print(f"\n>>> offset={offset}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
-        if terminados:
-            for jogo in terminados[:1]:
-                mid = jogo.get("id")
-                marcador = jogo["state"]["score"]["current"]
-                nome_casa = jogo["homeTeam"]["name"]
-                nome_fora = jogo["awayTeam"]["name"]
-                eventos = pedir(f"events/{mid}", {})
-                n_eventos = len(eventos) if isinstance(eventos, list) else 0
-                print(f">>> match_id={mid} {nome_casa} {marcador} {nome_fora} -> {n_eventos} eventos")
-            return
-        if not lista:
-            break
-    print(f"\nNenhum offset testado devolveu jogos terminados para {etiqueta}.", file=sys.stderr)
+ALVOS = {
+    "GB-ENG": (["premier league"], "Premier League"),
+    "ES": (["la liga", "laliga"], "La Liga"),
+    "IT": (["serie a"], "Serie A"),
+    "DE": (["bundesliga"], "Bundesliga"),
+    "FR": (["ligue 1"], "Ligue 1"),
+    "PT": (["primeira liga"], "Primeira Liga"),
+}
 
 
 def main():
-    ligas = pedir("leagues", {})
-    id_premier = None
-    id_primeira = None
-    if ligas:
-        lista = ligas if isinstance(ligas, list) else ligas.get("data", [])
+    encontrados = {}
+    candidatos_es_it = []
+    for offset in (0, 100, 200, 300, 400, 500, 600, 700, 800, 900):
+        if len(encontrados) == len(ALVOS):
+            break
+        ligas = pedir("leagues", {"offset": offset, "limit": 100})
+        lista = ligas if isinstance(ligas, list) else (ligas or {}).get("data", [])
+        if not lista:
+            break
         for item in lista:
             nome = (item.get("name") or "").lower()
             pais = (item.get("country") or {}).get("code") or ""
-            if "premier league" in nome and pais == "GB-ENG":
-                id_premier = item.get("id") or item.get("leagueId")
-            if "primeira liga" in nome and pais == "PT":
-                id_primeira = item.get("id") or item.get("leagueId")
-        print(f"\n>>> Premier League (Inglaterra) leagueId={id_premier}")
-        print(f">>> Primeira Liga (Portugal) leagueId={id_primeira}")
+            if pais in ("ES", "IT", "DE", "FR"):
+                candidatos_es_it.append((pais, item.get("id"), item.get("name")))
+            for pais_alvo, (trechos, etiqueta) in ALVOS.items():
+                if pais_alvo in encontrados:
+                    continue
+                if pais == pais_alvo and any(t in nome for t in trechos):
+                    encontrados[pais_alvo] = (item.get("id"), etiqueta)
+                    print(f"\n>>> {etiqueta} ({pais_alvo}): leagueId={item.get('id')}")
 
-    if id_premier:
-        testar_liga(id_premier, "Premier League")
-    if id_primeira:
-        testar_liga(id_primeira, "Primeira Liga")
+    faltam = set(ALVOS) - set(encontrados)
+    if faltam:
+        print(f"\nNão encontrei por nome: {[ALVOS[p][1] for p in faltam]}", file=sys.stderr)
+        print(f">>> Todas as ligas vistas em ES/IT/DE/FR (para procurar à mão): {candidatos_es_it}")
+
+    print(f"\n>>> RESUMO FINAL: { {ALVOS[p][1]: lid for p, (lid, _) in encontrados.items()} }")
 
 
 if __name__ == "__main__":
