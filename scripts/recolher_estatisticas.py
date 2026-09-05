@@ -69,25 +69,12 @@ def carregar_existente():
     return {"epoca": "2026-27", "ligas": LIGAS, "equipas": {}}
 
 
-def resolver_grandes():
-    grandes = {}
-    for offset in (0, 100):
-        jogos = pedir("matches", {"leagueId": LIGA_GRANDES, "season": SEASON, "offset": offset, "limit": 100})
-        lista = (jogos or {}).get("data", [])
-        for jogo in lista:
-            for lado in ("homeTeam", "awayTeam"):
-                equipa = jogo[lado]
-                if any(alvo.lower() in equipa["name"].lower() for alvo in NOMES_GRANDES):
-                    grandes[equipa["id"]] = equipa["name"]
-        if len(grandes) >= len(NOMES_GRANDES):
-            break
-    return grandes
-
-
 def top3_liga(liga_id):
+    """None = sem orçamento/erro (o chamador deve manter a marcação anterior).
+    {} = pedido respondeu mas sem classificação utilizável."""
     classificacao = pedir("standings", {"leagueId": liga_id, "season": SEASON})
-    if not classificacao:
-        return {}
+    if classificacao is None:
+        return None
     grupos = classificacao.get("groups") or []
     if not grupos:
         return {}
@@ -188,7 +175,14 @@ def _delta_vazio():
 
 
 def equipa_vazia(nome, liga_nome):
-    base = {"nome": nome, "liga": liga_nome, "top3_atualmente": True, "jogos_processados": {}, "jogos_analisados": 0}
+    base = {
+        "nome": nome,
+        "liga": liga_nome,
+        "grande": False,
+        "top3_atualmente": False,
+        "jogos_processados": {},
+        "jogos_analisados": 0,
+    }
     base.update(_delta_vazio())
     return base
 
@@ -216,32 +210,10 @@ def main():
 
 
 def processar_tudo(dados, equipas):
-    grupo_desta_corrida = {}
-    for equipa_id, nome in resolver_grandes().items():
-        grupo_desta_corrida[equipa_id] = (nome, LIGAS[LIGA_GRANDES])
-
-    for liga_id, liga_nome in LIGAS.items():
-        if liga_id == LIGA_GRANDES:
-            continue
-        for equipa_id, nome in top3_liga(liga_id).items():
-            grupo_desta_corrida[equipa_id] = (nome, liga_nome)
-
-    if not grupo_desta_corrida:
-        print("Não foi possível determinar nenhuma equipa nesta corrida — a sair sem tocar no ficheiro.", file=sys.stderr)
-        sys.exit(1)
-
-    ids_desta_corrida = set(grupo_desta_corrida)
-    for chave, equipa in equipas.items():
-        equipa["top3_atualmente"] = int(chave) in ids_desta_corrida
-
-    for equipa_id, (nome, liga_nome) in grupo_desta_corrida.items():
-        chave = str(equipa_id)
-        if chave not in equipas:
-            equipas[chave] = equipa_vazia(nome, liga_nome)
-        else:
-            equipas[chave]["nome"] = nome
-            equipas[chave]["liga"] = liga_nome
-
+    """Processa TODAS as equipas das 6 ligas — não só as 18 seguidas. O
+    top-3/"grande" é uma marcação calculada no fim (atualizar_marcacoes_top3),
+    não um filtro do que se recolhe. Ver CLAUDE.md, Segunda Parte, D36: sem
+    isto não há como calcular o percentil "contra todas as equipas"."""
     fixtures_por_liga = {}
     for liga_id in LIGAS:
         if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
@@ -251,6 +223,7 @@ def processar_tudo(dados, equipas):
     agora = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
     for liga_id, fixtures in fixtures_por_liga.items():
+        liga_nome = LIGAS[liga_id]
         for jogo in fixtures:
             if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
                 print("Limite de pedidos desta corrida atingido — o resto fica para a próxima.", file=sys.stderr)
@@ -260,14 +233,12 @@ def processar_tudo(dados, equipas):
             id_casa = jogo["homeTeam"]["id"]
             id_fora = jogo["awayTeam"]["id"]
 
-            if id_casa not in grupo_desta_corrida and id_fora not in grupo_desta_corrida:
-                continue
+            for equipa_id, nome in ((id_casa, jogo["homeTeam"]["name"]), (id_fora, jogo["awayTeam"]["name"])):
+                chave = str(equipa_id)
+                if chave not in equipas:
+                    equipas[chave] = equipa_vazia(nome, liga_nome)
 
-            ja_processado = all(
-                fid in equipas[str(eid)]["jogos_processados"]
-                for eid in (id_casa, id_fora)
-                if eid in grupo_desta_corrida
-            )
+            ja_processado = fid in equipas[str(id_casa)]["jogos_processados"] and fid in equipas[str(id_fora)]["jogos_processados"]
             if ja_processado:
                 continue
 
@@ -276,8 +247,6 @@ def processar_tudo(dados, equipas):
                 continue
 
             for equipa_id in (id_casa, id_fora):
-                if equipa_id not in grupo_desta_corrida:
-                    continue
                 chave = str(equipa_id)
                 if fid in equipas[chave]["jogos_processados"]:
                     continue
@@ -290,33 +259,43 @@ def processar_tudo(dados, equipas):
                 }
                 recalcular_totais(equipas[chave])
 
-    revisar_fixtures_antigos(equipas, grupo_desta_corrida, dados)
+    atualizar_marcacoes_top3(equipas)
+    revisar_fixtures_antigos(equipas, dados)
+
+
+def atualizar_marcacoes_top3(equipas):
+    """Recalcula, por liga, quem é "grande" (fixo, os 3 de sempre) e quem está
+    no top-3 atual (móvel, D36). Se uma liga não responder por falta de
+    orçamento nesta corrida, mantém-se a marcação da corrida anterior — nunca
+    se apaga uma marcação por engano só porque a corrida ficou sem pedidos."""
+    for liga_id, liga_nome in LIGAS.items():
+        ids_top3 = top3_liga(liga_id)
+        if ids_top3 is None:
+            continue
+        for chave, equipa in equipas.items():
+            if equipa.get("liga") != liga_nome:
+                continue
+            eh_grande = liga_id == LIGA_GRANDES and any(alvo.lower() in equipa["nome"].lower() for alvo in NOMES_GRANDES)
+            equipa["grande"] = eh_grande
+            equipa["top3_atualmente"] = eh_grande or (int(chave) in ids_top3)
 
 
 DIAS_MINIMO_PARA_REVISAO = 18
 PEDIDOS_RESERVADOS_PARA_REVISAO = 10
 
 
-def revisar_fixtures_antigos(equipas, grupo_desta_corrida, dados):
+def revisar_fixtures_antigos(equipas, dados):
     """Revisita jogos já processados há mais de ~3 jornadas, para o caso de a
     API ter completado dados que na altura vieram incompletos (ex.: eventos
     vazios) — ver CLAUDE.md, Segunda Parte. Corre com um orçamento de pedidos
-    à parte, para não competir com a recolha de jogos novos.
-
-    Cada jogo guarda-se do lado de QUEM ESTAMOS A SEGUIR — o adversário pode
-    não ser uma das 18 equipas do grupo (é o caso normal). Por isso a
-    revisão usa o `adversario_id` guardado em cada entrada, não presume que
-    as duas equipas do jogo estão seguidas."""
+    à parte, para não competir com a recolha de jogos novos."""
     limite = min(MAX_PEDIDOS_POR_CORRIDA, pedidos_feitos + PEDIDOS_RESERVADOS_PARA_REVISAO)
     agora_struct = time.gmtime()
 
-    # fid -> lista de (chave_equipa_seguida, entrada)
+    # fid -> lista de (chave_equipa, entrada) — desde que passámos a seguir
+    # todas as equipas das 6 ligas, cada jogo tem sempre as duas entradas.
     por_fixture = {}
-    for equipa_id in grupo_desta_corrida:
-        chave = str(equipa_id)
-        equipa = equipas.get(chave)
-        if not equipa:
-            continue
+    for chave, equipa in equipas.items():
         for fid, entrada in equipa["jogos_processados"].items():
             por_fixture.setdefault(fid, []).append((chave, entrada))
 

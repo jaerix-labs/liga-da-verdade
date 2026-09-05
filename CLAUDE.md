@@ -539,7 +539,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D33 | A Liga da Verdade mostra as 18 equipas, não só os 3 grandes, com duas salvaguardas: as 15 equipas fora do âmbito ficam visualmente marcadas como parcialmente corrigidas, e cada equipa mostra "X de Y jogos analisados" | Uma tabela de 3 linhas perde o efeito de comparação lado a lado com a Liga real, que é o objetivo central do site. Resolve o "[POR DECIDIR]" da secção 13 |
 | D34 | Os pontos corrigidos de **um jogo** nunca podem sair do intervalo [0,3], mesmo que a soma dos lances isolados desse jogo (D29) desse um valor fora dessa gama. O limite aplica-se **por jogo, por equipa**, antes de somar ao longo da época — não se limita o total da época diretamente | O João reparou que o Porto aparecia com 6,01 pontos na Liga da Verdade ao fim de 2 jogos (máximo matematicamente possível: 6). Causa: os pontos reais de um jogo já ganho são um valor fixo (3, o teto), e o impacto de um lance é uma diferença de pontos esperados calculada isoladamente nesse minuto (D29) — somar os dois pode ultrapassar o teto/piso do próprio jogo quando a equipa já lá estava antes da correção. Confirmado com dados reais: 4 violações nos 2 primeiros jogos com lances (Porto-Alverca J1, Sporting-V.Guimarães J2), duas acima de 3 e duas abaixo de 0. A correção não mexe em `pontosEsperados()` (já bem limitada, testes b/c continuam a passar) — só na forma como `calcularLigaDaVerdade()` soma as correções ao longo da época. **Aviso:** a lista de lances de cada equipa continua a mostrar o impacto bruto de cada lance isoladamente (não limitado) — por transparência do que cada analista disse — por isso a soma dos lances listados pode não bater certo com o Δ da equipa quando um jogo específico já estava no teto ou no piso antes da correção |
 | D35 | Princípio geral do projeto (não só da Segunda Parte): nenhuma métrica se esconde por ter amostra fraca ou incerteza. Mostra-se sempre, com a limitação visível ao lado (nº de jogos, nº de opiniões, aviso de amostra pequena) | Esconder um número obriga o site a decidir por quem lê, e é indefensável perante quem perguntar porque falta uma métrica. É o mesmo raciocínio já usado para a fração de opiniões (D32) e para a fragilidade da D7 (um lance com 1 opinião ainda aparece, com o "1 de 1" ao lado). Surgiu ao desenhar a Segunda Parte (estatísticas de arbitragem): na jornada 4 uma equipa pode ter 0 ou 1 cartão vermelho, tornando o percentil quase aleatório — decidido mostrar mesmo assim, com aviso, em vez de esconder até a amostra crescer |
-| D36 | Segunda Parte: fonte de dados é o **Highlightly** (plano gratuito), não a API-Football. Grupo de comparação (top-3 das 5 grandes ligas) recalculado a cada corrida, não fixo. Detalhe completo na secção 16 | A API-Football bloqueia a época 2026/27 no plano gratuito (confirmado em produção, não em documentação) — inviável dado o requisito de custo zero. O Highlightly confirmou tudo o que precisamos com pedidos reais, mas é uma API pequena e mais nova, com documentação já apanhada errada três vezes no mesmo dia — risco conhecido e aceite, mitigado por uma revisão periódica automática (~3 em 3 jornadas) e por confirmações manuais ocasionais |
+| D36 | Segunda Parte: fonte de dados é o **Highlightly** (plano gratuito), não a API-Football. Top-3 das 5 grandes ligas recalculado a cada corrida (móvel), não fixo. A recolha processa **todas as equipas das 6 ligas** (~114), não só as 18 em destaque — o top-3/"grande" é uma marcação sobre dados completos, não um filtro do que se recolhe. Detalhe completo na secção 16 | A API-Football bloqueia a época 2026/27 no plano gratuito (confirmado em produção, não em documentação) — inviável dado o requisito de custo zero. O Highlightly confirmou tudo o que precisamos com pedidos reais, mas é uma API pequena e mais nova, com documentação já apanhada errada três vezes no mesmo dia — risco conhecido e aceite, mitigado por uma revisão periódica automática (~3 em 3 jornadas) e por confirmações manuais ocasionais. A recolha alargou-se a todas as equipas no mesmo dia, depois de perceber que os percentis "contra todas as equipas das 6 ligas" pedidos originalmente não davam para calcular só com as 18 — o volume de pedidos sobe ~6×, mas continua a caber no plano gratuito (ver "Volume de pedidos" na secção 16), só com menos folga |
 
 ---
 
@@ -722,16 +722,24 @@ dominantes de outras ligas (a lógica do xG: métricas objetivas, não juízo
 próprio). Não prova favorecimento — mostra anomalias, e deixa quem lê tirar
 conclusões.
 
-**18 equipas:** Benfica, FC Porto e Sporting (fixos, é o âmbito do projeto,
-não dependem da classificação) + os 3 primeiros classificados de cada uma
-das 5 grandes ligas (Inglaterra, Espanha, Itália, Alemanha, França),
-**recalculados a cada recolha** — decisão tomada em 2026-09-05: ao contrário
-do painel de analistas (D16, fixo toda a época), aqui o critério é "quem é
-dominante agora", por isso o grupo de comparação segue a classificação em
-cada corrida. Uma equipa que entra no top-3 conta os jogos que já disputou
-esta época toda, não só os jogos desde que entrou — simplificação assumida
-para evitar ter de rastrear ao longo do tempo quem esteve dentro ou fora do
-grupo, declarada no site como limitação (D35).
+**18 equipas em destaque na tabela:** Benfica, FC Porto e Sporting (fixos, é
+o âmbito do projeto, não dependem da classificação) + os 3 primeiros
+classificados de cada uma das 5 grandes ligas (Inglaterra, Espanha, Itália,
+Alemanha, França), **recalculados a cada recolha** — decisão tomada em
+2026-09-05: ao contrário do painel de analistas (D16, fixo toda a época),
+aqui o critério é "quem é dominante agora", por isso o grupo de destaque
+segue a classificação em cada corrida.
+
+**Correção ao desenho, ainda em 2026-09-05: a recolha não se limita às 18.**
+Passa a processar **todas as equipas das 6 ligas** (~114 no total — Inglaterra,
+Espanha e Itália têm 20 cada; Alemanha, França e Portugal têm 18), porque o
+pedido original exige um percentil "contra todas as equipas das seis ligas",
+e isso não dá para calcular tendo dados só de 18. O top-3/"grande" passa a
+ser uma **marcação** aplicada em cima de dados já completos, não um filtro do
+que se recolhe — o que também elimina a simplificação que tínhamos aceitado
+antes ("conta a época toda ao entrar no top-3"): já não é preciso, porque o
+histórico de todas as equipas está sempre a ser recolhido, estejam ou não em
+destaque nessa semana. Ver "Volume de pedidos" abaixo para o custo disto.
 
 **Métricas mantidas (1-9 do pedido original):** faltas cometidas por
 amarelo, faltas sofridas por amarelo mostrado ao adversário, rácio de
@@ -815,8 +823,9 @@ mesmo ao longo do tempo, nunca contra uma fonte externa).
 
 ### Arquitetura — acréscimo autorizado pelo João em 2026-09-04
 
-- **GitHub Actions** corre o script semanalmente (segunda de manhã) e sob
-  pedido manual (`workflow_dispatch`).
+- **GitHub Actions** corre o script **duas vezes por semana** (segunda e
+  quinta de manhã — subiu de uma vez só depois de passar a recolher todas as
+  equipas, não só 18) e sob pedido manual (`workflow_dispatch`).
 - **Secret `HIGHLIGHTLY_KEY`** nos GitHub Secrets — única exceção à regra
   "não há segredos neste projeto" (secção 4), autorizada explicitamente para
   esta funcionalidade. Nunca vai para o `index.html` nem para o repositório.
@@ -824,20 +833,35 @@ mesmo ao longo do tempo, nunca contra uma fonte externa).
   lado de quem visita. O script escreve `dados/estatisticas-2026-27.json`.
 - `scripts/recolher_estatisticas.py`: recolha **incremental e resumível** —
   nunca perde progresso, mesmo a meio de um erro (grava sempre no `finally`).
-  Necessário porque o preenchimento inicial de 18 equipas em 6 ligas
-  independentes ronda os 170-180 pedidos, acima do limite diário — o desenho
-  aceita que o preenchimento inicial precise de 2-3 corridas em dias
-  diferentes; a partir daí, a rotina semanal fica bem abaixo do limite.
 - **`.github/workflows/estatisticas.yml`**: o passo de commit+push corre
   sempre (`if: always()`), mesmo que a recolha falhe a meio — sem isto, o
   progresso parcial gravado no disco do runner perdia-se por nunca ser
   publicado (bug apanhado na primeira corrida real, 2026-09-05).
 
+### Volume de pedidos (revisto em 2026-09-05, depois de alargar às ~114 equipas)
+
+Uma liga de 20 equipas tem 380 jogos por época (ida e volta); uma de 18 tem
+306. Nas 6 ligas: **2058 jogos por época**, 2 pedidos cada (estatísticas +
+eventos) = **4116 pedidos para uma época inteira**, ao ritmo a que ela for
+sendo jogada — nunca tudo de uma vez.
+
+- **Preenchimento do que já foi jogado até agora:** as ligas estão em pontos
+  diferentes (Portugal na jornada 4, Inglaterra só na 2, por exemplo).
+  Estimativa grosseira: **200 a 500 pedidos**, ou seja **3 a 6 dias** de
+  corridas a 90 pedidos/dia.
+- **Ritmo de cruzeiro, depois de apanhado o atraso:** ~100-115 pedidos por
+  semana (as 114 equipas juntas jogam por volta de 50-57 jogos por semana,
+  quando todas as 6 ligas têm jornada). É **à justa** do limite diário — daí
+  a corrida ter passado a duas vezes por semana, para nunca se aproximar do
+  limite numa só corrida.
+- Isto está bem mais apertado do que os cálculos iniciais (feitos só para 18
+  equipas, com muita folga). Se o Highlightly alguma vez apertar o plano
+  gratuito, é aqui que se sente primeiro.
+
 ### Estado atual (2026-09-05)
 
-Script e workflow publicados e a funcionar mecanicamente (autenticação,
-paginação, deteção de equipas, cálculo de deltas). **Preenchimento inicial
-ainda não concluído** — a primeira corrida real esgotou o limite diário do
-Highlightly (gasto em grande parte nos testes de diagnóstico do próprio dia)
-a meio do trabalho. Falta confirmar os números reais do Benfica, FC Porto e
-Sporting antes de desenhar a parte do site que os mostra.
+Script reescrito para recolher todas as equipas das 6 ligas (não só as 18
+em destaque) e workflow publicados; a funcionar mecanicamente (autenticação,
+paginação, deteção de equipas, cálculo de deltas) mas **ainda sem uma
+corrida completa de ponta a ponta com o desenho novo** — a testar a seguir.
+**Preenchimento inicial ainda não concluído.**
