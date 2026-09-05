@@ -3,7 +3,7 @@ import os
 import sys
 import time
 from pathlib import Path
-from urllib import error, request
+from urllib import error, parse, request
 
 BASE_URL = "https://v3.football.api-sports.io"
 SEASON = 2026
@@ -39,7 +39,7 @@ def pedir(caminho, params):
     if espera > 0:
         time.sleep(espera)
 
-    qs = "&".join(f"{k}={v}" for k, v in params.items())
+    qs = parse.urlencode(params)
     url = f"{BASE_URL}/{caminho}?{qs}"
     req = request.Request(url, headers={"x-apisports-key": os.environ["API_FOOTBALL_KEY"]})
 

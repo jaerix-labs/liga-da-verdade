@@ -2,13 +2,13 @@ import json
 import os
 import sys
 import time
-from urllib import error, request
+from urllib import error, parse, request
 
 BASE_URL = "https://soccer.highlightly.net"
 
 
 def pedir(caminho, params):
-    qs = "&".join(f"{k}={v}" for k, v in params.items())
+    qs = parse.urlencode(params)
     url = f"{BASE_URL}/{caminho}?{qs}" if params else f"{BASE_URL}/{caminho}"
     req = request.Request(url, headers={"x-rapidapi-key": os.environ["HIGHLIGHTLY_KEY"]})
     print(f"\n=== PEDIDO: {url} ===")
