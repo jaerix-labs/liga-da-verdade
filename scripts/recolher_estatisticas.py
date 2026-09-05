@@ -188,9 +188,18 @@ def _delta_vazio():
 
 
 def equipa_vazia(nome, liga_nome):
-    base = {"nome": nome, "liga": liga_nome, "top3_atualmente": True, "jogos_processados": [], "jogos_analisados": 0}
+    base = {"nome": nome, "liga": liga_nome, "top3_atualmente": True, "jogos_processados": {}, "jogos_analisados": 0}
     base.update(_delta_vazio())
     return base
+
+
+def recalcular_totais(equipa):
+    totais = _delta_vazio()
+    for entrada in equipa["jogos_processados"].values():
+        for campo, valor in entrada["delta"].items():
+            totais[campo] += valor
+    equipa.update(totais)
+    equipa["jogos_analisados"] = len(equipa["jogos_processados"])
 
 
 def main():
@@ -239,13 +248,15 @@ def processar_tudo(dados, equipas):
             break
         fixtures_por_liga[liga_id] = fixtures_terminados(liga_id)
 
+    agora = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
     for liga_id, fixtures in fixtures_por_liga.items():
         for jogo in fixtures:
             if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
                 print("Limite de pedidos desta corrida atingido — o resto fica para a próxima.", file=sys.stderr)
                 break
 
-            fid = jogo["id"]
+            fid = str(jogo["id"])
             id_casa = jogo["homeTeam"]["id"]
             id_fora = jogo["awayTeam"]["id"]
 
@@ -260,7 +271,7 @@ def processar_tudo(dados, equipas):
             if ja_processado:
                 continue
 
-            delta = processar_fixture(fid, id_casa, id_fora)
+            delta = processar_fixture(jogo["id"], id_casa, id_fora)
             if delta is None:
                 continue
 
@@ -270,10 +281,86 @@ def processar_tudo(dados, equipas):
                 chave = str(equipa_id)
                 if fid in equipas[chave]["jogos_processados"]:
                     continue
-                for campo, valor in delta[equipa_id].items():
-                    equipas[chave][campo] += valor
-                equipas[chave]["jogos_processados"].append(fid)
-                equipas[chave]["jogos_analisados"] = len(equipas[chave]["jogos_processados"])
+                equipas[chave]["jogos_processados"][fid] = {
+                    "delta": delta[equipa_id],
+                    "data_jogo": jogo.get("date"),
+                    "revisto_em": agora,
+                    "adversario_id": id_fora if equipa_id == id_casa else id_casa,
+                    "mandante": equipa_id == id_casa,
+                }
+                recalcular_totais(equipas[chave])
+
+    revisar_fixtures_antigos(equipas, grupo_desta_corrida, dados)
+
+
+DIAS_MINIMO_PARA_REVISAO = 18
+PEDIDOS_RESERVADOS_PARA_REVISAO = 10
+
+
+def revisar_fixtures_antigos(equipas, grupo_desta_corrida, dados):
+    """Revisita jogos já processados há mais de ~3 jornadas, para o caso de a
+    API ter completado dados que na altura vieram incompletos (ex.: eventos
+    vazios) — ver CLAUDE.md, Segunda Parte. Corre com um orçamento de pedidos
+    à parte, para não competir com a recolha de jogos novos.
+
+    Cada jogo guarda-se do lado de QUEM ESTAMOS A SEGUIR — o adversário pode
+    não ser uma das 18 equipas do grupo (é o caso normal). Por isso a
+    revisão usa o `adversario_id` guardado em cada entrada, não presume que
+    as duas equipas do jogo estão seguidas."""
+    limite = min(MAX_PEDIDOS_POR_CORRIDA, pedidos_feitos + PEDIDOS_RESERVADOS_PARA_REVISAO)
+    agora_struct = time.gmtime()
+
+    # fid -> lista de (chave_equipa_seguida, entrada)
+    por_fixture = {}
+    for equipa_id in grupo_desta_corrida:
+        chave = str(equipa_id)
+        equipa = equipas.get(chave)
+        if not equipa:
+            continue
+        for fid, entrada in equipa["jogos_processados"].items():
+            por_fixture.setdefault(fid, []).append((chave, entrada))
+
+    candidatos = []
+    for fid, entradas in por_fixture.items():
+        revisto_mais_antigo = min(e["revisto_em"] for _, e in entradas)
+        idade_dias = (time.mktime(agora_struct) - time.mktime(time.strptime(revisto_mais_antigo, "%Y-%m-%dT%H:%M:%SZ"))) / 86400
+        if idade_dias >= DIAS_MINIMO_PARA_REVISAO:
+            candidatos.append((revisto_mais_antigo, fid))
+    candidatos.sort()
+
+    for _, fid in candidatos:
+        if pedidos_feitos >= limite:
+            break
+
+        chave_ref, entrada_ref = por_fixture[fid][0]
+        id_equipa_ref = int(chave_ref)
+        id_adversario = entrada_ref["adversario_id"]
+        id_casa, id_fora = (id_equipa_ref, id_adversario) if entrada_ref["mandante"] else (id_adversario, id_equipa_ref)
+
+        delta_novo = processar_fixture(int(fid), id_casa, id_fora)
+        if delta_novo is None:
+            continue
+
+        agora = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        for chave, entrada in por_fixture[fid]:
+            equipa_id = int(chave)
+            novo = delta_novo.get(equipa_id)
+            if novo is None:
+                continue
+            if entrada["delta"] != novo:
+                dados.setdefault("correcoes_detectadas", []).append(
+                    {
+                        "jogo": fid,
+                        "equipa": equipas[chave]["nome"],
+                        "antes": entrada["delta"],
+                        "depois": novo,
+                        "detetado_em": agora,
+                    }
+                )
+                print(f"AVISO — correção detetada no jogo {fid} para {equipas[chave]['nome']}: {entrada['delta']} -> {novo}", file=sys.stderr)
+            entrada["delta"] = novo
+            entrada["revisto_em"] = agora
+            recalcular_totais(equipas[chave])
 
 
 if __name__ == "__main__":
