@@ -36,40 +36,44 @@ def pedir(caminho, params):
     return dados
 
 
-def main():
-    ligas = pedir("leagues", {})
-    liga_id = None
-    tem_primeira_liga = False
-    if ligas:
-        lista = ligas if isinstance(ligas, list) else ligas.get("data", [])
-        for item in lista:
-            nome = (item.get("name") or "").lower()
-            pais = ((item.get("country") or {}).get("code") or "")
-            if "premier league" in nome and "u2" not in nome and "women" not in nome:
-                liga_id = item.get("id") or item.get("leagueId")
-                print(f"\n>>> Encontrado: {item}")
-            if pais == "PT" or "primeira liga" in nome:
-                tem_primeira_liga = True
-                print(f"\n>>> Primeira Liga encontrada: {item}")
-        print(f"\n>>> A usar leagueId={liga_id}. Primeira Liga existe nesta API: {tem_primeira_liga}")
-
-    if liga_id is None:
-        print("\nNão consegui obter um leagueId — a parar aqui.", file=sys.stderr)
-        return
-
-    for pagina in (1, 2, 3, 4, 5):
-        jogos = pedir("matches", {"leagueId": liga_id, "season": 2026, "page": pagina})
+def testar_liga(liga_id, etiqueta):
+    print(f"\n########## {etiqueta} (leagueId={liga_id}) ##########")
+    for offset in (0, 100, 200, 300):
+        jogos = pedir("matches", {"leagueId": liga_id, "season": 2026, "offset": offset, "limit": 100})
         lista = jogos if isinstance(jogos, list) else (jogos or {}).get("data", [])
         terminados = [j for j in lista if (j.get("state") or {}).get("score", {}).get("current") is not None]
-        print(f"\n>>> page={pagina}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
+        print(f"\n>>> offset={offset}: {len(lista)} jogos devolvidos, {len(terminados)} com resultado.")
         if terminados:
             match_id = terminados[-1].get("id")
             print(f">>> A usar match_id={match_id}: {terminados[-1]}")
             pedir(f"statistics/{match_id}", {})
             pedir(f"events/{match_id}", {})
             return
+        if not lista:
+            break
+    print(f"\nNenhum offset testado devolveu jogos terminados para {etiqueta}.", file=sys.stderr)
 
-    print("\nNenhuma das páginas testadas (season=2026) devolveu jogos terminados.", file=sys.stderr)
+
+def main():
+    ligas = pedir("leagues", {})
+    id_premier = None
+    id_primeira = None
+    if ligas:
+        lista = ligas if isinstance(ligas, list) else ligas.get("data", [])
+        for item in lista:
+            nome = (item.get("name") or "").lower()
+            pais = (item.get("country") or {}).get("code") or ""
+            if "premier league" in nome and pais == "GB-ENG":
+                id_premier = item.get("id") or item.get("leagueId")
+            if "primeira liga" in nome and pais == "PT":
+                id_primeira = item.get("id") or item.get("leagueId")
+        print(f"\n>>> Premier League (Inglaterra) leagueId={id_premier}")
+        print(f">>> Primeira Liga (Portugal) leagueId={id_primeira}")
+
+    if id_premier:
+        testar_liga(id_premier, "Premier League")
+    if id_primeira:
+        testar_liga(id_primeira, "Primeira Liga")
 
 
 if __name__ == "__main__":
