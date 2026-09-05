@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-09-04
+Última atualização: 2026-09-05
 
 ---
 
@@ -539,6 +539,7 @@ Todas em **2026-08-13**, salvo indicação.
 | D33 | A Liga da Verdade mostra as 18 equipas, não só os 3 grandes, com duas salvaguardas: as 15 equipas fora do âmbito ficam visualmente marcadas como parcialmente corrigidas, e cada equipa mostra "X de Y jogos analisados" | Uma tabela de 3 linhas perde o efeito de comparação lado a lado com a Liga real, que é o objetivo central do site. Resolve o "[POR DECIDIR]" da secção 13 |
 | D34 | Os pontos corrigidos de **um jogo** nunca podem sair do intervalo [0,3], mesmo que a soma dos lances isolados desse jogo (D29) desse um valor fora dessa gama. O limite aplica-se **por jogo, por equipa**, antes de somar ao longo da época — não se limita o total da época diretamente | O João reparou que o Porto aparecia com 6,01 pontos na Liga da Verdade ao fim de 2 jogos (máximo matematicamente possível: 6). Causa: os pontos reais de um jogo já ganho são um valor fixo (3, o teto), e o impacto de um lance é uma diferença de pontos esperados calculada isoladamente nesse minuto (D29) — somar os dois pode ultrapassar o teto/piso do próprio jogo quando a equipa já lá estava antes da correção. Confirmado com dados reais: 4 violações nos 2 primeiros jogos com lances (Porto-Alverca J1, Sporting-V.Guimarães J2), duas acima de 3 e duas abaixo de 0. A correção não mexe em `pontosEsperados()` (já bem limitada, testes b/c continuam a passar) — só na forma como `calcularLigaDaVerdade()` soma as correções ao longo da época. **Aviso:** a lista de lances de cada equipa continua a mostrar o impacto bruto de cada lance isoladamente (não limitado) — por transparência do que cada analista disse — por isso a soma dos lances listados pode não bater certo com o Δ da equipa quando um jogo específico já estava no teto ou no piso antes da correção |
 | D35 | Princípio geral do projeto (não só da Segunda Parte): nenhuma métrica se esconde por ter amostra fraca ou incerteza. Mostra-se sempre, com a limitação visível ao lado (nº de jogos, nº de opiniões, aviso de amostra pequena) | Esconder um número obriga o site a decidir por quem lê, e é indefensável perante quem perguntar porque falta uma métrica. É o mesmo raciocínio já usado para a fração de opiniões (D32) e para a fragilidade da D7 (um lance com 1 opinião ainda aparece, com o "1 de 1" ao lado). Surgiu ao desenhar a Segunda Parte (estatísticas de arbitragem): na jornada 4 uma equipa pode ter 0 ou 1 cartão vermelho, tornando o percentil quase aleatório — decidido mostrar mesmo assim, com aviso, em vez de esconder até a amostra crescer |
+| D36 | Segunda Parte: fonte de dados é o **Highlightly** (plano gratuito), não a API-Football. Grupo de comparação (top-3 das 5 grandes ligas) recalculado a cada corrida, não fixo. Detalhe completo na secção 16 | A API-Football bloqueia a época 2026/27 no plano gratuito (confirmado em produção, não em documentação) — inviável dado o requisito de custo zero. O Highlightly confirmou tudo o que precisamos com pedidos reais, mas é uma API pequena e mais nova, com documentação já apanhada errada três vezes no mesmo dia — risco conhecido e aceite, mitigado por uma revisão periódica automática (~3 em 3 jornadas) e por confirmações manuais ocasionais |
 
 ---
 
@@ -705,3 +706,138 @@ se forçar um pedido sem cache.
 incluir `{ cache: 'no-store' }`, para nunca servir uma cópia em cache do
 browser. Sem isto, um visitante que volte ao site depois de uma atualização
 pode continuar a ver a jornada anterior sem se aperceber.
+
+---
+
+## 16. SEGUNDA PARTE — ANÁLISE ESTATÍSTICA DA ARBITRAGEM
+
+**Iniciada em 2026-09-05. É um acréscimo, não substitui nada da Liga da
+Verdade original (secções 1-15).** Menu paralelo no mesmo site.
+
+### O que é
+
+Uma análise puramente estatística, sem opiniões de analistas, à forma como
+Benfica, FC Porto e Sporting são arbitrados, comparados com equipas
+dominantes de outras ligas (a lógica do xG: métricas objetivas, não juízo
+próprio). Não prova favorecimento — mostra anomalias, e deixa quem lê tirar
+conclusões.
+
+**18 equipas:** Benfica, FC Porto e Sporting (fixos, é o âmbito do projeto,
+não dependem da classificação) + os 3 primeiros classificados de cada uma
+das 5 grandes ligas (Inglaterra, Espanha, Itália, Alemanha, França),
+**recalculados a cada recolha** — decisão tomada em 2026-09-05: ao contrário
+do painel de analistas (D16, fixo toda a época), aqui o critério é "quem é
+dominante agora", por isso o grupo de comparação segue a classificação em
+cada corrida. Uma equipa que entra no top-3 conta os jogos que já disputou
+esta época toda, não só os jogos desde que entrou — simplificação assumida
+para evitar ter de rastrear ao longo do tempo quem esteve dentro ou fora do
+grupo, declarada no site como limitação (D35).
+
+**Métricas mantidas (1-9 do pedido original):** faltas cometidas por
+amarelo, faltas sofridas por amarelo mostrado ao adversário, rácio de
+assimetria entre as duas, amarelos por jogo (a favor/contra), segundos
+amarelos por jogo, vermelhos por jogo, penáltis a favor/remates dentro da
+área, penáltis contra/remates sofridos dentro da área, rácio de penáltis.
+
+**Métricas fora (10-12), e porquê:** golos anulados e intervenções do VAR
+têm cobertura desigual entre ligas segundo a própria documentação da API
+(não é escolha nossa, é ausência de dados fiáveis); tempo de compensação não
+tem campo nenhum em nenhuma API testada. Se a cobertura melhorar, voltam a
+ser avaliadas.
+
+**Ressalva na métrica 2** ("faltas sofridas"): agrega o comportamento de até
+17 adversários diferentes, que podem jogar de forma particular contra os
+três grandes/dominantes. O número calcula-se e mostra-se, mas com esta
+limitação ao lado, e o rácio de assimetria não se apresenta como a métrica
+mais confiável do conjunto por causa disto.
+
+### Fonte de dados: Highlightly, plano gratuito
+
+**Escolhida em 2026-09-05, depois de testar (não confiar em documentação).**
+A API-Football foi tentada primeiro e **falhou em produção**: o plano
+gratuito bloqueia por completo a época atual (`"Free plans do not have
+access to this season, try from 2022 to 2024"`) — o contrário do que a
+pesquisa (blogs de terceiros, não a documentação oficial, que estava atrás
+de proteção anti-bot) tinha indicado. Ficou descartada para este projeto.
+
+**Alternativas descartadas antes de chegar ao Highlightly:**
+- **SportMonks** — sem plano gratuito permanente (só trial de 14 dias); o
+  plano pago mais barato que cobre as 6 ligas (Growth, 30 ligas) custa
+  99€/mês, contra os 19 USD/mês do escalão pago da API-Football.
+- **Big Balls Sports Data** — plano gratuito genuíno e generoso (1000-2000
+  pedidos/dia), mas **não cobre a Primeira Liga** (só Inglaterra, Espanha,
+  Alemanha, Itália, França, Champions League, MLS). Sem a Primeira Liga não
+  há projeto.
+- **football-data.org** — gratuito, mas sem estatísticas de jogo nenhumas
+  (só jogos/resultados/classificações).
+
+**O que o Highlightly confirmou, com pedidos reais (não com o que a
+documentação diz):** época 2026 acessível nas 6 ligas; campos `Fouls`,
+`Shots within penalty area`, `Shots outside penalty area`, `Yellow cards`,
+`Red cards` nas estatísticas por jogo; eventos com penáltis marcados/falhados
+e cartões, suficientes para separar 2º amarelo de vermelho direto por
+sequência (a API não tem campo próprio para essa distinção — dois eventos
+"Yellow Card" para o mesmo jogador seguidos de "Red Card" = 2º amarelo, não
+vermelho direto novo); limite real de **100 pedidos/dia** (confirmado no
+cabeçalho `x-ratelimit-requests-limit` da própria resposta, não em blog).
+
+**Aviso — risco conhecido, para quem mexer nisto no futuro:** o Highlightly
+é uma API pequena e mais recente do que a API-Football ou a SportMonks. Ao
+integrá-la em 2026-09-05, a documentação estava errada três vezes seguidas
+(nome do parâmetro de filtro de `/leagues`, esquema de paginação de
+`/matches`, e um bloqueio de bot do Cloudflare que a documentação nem
+menciona — resolvido com um cabeçalho `User-Agent` de browser). Viu-se
+também um caso real de dados incompletos: um jogo da Primeira Liga com
+estatísticas de cartões mas eventos vazios. **Isto não é motivo para não
+usar a API — é o preço normal de uma fonte gratuita e mais pequena — mas
+significa que esta fonte tem menos garantia do que as notícias de jornal da
+Liga da Verdade original** (que se pode ir conferir à fonte). Se a API mudar
+de comportamento sem aviso no futuro, começar por aqui.
+
+### Correção periódica (revisão de jogos antigos)
+
+**Decidido em 2026-09-05.** Cada jogo processado guarda-se com o contributo
+exato que deu a cada equipa (não só o ID) e a data em que foi lido pela
+última vez. A cada corrida, o script revisita automaticamente jogos lidos há
+mais de ~18 dias (≈ 3 jornadas) — com um orçamento de pedidos à parte, para
+não competir com a recolha de jogos novos — e verifica se a API entretanto
+completou dados que na altura vieram incompletos (o caso do jogo com eventos
+vazios foi o motivo direto desta decisão). Se um valor mudar, fica registado
+em `correcoes_detectadas` no JSON, para aparecer no site mais tarde (mesmo
+princípio da D35: mostrar, nunca esconder, mesmo quando o que se mostra é
+"isto mudou desde a última vez").
+
+**Complementar a isto, não substituto:** de vez em quando vale a pena
+confirmar à mão um número (ex.: amarelos do Benfica) contra o site oficial
+da liga em causa, para apanhar cedo qualquer desalinhamento sistemático que
+a revisão automática não apanharia (ela só compara o Highlightly consigo
+mesmo ao longo do tempo, nunca contra uma fonte externa).
+
+### Arquitetura — acréscimo autorizado pelo João em 2026-09-04
+
+- **GitHub Actions** corre o script semanalmente (segunda de manhã) e sob
+  pedido manual (`workflow_dispatch`).
+- **Secret `HIGHLIGHTLY_KEY`** nos GitHub Secrets — única exceção à regra
+  "não há segredos neste projeto" (secção 4), autorizada explicitamente para
+  esta funcionalidade. Nunca vai para o `index.html` nem para o repositório.
+- O site continua a **ler só ficheiros JSON** — nenhuma chamada à API do
+  lado de quem visita. O script escreve `dados/estatisticas-2026-27.json`.
+- `scripts/recolher_estatisticas.py`: recolha **incremental e resumível** —
+  nunca perde progresso, mesmo a meio de um erro (grava sempre no `finally`).
+  Necessário porque o preenchimento inicial de 18 equipas em 6 ligas
+  independentes ronda os 170-180 pedidos, acima do limite diário — o desenho
+  aceita que o preenchimento inicial precise de 2-3 corridas em dias
+  diferentes; a partir daí, a rotina semanal fica bem abaixo do limite.
+- **`.github/workflows/estatisticas.yml`**: o passo de commit+push corre
+  sempre (`if: always()`), mesmo que a recolha falhe a meio — sem isto, o
+  progresso parcial gravado no disco do runner perdia-se por nunca ser
+  publicado (bug apanhado na primeira corrida real, 2026-09-05).
+
+### Estado atual (2026-09-05)
+
+Script e workflow publicados e a funcionar mecanicamente (autenticação,
+paginação, deteção de equipas, cálculo de deltas). **Preenchimento inicial
+ainda não concluído** — a primeira corrida real esgotou o limite diário do
+Highlightly (gasto em grande parte nos testes de diagnóstico do próprio dia)
+a meio do trabalho. Falta confirmar os números reais do Benfica, FC Porto e
+Sporting antes de desenhar a parte do site que os mostra.
