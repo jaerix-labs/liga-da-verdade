@@ -244,14 +244,14 @@
     font-size: 0.8rem;
   }
 
-  .numeros {
+  .numeros-texto {
     max-width: 40rem;
     margin: 0 auto 2rem;
     line-height: 1.6;
     font-size: 0.92rem;
   }
 
-  .numeros p {
+  .numeros-texto p {
     margin: 0 0 1rem;
   }
 
@@ -276,7 +276,7 @@
     white-space: nowrap;
   }
 
-  table.tabela-numeros th.col-metrica, table.tabela-numeros td.col-metrica {
+  table.tabela-numeros th.col-fixa, table.tabela-numeros td.col-fixa {
     position: sticky;
     left: 0;
     z-index: 2;
@@ -298,11 +298,11 @@
     z-index: 1;
   }
 
-  table.tabela-numeros thead th.col-metrica {
+  table.tabela-numeros thead th.col-fixa {
     z-index: 3;
   }
 
-  table.tabela-numeros th.equipa-grande, table.tabela-numeros td.col-metrica.grupo-grande {
+  table.tabela-numeros .equipa-grande {
     color: var(--cor-destaque);
   }
 
@@ -319,14 +319,6 @@
   table.tabela-numeros .sem-dados {
     color: var(--cor-texto-fraco);
     font-weight: 400;
-  }
-
-  tr.linha-fraca .col-metrica {
-    opacity: 0.75;
-  }
-
-  tr.linha-fraca td:not(.col-metrica) {
-    opacity: 0.6;
   }
 
   .aviso-fraca {
@@ -602,7 +594,8 @@
     </p>
   </div>
 
-  <div id="vista-numeros" class="numeros" style="display:none;">
+  <div id="vista-numeros" style="display:none;">
+    <div class="numeros-texto">
     <h2>O que é isto</h2>
     <p>
       Uma análise puramente estatística à forma como Benfica, FC Porto e
@@ -620,12 +613,26 @@
       entre os dois é, em si, informação: sinal de que a métrica está a medir
       domínio, não arbitragem.
     </p>
+    <p>
+      O percentil lê-se assim: <strong>P99</strong> significa que quase
+      nenhuma equipa do grupo tem um valor mais alto do que esta — está no
+      topo. <strong>P0</strong> é o oposto, o valor mais baixo do grupo. As
+      células ficam <span style="color:#e08080;">a vermelho</span> ou
+      <span style="color:#6fbf73;">a verde</span> só nos extremos (P80+ ou
+      P20-) do percentil entre dominantes, e só no sentido em que esse
+      extremo é, para aquela métrica em concreto, o sinal de possível
+      favorecimento — nunca os dois sentidos ao mesmo tempo. Uma cor forte
+      não é prova de nada sozinha; é um ponto de partida para olhar com mais
+      atenção.
+    </p>
     <p class="aviso" id="aviso-numeros" style="text-align:left; margin:0 0 1rem;"></p>
+    </div>
 
     <div class="numeros-scroll">
       <table class="tabela-numeros" id="tabela-numeros"></table>
     </div>
 
+    <div class="numeros-texto">
     <p class="legenda-numeros">
       <span class="aviso-fraca">⚠</span> marca uma métrica com amostra
       pequena de mais para o percentil ser fiável (ex.: 1-2 cartões vermelhos
@@ -648,6 +655,7 @@
       compensação não tem campo nenhum em nenhuma fonte gratuita testada. Se
       a cobertura melhorar, voltam a ser avaliados.
     </p>
+    </div>
   </div>
 
   <div id="vista-testes" style="display:none;">
@@ -1271,51 +1279,77 @@
       return eq.amarelos_adversario > 0 ? eq.faltas_sofridas / eq.amarelos_adversario : null;
     }
 
+    // favoreceQuando: 'alto' quando um valor alto desta métrica é o sinal de
+    // possível favorecimento (preenche a vermelho no P dom alto); 'baixo'
+    // quando é um valor baixo que é o sinal (preenche a verde no P dom
+    // baixo). Ver CLAUDE.md, Segunda Parte, para a justificação de cada uma.
     const METRICAS_NUMEROS = [
-      { rotulo: 'Faltas cometidas por amarelo recebido', casas: 2, calcular: faltasPorAmarelo },
+      { rotulo: 'Faltas cometidas por amarelo recebido', rotuloCurto: 'Faltas/amarelo', casas: 2, favoreceQuando: 'alto', calcular: faltasPorAmarelo },
       {
-        rotulo: 'Faltas sofridas por amarelo mostrado ao adversário', casas: 2,
+        rotulo: 'Faltas sofridas por amarelo mostrado ao adversário', rotuloCurto: 'Faltas sofr./amarelo adv.', casas: 2, favoreceQuando: 'baixo',
         nota: 'Agrega o comportamento de até 17 adversários diferentes — não é a métrica mais fiável do conjunto.',
         calcular: faltasSofridasPorAmareloAdversario,
       },
       {
-        rotulo: 'Rácio de assimetria (1 ÷ 2) — a mais importante do conjunto', casas: 2, destaque: true,
+        rotulo: 'Rácio de assimetria (1 ÷ 2) — a mais importante do conjunto', rotuloCurto: 'Assimetria (1÷2)', casas: 2, destaque: true, favoreceQuando: 'alto',
         calcular: eq => {
           const a = faltasPorAmarelo(eq), b = faltasSofridasPorAmareloAdversario(eq);
           return (a != null && b) ? a / b : null;
         },
       },
-      { rotulo: 'Amarelos a favor por jogo (ao adversário)', casas: 2, calcular: eq => eq.jogos_analisados ? eq.amarelos_adversario / eq.jogos_analisados : null },
-      { rotulo: 'Amarelos contra por jogo (à própria equipa)', casas: 2, calcular: eq => eq.jogos_analisados ? eq.amarelos_propria_equipa / eq.jogos_analisados : null },
+      { rotulo: 'Amarelos a favor por jogo (ao adversário)', rotuloCurto: 'Amarelo a favor/jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? eq.amarelos_adversario / eq.jogos_analisados : null },
+      { rotulo: 'Amarelos contra por jogo (à própria equipa)', rotuloCurto: 'Amarelo contra/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? eq.amarelos_propria_equipa / eq.jogos_analisados : null },
       {
-        rotulo: 'Segundos amarelos por jogo (própria equipa)', casas: 2,
+        rotulo: 'Segundos amarelos por jogo (própria equipa)', rotuloCurto: '2º amarelo/jogo', casas: 2, favoreceQuando: 'baixo',
         calcular: eq => eq.jogos_analisados ? eq.segundo_amarelo_propria_equipa / eq.jogos_analisados : null,
         fraca: eq => eq.segundo_amarelo_propria_equipa < 3,
       },
       {
-        rotulo: 'Vermelhos por jogo (própria equipa)', casas: 2,
+        rotulo: 'Vermelhos por jogo (própria equipa)', rotuloCurto: 'Vermelhos/jogo', casas: 2, favoreceQuando: 'baixo',
         calcular: eq => eq.jogos_analisados ? eq.vermelhos_propria_equipa / eq.jogos_analisados : null,
         fraca: eq => eq.vermelhos_propria_equipa < 3,
       },
-      { rotulo: 'Penáltis a favor por remate dentro da área', casas: 3, calcular: eq => eq.remates_area_propria ? eq.penaltis_a_favor / eq.remates_area_propria : null },
-      { rotulo: 'Penáltis contra por remate sofrido dentro da área', casas: 3, calcular: eq => eq.remates_area_adversario ? eq.penaltis_contra / eq.remates_area_adversario : null },
+      { rotulo: 'Penáltis a favor por remate dentro da área', rotuloCurto: 'Pénalti a favor/remate', casas: 3, favoreceQuando: 'alto', calcular: eq => eq.remates_area_propria ? eq.penaltis_a_favor / eq.remates_area_propria : null },
+      { rotulo: 'Penáltis contra por remate sofrido dentro da área', rotuloCurto: 'Pénalti contra/remate', casas: 3, favoreceQuando: 'baixo', calcular: eq => eq.remates_area_adversario ? eq.penaltis_contra / eq.remates_area_adversario : null },
       {
-        rotulo: 'Rácio de penáltis (a favor ÷ contra)', casas: 2,
+        rotulo: 'Rácio de penáltis (a favor ÷ contra)', rotuloCurto: 'Rácio pénaltis', casas: 2, favoreceQuando: 'alto',
         calcular: eq => eq.penaltis_contra > 0 ? eq.penaltis_a_favor / eq.penaltis_contra : (eq.penaltis_a_favor > 0 ? Infinity : null),
       },
     ];
 
+    // Percentil = percentagem de equipas com valor ESTRITAMENTE menor do que
+    // esta. A equipa com o valor mais alto de um grupo de 100 fica no P99,
+    // não no P100 — "P99" lê-se como "quase ninguém acima desta equipa",
+    // nunca "esta equipa é o valor mais alto que existe". Definição pedida
+    // pelo João em 2026-09-06, ver CLAUDE.md secção 16.
     function percentil(valor, valores) {
       if (valor == null || !isFinite(valor)) return null;
       const validos = valores.filter(v => v != null && isFinite(v));
       if (validos.length === 0) return null;
-      return Math.round((validos.filter(v => v <= valor).length / validos.length) * 100);
+      return Math.round((validos.filter(v => v < valor).length / validos.length) * 100);
     }
 
     function formatarValorNumeros(valor, casas) {
       if (valor == null) return '<span class="sem-dados">—</span>';
       if (valor === Infinity) return '∞';
       return valor.toFixed(casas);
+    }
+
+    // Cor de fundo da célula, derivada do percentil ENTRE AS DOMINANTES
+    // (não do geral — é a comparação relevante para "favorecimento", entre
+    // equipas do mesmo nível). Só pinta os extremos (P80+/P20-), com
+    // intensidade proporcional a quão extremo é.
+    function corFundoCelula(pDom, favoreceQuando) {
+      if (pDom == null) return null;
+      if (favoreceQuando === 'alto' && pDom >= 80) {
+        const forca = (pDom - 80) / 20;
+        return 'background:rgba(224,128,128,' + (0.12 + forca * 0.38).toFixed(2) + ');';
+      }
+      if (favoreceQuando === 'baixo' && pDom <= 20) {
+        const forca = (20 - pDom) / 20;
+        return 'background:rgba(111,191,115,' + (0.12 + forca * 0.38).toFixed(2) + ');';
+      }
+      return null;
     }
 
     function equipasDestaque(dados) {
@@ -1326,6 +1360,11 @@
       });
     }
 
+    // Tabela transposta: uma equipa por linha, uma métrica por coluna — menos
+    // largura total do que métricas em linha (18 colunas antes, 10 agora), e
+    // as 18 linhas deslizam-se verticalmente, que é scroll natural numa
+    // página. Trocado a pedido do João em 2026-09-06, depois de testar a
+    // versão com métricas em linha.
     function renderizarNumeros(dados) {
       const tabela = document.getElementById('tabela-numeros');
       const todasEquipas = Object.values(dados.equipas);
@@ -1335,32 +1374,33 @@
         destaque.length + ' equipas em destaque, comparadas com ' + todasEquipas.length +
         ' equipas seguidas no total nas 6 ligas.';
 
-      let html = '<thead><tr><th class="col-metrica">Métrica</th>';
-      destaque.forEach(eq => {
-        html += '<th class="' + (eq.grande ? 'equipa-grande' : '') + '">' + eq.nome +
-          '<br><span style="font-weight:400;text-transform:none;">' + eq.liga + '</span></th>';
+      const valoresPorMetrica = METRICAS_NUMEROS.map(m => ({
+        dom: destaque.map(m.calcular),
+        geral: todasEquipas.map(m.calcular),
+      }));
+
+      let html = '<thead><tr><th class="col-fixa">Equipa</th><th>Jogos</th>';
+      METRICAS_NUMEROS.forEach(m => {
+        html += '<th' + (m.nota ? ' title="' + m.nota + '"' : '') + '>' + m.rotuloCurto +
+          (m.nota ? ' <span class="sem-dados">†</span>' : '') + '</th>';
       });
       html += '</tr></thead><tbody>';
 
-      html += '<tr><td class="col-metrica">Jogos analisados</td>';
-      destaque.forEach(eq => { html += '<td>' + eq.jogos_analisados + '</td>'; });
-      html += '</tr>';
+      destaque.forEach(eq => {
+        html += '<tr><td class="col-fixa' + (eq.grande ? ' equipa-grande' : '') + '">' + eq.nome +
+          '<br><span style="font-weight:400;text-transform:none;color:var(--cor-texto-fraco);">' + eq.liga + '</span></td>';
+        html += '<td>' + eq.jogos_analisados + '</td>';
 
-      METRICAS_NUMEROS.forEach(metrica => {
-        const valoresDestaque = destaque.map(metrica.calcular);
-        const valoresTodos = todasEquipas.map(metrica.calcular);
-        html += '<tr>';
-        html += '<td class="col-metrica' + (metrica.destaque ? ' grupo-grande' : '') + '"' +
-          (metrica.nota ? ' title="' + metrica.nota + '"' : '') + '>' + metrica.rotulo +
-          (metrica.nota ? ' <span class="sem-dados">†</span>' : '') + '</td>';
-        destaque.forEach(eq => {
-          const valor = metrica.calcular(eq);
-          const fraca = valor != null && metrica.fraca && metrica.fraca(eq);
-          html += '<td><div class="valor">' + formatarValorNumeros(valor, metrica.casas) +
+        METRICAS_NUMEROS.forEach((m, i) => {
+          const valor = m.calcular(eq);
+          const fraca = valor != null && m.fraca && m.fraca(eq);
+          const pDom = percentil(valor, valoresPorMetrica[i].dom);
+          const pGeral = percentil(valor, valoresPorMetrica[i].geral);
+          const cor = valor != null ? corFundoCelula(pDom, m.favoreceQuando) : null;
+          html += '<td' + (cor ? ' style="' + cor + '"' : '') + '>';
+          html += '<div class="valor">' + formatarValorNumeros(valor, m.casas) +
             (fraca ? ' <span class="aviso-fraca" title="Amostra pequena — percentil pouco fiável">⚠</span>' : '') + '</div>';
           if (valor != null) {
-            const pDom = percentil(valor, valoresDestaque);
-            const pGeral = percentil(valor, valoresTodos);
             html += '<div class="percentis">P' + (pDom ?? '–') + ' dom · P' + (pGeral ?? '–') + ' geral</div>';
           }
           html += '</td>';

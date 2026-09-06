@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-09-05
+Última atualização: 2026-09-06
 
 ---
 
@@ -758,6 +758,51 @@ ser avaliadas.
 três grandes/dominantes. O número calcula-se e mostra-se, mas com esta
 limitação ao lado, e o rácio de assimetria não se apresenta como a métrica
 mais confiável do conjunto por causa disto.
+
+### A apresentação no site — vista "Números" (Entregável 1, 2026-09-06)
+
+**Uma equipa por linha, uma métrica por coluna** — não o contrário. A
+primeira versão pôs as métricas em linha (9-10 linhas) e as equipas em
+coluna (18 colunas), testada e aprovada pelo João, mas com scroll horizontal
+incómodo. Invertida a pedido dele: menos colunas (10 métricas em vez de 18
+equipas) do lado que precisa de scroll lateral, e as 18 linhas deslizam-se
+verticalmente — scroll natural de página, sem affordance especial.
+
+**Percentil = percentagem de equipas com valor estritamente menor.** Pedido
+explícito do João, 2026-09-06: a equipa com o valor mais alto de um grupo de
+100 fica no P99, não no P100 — porque há 99 equipas *abaixo* dela, não
+porque ela "é o máximo". P99 lê-se "quase ninguém acima desta equipa", nunca
+"o valor mais alto que existe". Implementado em `percentil()` no
+`index.html`, contando valores `< este` (não `<=`) sobre o total.
+
+**Preenchimento a cores (vermelho/verde), por percentil entre as
+dominantes** (nunca o geral — a comparação relevante para "favorecimento" é
+entre equipas do mesmo nível): cada métrica tem uma direção fixa de
+"quando é que um valor extremo sugere favorecimento", e só se pinta NESSE
+sentido — nunca os dois ao mesmo tempo na mesma métrica.
+
+| Métrica | Extremo que sugere favorecimento | Cor |
+|---|---|---|
+| 1. Faltas cometidas por amarelo | Alto (falta muito, leva poucos cartões) | Vermelho |
+| 2. Faltas sofridas por amarelo ao adversário | Baixo (adversário é castigado depressa por lhe fazer falta) | Verde |
+| 3. Rácio de assimetria (1÷2) | Alto | Vermelho |
+| 4a. Amarelos a favor/jogo | Alto (adversário castigado mais) | Vermelho |
+| 4b. Amarelos contra/jogo | Baixo (equipa própria poupada) | Verde |
+| 5. Segundos amarelos/jogo | Baixo | Verde |
+| 6. Vermelhos/jogo | Baixo | Verde |
+| 7. Penáltis a favor/remate na área | Alto | Vermelho |
+| 8. Penáltis contra/remate sofrido na área | Baixo | Verde |
+| 9. Rácio de penáltis (a favor÷contra) | Alto | Vermelho |
+
+Só se pinta nos extremos (P80+ para vermelho, P20- para verde), com
+intensidade proporcional a quão extremo é — não é tudo-ou-nada. Esta tabela
+de direções é uma escolha interpretativa (a mesma lógica em toda a
+"família": "a favor" alto e "contra" baixo favorecem sempre a equipa), e
+fica declarada aqui e no próprio site, não escondida no código.
+
+**Aviso para quem mexer nisto no futuro:** a cor é só um ponto de partida
+visual, não uma acusação — o próprio texto do site diz isto explicitamente.
+Nunca remover essa frase ao editar a página.
 
 ### Fonte de dados: Highlightly, plano gratuito
 
