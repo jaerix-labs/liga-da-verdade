@@ -244,6 +244,103 @@
     font-size: 0.8rem;
   }
 
+  .numeros {
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    font-size: 0.92rem;
+  }
+
+  .numeros p {
+    margin: 0 0 1rem;
+  }
+
+  .numeros-scroll {
+    max-width: 76rem;
+    margin: 0 auto 1rem;
+    overflow-x: auto;
+  }
+
+  table.tabela-numeros {
+    width: auto;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.82rem;
+  }
+
+  table.tabela-numeros th, table.tabela-numeros td {
+    padding: 0.5rem 0.65rem;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-linha);
+    white-space: nowrap;
+  }
+
+  table.tabela-numeros th.col-metrica, table.tabela-numeros td.col-metrica {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    text-align: left;
+    white-space: normal;
+    min-width: 12rem;
+    max-width: 12rem;
+    background: var(--cor-cabecalho);
+  }
+
+  table.tabela-numeros thead th {
+    background: var(--cor-cabecalho);
+    color: var(--cor-texto-fraco);
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  table.tabela-numeros thead th.col-metrica {
+    z-index: 3;
+  }
+
+  table.tabela-numeros th.equipa-grande, table.tabela-numeros td.col-metrica.grupo-grande {
+    color: var(--cor-destaque);
+  }
+
+  table.tabela-numeros .valor {
+    font-weight: 700;
+  }
+
+  table.tabela-numeros .percentis {
+    font-size: 0.7rem;
+    color: var(--cor-texto-fraco);
+    white-space: nowrap;
+  }
+
+  table.tabela-numeros .sem-dados {
+    color: var(--cor-texto-fraco);
+    font-weight: 400;
+  }
+
+  tr.linha-fraca .col-metrica {
+    opacity: 0.75;
+  }
+
+  tr.linha-fraca td:not(.col-metrica) {
+    opacity: 0.6;
+  }
+
+  .aviso-fraca {
+    color: var(--cor-destaque);
+  }
+
+  .legenda-numeros {
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+    color: var(--cor-texto-fraco);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
   .tabela-percurso td.celula-jogo {
     cursor: pointer;
     text-align: center;
@@ -291,6 +388,7 @@
     <nav class="nav-principal">
       <a href="#classificacoes" id="link-classificacoes">Classificações</a>
       <a href="#metodo" id="link-metodo">Método</a>
+      <a href="#numeros" id="link-numeros">Números</a>
     </nav>
   </header>
 
@@ -501,6 +599,54 @@
       parâmetro — estão públicos no GitHub, com o histórico completo de
       alterações. Não há Excel escondido, não há cálculo feito à parte: o
       que se vê aqui é o que corre no browser.
+    </p>
+  </div>
+
+  <div id="vista-numeros" class="numeros" style="display:none;">
+    <h2>O que é isto</h2>
+    <p>
+      Uma análise puramente estatística à forma como Benfica, FC Porto e
+      Sporting são arbitrados, comparados com equipas dominantes de outras
+      ligas — a lógica do xG: métricas objetivas, não juízo próprio, sem
+      opinião de analistas. <strong>Não prova favorecimento</strong> — mostra
+      anomalias, e deixa quem lê tirar conclusões.
+    </p>
+    <p>
+      Compara-se com equipas <strong>dominantes</strong>, não com a liga
+      inteira: uma equipa que domina faz menos faltas táticas e leva menos
+      cartões só por isso. Comparar com outros dominantes neutraliza esse
+      efeito. Cada métrica mostra dois percentis — contra as 18 equipas
+      dominantes, e contra todas as equipas das 6 ligas. Uma diferença grande
+      entre os dois é, em si, informação: sinal de que a métrica está a medir
+      domínio, não arbitragem.
+    </p>
+    <p class="aviso" id="aviso-numeros" style="text-align:left; margin:0 0 1rem;"></p>
+
+    <div class="numeros-scroll">
+      <table class="tabela-numeros" id="tabela-numeros"></table>
+    </div>
+
+    <p class="legenda-numeros">
+      <span class="aviso-fraca">⚠</span> marca uma métrica com amostra
+      pequena de mais para o percentil ser fiável (ex.: 1-2 cartões vermelhos
+      numa época ainda curta) — mostra-se sempre, nunca se esconde, mas com o
+      aviso ao lado (ver Método). "P dom" = percentil entre as 18 equipas
+      dominantes; "P geral" = percentil entre todas as equipas das 6 ligas.
+      Células sem número não têm jogos ou incidentes suficientes para
+      calcular o rácio. <span class="sem-dados">†</span> — "faltas sofridas
+      por amarelo mostrado ao adversário" agrega o comportamento de até 17
+      adversários diferentes, que podem jogar de forma particular contra as
+      equipas em destaque; por isso o rácio de assimetria não se apresenta
+      como a métrica mais confiável do conjunto.
+    </p>
+
+    <h2>Fora desta tabela, e porquê</h2>
+    <p>
+      Golos anulados e intervenções do VAR ficam de fora: a cobertura destes
+      dois campos é desigual entre ligas, segundo a própria documentação da
+      fonte — não é escolha nossa, é ausência de dados fiáveis. Tempo de
+      compensação não tem campo nenhum em nenhuma fonte gratuita testada. Se
+      a cobertura melhorar, voltam a ser avaliados.
     </p>
   </div>
 
@@ -1113,24 +1259,194 @@
       fixar('p-dez-sofrer', EFEITO_DEZ_SOFRER.toFixed(2));
     }
 
-    // ---- Navegação entre "Classificações" e "Método" (sem recarregar a página) ----
-    function mostrarVista(nome) {
-      document.getElementById('vista-normal').style.display = nome === 'metodo' ? 'none' : '';
-      document.getElementById('vista-metodo').style.display = nome === 'metodo' ? '' : 'none';
-      document.getElementById('link-classificacoes').classList.toggle('ativo', nome !== 'metodo');
-      document.getElementById('link-metodo').classList.toggle('ativo', nome === 'metodo');
+    // ---- Segunda Parte: "Números" (Entregável 1 — esqueleto com dados de
+    // exemplo). O Entregável 2 substitui DADOS_EXEMPLO_NUMEROS por um fetch a
+    // dados/estatisticas-2026-27.json, com a mesma forma (ver CLAUDE.md,
+    // secção 16, e scripts/recolher_estatisticas.py). ----
+
+    function faltasPorAmarelo(eq) {
+      return eq.amarelos_propria_equipa > 0 ? eq.faltas_cometidas / eq.amarelos_propria_equipa : null;
+    }
+    function faltasSofridasPorAmareloAdversario(eq) {
+      return eq.amarelos_adversario > 0 ? eq.faltas_sofridas / eq.amarelos_adversario : null;
     }
 
-    document.getElementById('link-classificacoes').addEventListener('click', (e) => {
-      e.preventDefault();
-      location.hash = 'classificacoes';
-      mostrarVista('classificacoes');
-    });
-    document.getElementById('link-metodo').addEventListener('click', (e) => {
-      e.preventDefault();
-      location.hash = 'metodo';
-      mostrarVista('metodo');
-    });
+    const METRICAS_NUMEROS = [
+      { rotulo: 'Faltas cometidas por amarelo recebido', casas: 2, calcular: faltasPorAmarelo },
+      {
+        rotulo: 'Faltas sofridas por amarelo mostrado ao adversário', casas: 2,
+        nota: 'Agrega o comportamento de até 17 adversários diferentes — não é a métrica mais fiável do conjunto.',
+        calcular: faltasSofridasPorAmareloAdversario,
+      },
+      {
+        rotulo: 'Rácio de assimetria (1 ÷ 2) — a mais importante do conjunto', casas: 2, destaque: true,
+        calcular: eq => {
+          const a = faltasPorAmarelo(eq), b = faltasSofridasPorAmareloAdversario(eq);
+          return (a != null && b) ? a / b : null;
+        },
+      },
+      { rotulo: 'Amarelos a favor por jogo (ao adversário)', casas: 2, calcular: eq => eq.jogos_analisados ? eq.amarelos_adversario / eq.jogos_analisados : null },
+      { rotulo: 'Amarelos contra por jogo (à própria equipa)', casas: 2, calcular: eq => eq.jogos_analisados ? eq.amarelos_propria_equipa / eq.jogos_analisados : null },
+      {
+        rotulo: 'Segundos amarelos por jogo (própria equipa)', casas: 2,
+        calcular: eq => eq.jogos_analisados ? eq.segundo_amarelo_propria_equipa / eq.jogos_analisados : null,
+        fraca: eq => eq.segundo_amarelo_propria_equipa < 3,
+      },
+      {
+        rotulo: 'Vermelhos por jogo (própria equipa)', casas: 2,
+        calcular: eq => eq.jogos_analisados ? eq.vermelhos_propria_equipa / eq.jogos_analisados : null,
+        fraca: eq => eq.vermelhos_propria_equipa < 3,
+      },
+      { rotulo: 'Penáltis a favor por remate dentro da área', casas: 3, calcular: eq => eq.remates_area_propria ? eq.penaltis_a_favor / eq.remates_area_propria : null },
+      { rotulo: 'Penáltis contra por remate sofrido dentro da área', casas: 3, calcular: eq => eq.remates_area_adversario ? eq.penaltis_contra / eq.remates_area_adversario : null },
+      {
+        rotulo: 'Rácio de penáltis (a favor ÷ contra)', casas: 2,
+        calcular: eq => eq.penaltis_contra > 0 ? eq.penaltis_a_favor / eq.penaltis_contra : (eq.penaltis_a_favor > 0 ? Infinity : null),
+      },
+    ];
+
+    function percentil(valor, valores) {
+      if (valor == null || !isFinite(valor)) return null;
+      const validos = valores.filter(v => v != null && isFinite(v));
+      if (validos.length === 0) return null;
+      return Math.round((validos.filter(v => v <= valor).length / validos.length) * 100);
+    }
+
+    function formatarValorNumeros(valor, casas) {
+      if (valor == null) return '<span class="sem-dados">—</span>';
+      if (valor === Infinity) return '∞';
+      return valor.toFixed(casas);
+    }
+
+    function equipasDestaque(dados) {
+      return Object.values(dados.equipas).filter(eq => eq.grande || eq.top3_atualmente).sort((a, b) => {
+        if (a.grande !== b.grande) return a.grande ? -1 : 1;
+        if (a.liga !== b.liga) return a.liga.localeCompare(b.liga);
+        return a.nome.localeCompare(b.nome);
+      });
+    }
+
+    function renderizarNumeros(dados) {
+      const tabela = document.getElementById('tabela-numeros');
+      const todasEquipas = Object.values(dados.equipas);
+      const destaque = equipasDestaque(dados);
+
+      document.getElementById('aviso-numeros').textContent =
+        destaque.length + ' equipas em destaque, comparadas com ' + todasEquipas.length +
+        ' equipas seguidas no total nas 6 ligas.';
+
+      let html = '<thead><tr><th class="col-metrica">Métrica</th>';
+      destaque.forEach(eq => {
+        html += '<th class="' + (eq.grande ? 'equipa-grande' : '') + '">' + eq.nome +
+          '<br><span style="font-weight:400;text-transform:none;">' + eq.liga + '</span></th>';
+      });
+      html += '</tr></thead><tbody>';
+
+      html += '<tr><td class="col-metrica">Jogos analisados</td>';
+      destaque.forEach(eq => { html += '<td>' + eq.jogos_analisados + '</td>'; });
+      html += '</tr>';
+
+      METRICAS_NUMEROS.forEach(metrica => {
+        const valoresDestaque = destaque.map(metrica.calcular);
+        const valoresTodos = todasEquipas.map(metrica.calcular);
+        html += '<tr>';
+        html += '<td class="col-metrica' + (metrica.destaque ? ' grupo-grande' : '') + '"' +
+          (metrica.nota ? ' title="' + metrica.nota + '"' : '') + '>' + metrica.rotulo +
+          (metrica.nota ? ' <span class="sem-dados">†</span>' : '') + '</td>';
+        destaque.forEach(eq => {
+          const valor = metrica.calcular(eq);
+          const fraca = valor != null && metrica.fraca && metrica.fraca(eq);
+          html += '<td><div class="valor">' + formatarValorNumeros(valor, metrica.casas) +
+            (fraca ? ' <span class="aviso-fraca" title="Amostra pequena — percentil pouco fiável">⚠</span>' : '') + '</div>';
+          if (valor != null) {
+            const pDom = percentil(valor, valoresDestaque);
+            const pGeral = percentil(valor, valoresTodos);
+            html += '<div class="percentis">P' + (pDom ?? '–') + ' dom · P' + (pGeral ?? '–') + ' geral</div>';
+          }
+          html += '</td>';
+        });
+        html += '</tr>';
+      });
+
+      tabela.innerHTML = html + '</tbody>';
+    }
+
+    // Dados de EXEMPLO, gerados com um gerador determinístico (não Math.random,
+    // para o esqueleto ficar reprodutível) — por substituir por dados reais.
+    function gerarEquipaExemplo(seed, nome, liga, grande, top3) {
+      let s = seed;
+      const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+      const entre = (min, max) => min + rnd() * (max - min);
+      return {
+        nome, liga, grande, top3_atualmente: top3 || grande,
+        jogos_analisados: Math.round(entre(3, 6)),
+        faltas_cometidas: Math.round(entre(35, 78)),
+        faltas_sofridas: Math.round(entre(35, 78)),
+        amarelos_propria_equipa: Math.max(1, Math.round(entre(1, 12))),
+        amarelos_adversario: Math.max(1, Math.round(entre(1, 12))),
+        segundo_amarelo_propria_equipa: Math.round(entre(0, 2)),
+        segundo_amarelo_adversario: Math.round(entre(0, 2)),
+        vermelhos_propria_equipa: rnd() < 0.2 ? 1 : 0,
+        vermelhos_adversario: rnd() < 0.2 ? 1 : 0,
+        remates_area_propria: Math.round(entre(14, 46)),
+        remates_area_adversario: Math.round(entre(9, 36)),
+        penaltis_a_favor: Math.round(entre(0, 3)),
+        penaltis_contra: Math.round(entre(0, 3)),
+        ultima_atualizacao: null,
+      };
+    }
+
+    const DADOS_EXEMPLO_NUMEROS = { equipas: {} };
+    (function construirExemplo() {
+      const equipas = DADOS_EXEMPLO_NUMEROS.equipas;
+      let id = 1;
+      const add = (nome, liga, grande, top3) => {
+        equipas[id] = gerarEquipaExemplo(id * 97 + 13, nome, liga, grande, top3);
+        id++;
+      };
+
+      add('Benfica', 'Primeira Liga', true, false);
+      add('FC Porto', 'Primeira Liga', true, false);
+      add('Sporting CP', 'Primeira Liga', true, false);
+
+      const topoOutrasLigas = {
+        'Premier League': ['Manchester City', 'Arsenal', 'Liverpool'],
+        'La Liga': ['Real Madrid', 'Barcelona', 'Atlético Madrid'],
+        'Serie A': ['Inter', 'Juventus', 'Nápoles'],
+        'Bundesliga': ['Bayern Munique', 'Bayer Leverkusen', 'RB Leipzig'],
+        'Ligue 1': ['Paris SG', 'Marselha', 'Mónaco'],
+      };
+      Object.entries(topoOutrasLigas).forEach(([liga, nomes]) => {
+        nomes.forEach(nome => add(nome, liga, false, true));
+      });
+
+      // Fora de destaque — só para a pool do "percentil geral" ter mais gente.
+      ['Vitória SC', 'Getafe', 'Torino', 'Werder Bremen', 'Lyon', 'Fulham'].forEach(nome => {
+        add(nome, 'outra', false, false);
+      });
+    })();
+
+    // ---- Navegação entre "Classificações", "Método" e "Números" (sem recarregar a página) ----
+    function mostrarVista(nome) {
+      document.getElementById('vista-normal').style.display = nome === 'classificacoes' ? '' : 'none';
+      document.getElementById('vista-metodo').style.display = nome === 'metodo' ? '' : 'none';
+      document.getElementById('vista-numeros').style.display = nome === 'numeros' ? '' : 'none';
+      document.getElementById('link-classificacoes').classList.toggle('ativo', nome === 'classificacoes');
+      document.getElementById('link-metodo').classList.toggle('ativo', nome === 'metodo');
+      document.getElementById('link-numeros').classList.toggle('ativo', nome === 'numeros');
+    }
+
+    function irParaVista(nome) {
+      return (e) => {
+        e.preventDefault();
+        location.hash = nome;
+        mostrarVista(nome);
+      };
+    }
+
+    document.getElementById('link-classificacoes').addEventListener('click', irParaVista('classificacoes'));
+    document.getElementById('link-metodo').addEventListener('click', irParaVista('metodo'));
+    document.getElementById('link-numeros').addEventListener('click', irParaVista('numeros'));
 
     function renderizarPercurso(dados) {
       const conteudo = document.getElementById('conteudo-percurso');
@@ -1223,11 +1539,14 @@
       document.querySelector('.nav-principal').style.display = 'none';
       document.getElementById('vista-normal').style.display = 'none';
       document.getElementById('vista-metodo').style.display = 'none';
+      document.getElementById('vista-numeros').style.display = 'none';
       document.getElementById('vista-testes').style.display = 'block';
       renderizarTestes();
     } else {
       renderizarMetodo();
-      mostrarVista(location.hash === '#metodo' ? 'metodo' : 'classificacoes');
+      renderizarNumeros(DADOS_EXEMPLO_NUMEROS);
+      const hash = location.hash.replace('#', '');
+      mostrarVista(['metodo', 'numeros'].includes(hash) ? hash : 'classificacoes');
       carregarTudo();
     }
   </script>
