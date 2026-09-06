@@ -823,9 +823,9 @@ mesmo ao longo do tempo, nunca contra uma fonte externa).
 
 ### Arquitetura — acréscimo autorizado pelo João em 2026-09-04
 
-- **GitHub Actions** corre o script **duas vezes por semana** (segunda e
-  quinta de manhã — subiu de uma vez só depois de passar a recolher todas as
-  equipas, não só 18) e sob pedido manual (`workflow_dispatch`).
+- **GitHub Actions** corre o script **todos os dias de manhã** (subiu de
+  1x/semana → 2x/semana → diário, à medida que o âmbito da recolha cresceu —
+  ver "Volume de pedidos") e sob pedido manual (`workflow_dispatch`).
 - **Secret `HIGHLIGHTLY_KEY`** nos GitHub Secrets — única exceção à regra
   "não há segredos neste projeto" (secção 4), autorizada explicitamente para
   esta funcionalidade. Nunca vai para o `index.html` nem para o repositório.
@@ -833,12 +833,31 @@ mesmo ao longo do tempo, nunca contra uma fonte externa).
   lado de quem visita. O script escreve `dados/estatisticas-2026-27.json`.
 - `scripts/recolher_estatisticas.py`: recolha **incremental e resumível** —
   nunca perde progresso, mesmo a meio de um erro (grava sempre no `finally`).
+- **A ordem das 6 ligas roda por dia do ano** (`ligas_rotacionadas()`), para
+  que nenhuma fique sistematicamente esquecida quando o orçamento diário não
+  chega para todas — foi exatamente o que aconteceu na primeira corrida real
+  (só a Primeira Liga foi tocada, por ser sempre a primeira da lista).
+- **Cada equipa guarda `ultima_atualizacao`** (a mais recente das datas em
+  que algum dos seus jogos foi confirmado pela API). O site tem de mostrar
+  isto — nunca fingir que os dados estão sempre frescos (D35): com uma
+  recolha diária e incremental, uma equipa pode legitimamente ficar alguns
+  dias sem atualização se o orçamento se esgotar antes de lá chegar.
 - **`.github/workflows/estatisticas.yml`**: o passo de commit+push corre
   sempre (`if: always()`), mesmo que a recolha falhe a meio — sem isto, o
   progresso parcial gravado no disco do runner perdia-se por nunca ser
   publicado (bug apanhado na primeira corrida real, 2026-09-05).
 
-### Volume de pedidos (revisto em 2026-09-05, depois de alargar às ~114 equipas)
+**Rejeitado: uma segunda chave de API para duplicar a quota.** O João
+propôs isto para acelerar o preenchimento inicial. Não avançou por duas
+razões: (1) é o padrão clássico de contornar o limite gratuito de um
+serviço, normalmente proibido nos termos de utilização — arriscar as duas
+contas banidas por uma coisa que nem é preciso, num projeto que se
+apresenta como auditável e correto; (2) correndo uma vez por dia (em vez de
+1-2x/semana), uma única chave já resolve o problema — o preenchimento
+inicial passa a demorar dias, não semanas, e o ritmo de cruzeiro cabe
+folgadamente numa corrida diária. Ver "Volume de pedidos" abaixo.
+
+### Volume de pedidos (revisto em 2026-09-06, depois de passar a correr diariamente)
 
 Uma liga de 20 equipas tem 380 jogos por época (ida e volta); uma de 18 tem
 306. Nas 6 ligas: **2058 jogos por época**, 2 pedidos cada (estatísticas +
@@ -847,21 +866,24 @@ sendo jogada — nunca tudo de uma vez.
 
 - **Preenchimento do que já foi jogado até agora:** as ligas estão em pontos
   diferentes (Portugal na jornada 4, Inglaterra só na 2, por exemplo).
-  Estimativa grosseira: **200 a 500 pedidos**, ou seja **3 a 6 dias** de
-  corridas a 90 pedidos/dia.
+  Estimativa grosseira: **200 a 500 pedidos**, ou seja **4-5 dias** de
+  corridas diárias a até 90 pedidos/dia.
 - **Ritmo de cruzeiro, depois de apanhado o atraso:** ~100-115 pedidos por
   semana (as 114 equipas juntas jogam por volta de 50-57 jogos por semana,
-  quando todas as 6 ligas têm jornada). É **à justa** do limite diário — daí
-  a corrida ter passado a duas vezes por semana, para nunca se aproximar do
-  limite numa só corrida.
+  quando todas as 6 ligas têm jornada) — isto é, **~15-20 pedidos/dia em
+  média**, bem dentro do limite diário de 100 numa corrida só por dia.
 - Isto está bem mais apertado do que os cálculos iniciais (feitos só para 18
   equipas, com muita folga). Se o Highlightly alguma vez apertar o plano
   gratuito, é aqui que se sente primeiro.
 
-### Estado atual (2026-09-05)
+### Estado atual (2026-09-06)
 
-Script reescrito para recolher todas as equipas das 6 ligas (não só as 18
-em destaque) e workflow publicados; a funcionar mecanicamente (autenticação,
-paginação, deteção de equipas, cálculo de deltas) mas **ainda sem uma
-corrida completa de ponta a ponta com o desenho novo** — a testar a seguir.
-**Preenchimento inicial ainda não concluído.**
+Primeira corrida real completa: 20 equipas da Primeira Liga com dados reais
+(Benfica, FC Porto, Sporting incluídos), 90 pedidos gastos, sem avisos de
+dados estranhos. Duas correções feitas depois de ver os números reais: (1)
+a marcação `grande` aparecia `False` para os 3 grandes porque estava presa
+à mesma chamada de classificação que precisa de pedido — passou a
+calcular-se sempre, sem pedido nenhum, por nome + liga; (2) rotação diária
+das ligas e campo `ultima_atualizacao`, para o preenchimento não ficar preso
+à mesma liga todos os dias. **Preenchimento inicial ainda em curso** —
+faltam as outras 5 ligas.

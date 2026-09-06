@@ -182,18 +182,27 @@ def equipa_vazia(nome, liga_nome):
         "top3_atualmente": False,
         "jogos_processados": {},
         "jogos_analisados": 0,
+        "ultima_atualizacao": None,
     }
     base.update(_delta_vazio())
     return base
 
 
 def recalcular_totais(equipa):
+    """Soma os deltas guardados e deriva "ultima_atualizacao" (a mais recente
+    das datas "revisto_em" dos seus jogos) — para o site poder dizer com
+    verdade há quanto tempo os números desta equipa foram confirmados,
+    em vez de fingir que está tudo sempre fresco (D35)."""
     totais = _delta_vazio()
+    ultima = None
     for entrada in equipa["jogos_processados"].values():
         for campo, valor in entrada["delta"].items():
             totais[campo] += valor
+        if ultima is None or entrada["revisto_em"] > ultima:
+            ultima = entrada["revisto_em"]
     equipa.update(totais)
     equipa["jogos_analisados"] = len(equipa["jogos_processados"])
+    equipa["ultima_atualizacao"] = ultima
 
 
 def main():
@@ -209,13 +218,22 @@ def main():
         print(f"Gravado em {SAIDA} ({pedidos_feitos} pedidos usados nesta corrida) — mesmo que a corrida tenha parado a meio por erro.")
 
 
+def ligas_rotacionadas():
+    """Muda qual liga começa a fila em cada dia (dia do ano % 6 ligas), para
+    que nenhuma fique sistematicamente por servir quando o orçamento diário
+    não chega para todas — ver CLAUDE.md, Segunda Parte."""
+    itens = list(LIGAS.items())
+    deslocamento = int(time.strftime("%j")) % len(itens)
+    return itens[deslocamento:] + itens[:deslocamento]
+
+
 def processar_tudo(dados, equipas):
     """Processa TODAS as equipas das 6 ligas — não só as 18 seguidas. O
     top-3/"grande" é uma marcação calculada no fim (atualizar_marcacoes_top3),
     não um filtro do que se recolhe. Ver CLAUDE.md, Segunda Parte, D36: sem
     isto não há como calcular o percentil "contra todas as equipas"."""
     fixtures_por_liga = {}
-    for liga_id in LIGAS:
+    for liga_id, _ in ligas_rotacionadas():
         if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
             break
         fixtures_por_liga[liga_id] = fixtures_terminados(liga_id)
