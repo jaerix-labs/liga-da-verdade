@@ -264,10 +264,16 @@ def processar_tudo(dados, equipas):
 
 
 def atualizar_marcacoes_top3(equipas):
-    """Recalcula, por liga, quem é "grande" (fixo, os 3 de sempre) e quem está
-    no top-3 atual (móvel, D36). Se uma liga não responder por falta de
-    orçamento nesta corrida, mantém-se a marcação da corrida anterior — nunca
-    se apaga uma marcação por engano só porque a corrida ficou sem pedidos."""
+    """"Grande" nunca depende de pedidos à API — é só nome + liga, sempre
+    recalculável de graça. O top-3 atual (móvel, D36) já precisa da
+    classificação; se uma liga não responder por falta de orçamento nesta
+    corrida, mantém-se a marcação da corrida anterior — nunca se apaga uma
+    marcação por engano só porque a corrida ficou sem pedidos."""
+    for equipa in equipas.values():
+        equipa["grande"] = equipa.get("liga") == LIGAS[LIGA_GRANDES] and any(
+            alvo.lower() in equipa["nome"].lower() for alvo in NOMES_GRANDES
+        )
+
     for liga_id, liga_nome in LIGAS.items():
         ids_top3 = top3_liga(liga_id)
         if ids_top3 is None:
@@ -275,9 +281,7 @@ def atualizar_marcacoes_top3(equipas):
         for chave, equipa in equipas.items():
             if equipa.get("liga") != liga_nome:
                 continue
-            eh_grande = liga_id == LIGA_GRANDES and any(alvo.lower() in equipa["nome"].lower() for alvo in NOMES_GRANDES)
-            equipa["grande"] = eh_grande
-            equipa["top3_atualmente"] = eh_grande or (int(chave) in ids_top3)
+            equipa["top3_atualmente"] = equipa["grande"] or (int(chave) in ids_top3)
 
 
 DIAS_MINIMO_PARA_REVISAO = 18
