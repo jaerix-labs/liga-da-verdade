@@ -3696,6 +3696,956 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j03-porto-arouca",
+      "jornada": 3,
+      "data": "2026-08-23",
+      "casa": "Porto",
+      "fora": "Arouca",
+      "resultado": {
+        "casa": 2,
+        "fora": 0
+      },
+      "arbitro": "João Pinheiro",
+      "var": "Manuel Mota",
+      "golos": [
+        {
+          "minuto": 53,
+          "equipa": "casa",
+          "marcador": "Alberto Costa",
+          "conta": false,
+          "incidente_relacionado": "2026-27-j03-porto-arouca-53"
+        },
+        {
+          "minuto": 59,
+          "equipa": "casa",
+          "marcador": "J. Kiwior",
+          "conta": false,
+          "incidente_relacionado": "2026-27-j03-porto-arouca-59"
+        },
+        {
+          "minuto": 67,
+          "equipa": "casa",
+          "marcador": "G. Veiga",
+          "conta": true
+        },
+        {
+          "minuto": 86,
+          "equipa": "casa",
+          "marcador": "B. Sainz",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j03-porto-arouca-17",
+          "minuto": "17",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Trezza, de forma tardia e negligente, derruba ostensivamente Zaidu, impedindo a sua progressão em ataque. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Trezza.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-30-31",
+          "minuto": "30-31",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Após um pontapé de canto, a bola bate no peito e resvala no braço esquerdo de Ivan Barbero, junto ao tronco e sem movimento deliberado. Árbitro não assinala penálti a favor do FC Porto.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-24",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-47",
+          "minuto": "47",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Fontán entra por trás com o pé firme sobre André Silva, num lance de jogo perigoso e antidesportivo. Árbitro assinala apenas livre, sem mostrar cartão amarelo a Fontán.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-53",
+          "minuto": "53",
+          "tipo": "golo_anulado",
+          "descricao": "Após pontapé de canto, Alberto Costa salta no interior da pequena área e carrega com o corpo e o braço sobre o guarda-redes Arruabarrena, tocando-lhe nos braços. Árbitro anula o golo de Alberto Costa por falta sobre o guarda-redes, com intervenção do VAR.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-24",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-25",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-25_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-59",
+          "minuto": "59",
+          "tipo": "golo_anulado",
+          "descricao": "No início da jogada, André Silva encontra-se em posição irregular e disputa a bola com um defesa do Arouca, tomando parte ativa antes do cruzamento que origina o golo de Jakub Kiwior. Árbitro anula o golo por fora de jogo, com intervenção do VAR.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-24",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-25",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-25_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-80",
+          "minuto": "80",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Um avançado do Arouca encosta-se a Jakub Kiwior no interior da área do FC Porto e deixa-se cair, sem que exista contacto ou infração real. Árbitro não assinala penálti a favor do Arouca.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-24",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-24",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-porto-arouca-90+4",
+          "minuto": "90+4",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Com a bola disputada no solo, Alberto Costa abre desnecessariamente o braço esquerdo na direção de José Fontán, acertando-lhe com a mão na cara, de forma deliberada e negligente. Árbitro assinala falta, sem mostrar cartão amarelo a Alberto Costa.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-24",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-24",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-24_porto_arouca_faustino_ferreira.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j03-sporting-alverca",
+      "jornada": 3,
+      "data": "2026-08-22",
+      "casa": "Sporting",
+      "fora": "Alverca",
+      "resultado": {
+        "casa": 3,
+        "fora": 1
+      },
+      "arbitro": "Fábio Veríssimo",
+      "var": "João Malheiro Pinto",
+      "golos": [
+        {
+          "minuto": 2,
+          "equipa": "casa",
+          "marcador": "M. Araújo",
+          "conta": true
+        },
+        {
+          "minuto": 55,
+          "equipa": "casa",
+          "marcador": "M. Mendes (autogolo)",
+          "conta": true
+        },
+        {
+          "minuto": 60,
+          "equipa": "casa",
+          "marcador": "L. J. Suárez",
+          "conta": true
+        },
+        {
+          "minuto": 88,
+          "equipa": "fora",
+          "marcador": "V. Moreira",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j03-sporting-alverca-16",
+          "minuto": "16",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Bojang deixa-se antecipar por Suárez e, após perder a bola na disputa, agarra e puxa-lhe a camisola de forma persistente e antidesportiva. Cartão amarelo mostrado a Bojang.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-17",
+          "minuto": "17",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Maxi Araújo estica o braço esquerdo e atinge o rosto de Vivaldo Semedo numa ação negligente e antidesportiva. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Maxi Araújo.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-25",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-25_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-22",
+          "minuto": "22",
+          "tipo": "expulsao_nao_mostrada",
+          "descricao": "Geny Catamo entra em tackle deslizante sobre Figueiredo, atingindo-o com a sola da chuteira na lateral do pé/tornozelo. Árbitro mostra cartão amarelo a Catamo. Os três analistas do O Jogo consideram que a entrada justificava vermelho (expulsão), não apenas amarelo.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-25-26",
+          "minuto": "25-26",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na sequência de um canto, Debast cai na área em disputa com Ian Luccas. Árbitro não assinala penálti a favor do Sporting.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-39",
+          "minuto": "39",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Davy Gui entra de forma frontal e fora de tempo, atingindo com a sola e os pitons o pé direito de Flávio Gonçalves. Cartão amarelo mostrado a Davy Gui.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-45+1",
+          "minuto": "45+1",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Luís Suárez carrega, de forma tardia e desproposetada, sobre Rayan Lucas, atingindo-lhe o tronco/corpo e derrubando-o. Árbitro assinala apenas o fim da primeira parte, sem mostrar cartão amarelo a Suárez.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-08-25",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-08-25_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-sporting-alverca-71-72",
+          "minuto": "71-72",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Remate de muito perto de Luís Suárez surge de forma inesperada e bate no cotovelo/braço de Yahya Bojang, que tinha o braço recolhido e junto ao corpo, em posição natural. Árbitro não assinala penálti a favor do Sporting.",
+          "resultado_antes": {
+            "casa": 3,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-23",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-23",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-23",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-08-23_sporting_alverca_record_faustino_ferreira.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
