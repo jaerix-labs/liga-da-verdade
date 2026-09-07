@@ -69,17 +69,20 @@ def carregar_existente():
     return {"epoca": "2026-27", "ligas": LIGAS, "equipas": {}}
 
 
-def top3_liga(liga_id):
+def posicoes_liga(liga_id):
     """None = sem orçamento/erro (o chamador deve manter a marcação anterior).
-    {} = pedido respondeu mas sem classificação utilizável."""
+    {} = pedido respondeu mas sem classificação utilizável. Devolve a posição
+    de TODAS as equipas da liga, não só o top-3 — o site mostra a posição
+    real ao lado do nome de cada equipa em destaque (D..., 2026-09-07),
+    inclusive Benfica/Porto/Sporting, que estão sempre em destaque
+    independentemente da posição."""
     classificacao = pedir("standings", {"leagueId": liga_id, "season": SEASON})
     if classificacao is None:
         return None
     grupos = classificacao.get("groups") or []
     if not grupos:
         return {}
-    tabela = sorted(grupos[0].get("standings", []), key=lambda linha: linha.get("position", 999))
-    return {linha["team"]["id"]: linha["team"]["name"] for linha in tabela[:3]}
+    return {linha["team"]["id"]: linha.get("position") for linha in grupos[0].get("standings", [])}
 
 
 def fixtures_terminados(liga_id):
@@ -180,6 +183,7 @@ def equipa_vazia(nome, liga_nome):
         "liga": liga_nome,
         "grande": False,
         "top3_atualmente": False,
+        "posicao": None,
         "jogos_processados": {},
         "jogos_analisados": 0,
         "ultima_atualizacao": None,
@@ -293,13 +297,16 @@ def atualizar_marcacoes_top3(equipas):
         )
 
     for liga_id, liga_nome in LIGAS.items():
-        ids_top3 = top3_liga(liga_id)
-        if ids_top3 is None:
+        posicoes = posicoes_liga(liga_id)
+        if posicoes is None:
             continue
         for chave, equipa in equipas.items():
             if equipa.get("liga") != liga_nome:
                 continue
-            equipa["top3_atualmente"] = equipa["grande"] or (int(chave) in ids_top3)
+            equipa_id = int(chave)
+            if equipa_id in posicoes and posicoes[equipa_id] is not None:
+                equipa["posicao"] = posicoes[equipa_id]
+            equipa["top3_atualmente"] = equipa["grande"] or (posicoes.get(equipa_id, 999) or 999) <= 3
 
 
 DIAS_MINIMO_PARA_REVISAO = 18

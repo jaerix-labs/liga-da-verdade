@@ -302,8 +302,19 @@
     z-index: 3;
   }
 
-  table.tabela-numeros .equipa-grande {
+  table.tabela-numeros .equipa-grande .nome-equipa {
     color: var(--cor-destaque);
+  }
+
+  table.tabela-numeros .nome-equipa {
+    font-weight: 700;
+  }
+
+  table.tabela-numeros .info-equipa {
+    font-weight: 400;
+    font-size: 0.68rem;
+    color: var(--cor-texto-fraco);
+    text-transform: none;
   }
 
   table.tabela-numeros .valor {
@@ -641,10 +652,12 @@
       dominantes; "P geral" = percentil entre todas as equipas das 6 ligas.
       Células sem número não têm jogos ou incidentes suficientes para
       calcular o rácio. <span class="sem-dados">†</span> — "faltas sofridas
-      por amarelo mostrado ao adversário" agrega o comportamento de até 17
+      por cartão mostrado ao adversário" agrega o comportamento de até 17
       adversários diferentes, que podem jogar de forma particular contra as
       equipas em destaque; por isso o rácio de assimetria não se apresenta
-      como a métrica mais confiável do conjunto.
+      como a métrica mais confiável do conjunto. "Cartão" junta amarelos e
+      vermelhos: um jogador expulso por segundo amarelo conta como 2
+      amarelos + 1 vermelho (3 cartões mostrados), não como 1 incidente.
     </p>
 
     <h2>Fora desta tabela, e porquê</h2>
@@ -1272,47 +1285,66 @@
     // dados/estatisticas-2026-27.json, com a mesma forma (ver CLAUDE.md,
     // secção 16, e scripts/recolher_estatisticas.py). ----
 
-    function faltasPorAmarelo(eq) {
-      return eq.amarelos_propria_equipa > 0 ? eq.faltas_cometidas / eq.amarelos_propria_equipa : null;
+    // "Cartões" generaliza amarelo+vermelho, contando cada cartão mostrado
+    // como uma unidade — mesmo quando o 2º amarelo e o vermelho consequente
+    // são o mesmo lance. Pedido do João, 2026-09-07: um jogador expulso por
+    // 2º amarelo "viu" 3 cartões para este cálculo (amarelo + amarelo +
+    // vermelho), não 1 incidente. Por isso o 2º amarelo conta a dobrar aqui
+    // — é diferente de como o script de recolha guarda os campos (que evita
+    // essa dupla contagem de propósito, para não confundir "cartão" com
+    // "incidente"), mas dá para reconstruir no browser sem mudar a recolha.
+    function cartoesPropria(eq) {
+      return eq.amarelos_propria_equipa + 2 * eq.segundo_amarelo_propria_equipa + eq.vermelhos_propria_equipa;
     }
-    function faltasSofridasPorAmareloAdversario(eq) {
-      return eq.amarelos_adversario > 0 ? eq.faltas_sofridas / eq.amarelos_adversario : null;
+    function cartoesAdversario(eq) {
+      return eq.amarelos_adversario + 2 * eq.segundo_amarelo_adversario + eq.vermelhos_adversario;
+    }
+    function faltasPorCartao(eq) {
+      const c = cartoesPropria(eq);
+      return c > 0 ? eq.faltas_cometidas / c : null;
+    }
+    function faltasSofridasPorCartaoAdversario(eq) {
+      const c = cartoesAdversario(eq);
+      return c > 0 ? eq.faltas_sofridas / c : null;
     }
 
     // favoreceQuando: 'alto' quando um valor alto desta métrica é o sinal de
     // possível favorecimento (preenche a vermelho no P dom alto); 'baixo'
     // quando é um valor baixo que é o sinal (preenche a verde no P dom
     // baixo). Ver CLAUDE.md, Segunda Parte, para a justificação de cada uma.
+    // Tabela simplificada a pedido do João em 2026-09-07: penáltis deixam de
+    // ser normalizados por remates (não achou a normalização informativa),
+    // e faltas/cartões generalizam amarelo+vermelho em vez de só amarelo.
     const METRICAS_NUMEROS = [
-      { rotulo: 'Faltas cometidas por amarelo recebido', rotuloCurto: 'Faltas/amarelo', casas: 2, favoreceQuando: 'alto', calcular: faltasPorAmarelo },
+      { rotulo: 'Faltas cometidas por cartão recebido', rotuloCurto: 'Faltas/cartão', casas: 2, favoreceQuando: 'alto', calcular: faltasPorCartao },
       {
-        rotulo: 'Faltas sofridas por amarelo mostrado ao adversário', rotuloCurto: 'Faltas sofr./amarelo adv.', casas: 2, favoreceQuando: 'baixo',
+        rotulo: 'Faltas sofridas por cartão mostrado ao adversário', rotuloCurto: 'Faltas sofr./cartão adv.', casas: 2, favoreceQuando: 'baixo',
         nota: 'Agrega o comportamento de até 17 adversários diferentes — não é a métrica mais fiável do conjunto.',
-        calcular: faltasSofridasPorAmareloAdversario,
+        calcular: faltasSofridasPorCartaoAdversario,
       },
       {
-        rotulo: 'Rácio de assimetria (1 ÷ 2) — a mais importante do conjunto', rotuloCurto: 'Assimetria (1÷2)', casas: 2, destaque: true, favoreceQuando: 'alto',
+        rotulo: 'Rácio de assimetria de cartões (1 ÷ 2) — a mais importante do conjunto', rotuloCurto: 'Assimetria cartões', casas: 2, destaque: true, favoreceQuando: 'alto',
         calcular: eq => {
-          const a = faltasPorAmarelo(eq), b = faltasSofridasPorAmareloAdversario(eq);
+          const a = faltasPorCartao(eq), b = faltasSofridasPorCartaoAdversario(eq);
           return (a != null && b) ? a / b : null;
         },
       },
-      { rotulo: 'Amarelos a favor por jogo (ao adversário)', rotuloCurto: 'Amarelo a favor/jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? eq.amarelos_adversario / eq.jogos_analisados : null },
-      { rotulo: 'Amarelos contra por jogo (à própria equipa)', rotuloCurto: 'Amarelo contra/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? eq.amarelos_propria_equipa / eq.jogos_analisados : null },
+      { rotulo: 'Cartões ao adversário por jogo (a favor)', rotuloCurto: 'Cartões adv./jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? cartoesAdversario(eq) / eq.jogos_analisados : null },
+      { rotulo: 'Cartões próprios por jogo (contra)', rotuloCurto: 'Cartões próprios/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? cartoesPropria(eq) / eq.jogos_analisados : null },
       {
-        rotulo: 'Segundos amarelos por jogo (própria equipa)', rotuloCurto: '2º amarelo/jogo', casas: 2, favoreceQuando: 'baixo',
-        calcular: eq => eq.jogos_analisados ? eq.segundo_amarelo_propria_equipa / eq.jogos_analisados : null,
-        fraca: eq => eq.segundo_amarelo_propria_equipa < 3,
-      },
-      {
-        rotulo: 'Vermelhos por jogo (própria equipa)', rotuloCurto: 'Vermelhos/jogo', casas: 2, favoreceQuando: 'baixo',
+        rotulo: 'Vermelhos próprios por jogo', rotuloCurto: 'Vermelhos próprios/jogo', casas: 2, favoreceQuando: 'baixo',
         calcular: eq => eq.jogos_analisados ? eq.vermelhos_propria_equipa / eq.jogos_analisados : null,
         fraca: eq => eq.vermelhos_propria_equipa < 3,
       },
-      { rotulo: 'Penáltis a favor por remate dentro da área', rotuloCurto: 'Pénalti a favor/remate', casas: 3, favoreceQuando: 'alto', calcular: eq => eq.remates_area_propria ? eq.penaltis_a_favor / eq.remates_area_propria : null },
-      { rotulo: 'Penáltis contra por remate sofrido dentro da área', rotuloCurto: 'Pénalti contra/remate', casas: 3, favoreceQuando: 'baixo', calcular: eq => eq.remates_area_adversario ? eq.penaltis_contra / eq.remates_area_adversario : null },
       {
-        rotulo: 'Rácio de penáltis (a favor ÷ contra)', rotuloCurto: 'Rácio pénaltis', casas: 2, favoreceQuando: 'alto',
+        rotulo: 'Vermelhos ao adversário por jogo', rotuloCurto: 'Vermelhos adv./jogo', casas: 2, favoreceQuando: 'alto',
+        calcular: eq => eq.jogos_analisados ? eq.vermelhos_adversario / eq.jogos_analisados : null,
+        fraca: eq => eq.vermelhos_adversario < 3,
+      },
+      { rotulo: 'Penáltis obtidos por jogo', rotuloCurto: 'Pénaltis obtidos/jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? eq.penaltis_a_favor / eq.jogos_analisados : null },
+      { rotulo: 'Penáltis contra por jogo', rotuloCurto: 'Pénaltis contra/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? eq.penaltis_contra / eq.jogos_analisados : null },
+      {
+        rotulo: 'Rácio de penáltis (obtidos ÷ contra)', rotuloCurto: 'Rácio pénaltis', casas: 2, favoreceQuando: 'alto',
         calcular: eq => eq.penaltis_contra > 0 ? eq.penaltis_a_favor / eq.penaltis_contra : (eq.penaltis_a_favor > 0 ? Infinity : null),
       },
     ];
@@ -1356,8 +1388,12 @@
       return Object.values(dados.equipas).filter(eq => eq.grande || eq.top3_atualmente).sort((a, b) => {
         if (a.grande !== b.grande) return a.grande ? -1 : 1;
         if (a.liga !== b.liga) return a.liga.localeCompare(b.liga);
-        return a.nome.localeCompare(b.nome);
+        return (a.posicao || 99) - (b.posicao || 99);
       });
+    }
+
+    function ordinal(n) {
+      return n + '.º';
     }
 
     // Tabela transposta: uma equipa por linha, uma métrica por coluna — menos
@@ -1365,6 +1401,12 @@
     // as 18 linhas deslizam-se verticalmente, que é scroll natural numa
     // página. Trocado a pedido do João em 2026-09-06, depois de testar a
     // versão com métricas em linha.
+    //
+    // A célula da equipa mostra nome + posição na liga + jogos analisados —
+    // é a resposta a "porque é que este clube aparece aqui" (posição) e "com
+    // que força este número foi calculado" (jogos), sem precisar de colunas
+    // à parte. Pedido do João, 2026-09-07 — antes havia uma coluna "Jogos"
+    // só para isso, e a posição não aparecia em lado nenhum.
     function renderizarNumeros(dados) {
       const tabela = document.getElementById('tabela-numeros');
       const todasEquipas = Object.values(dados.equipas);
@@ -1379,7 +1421,7 @@
         geral: todasEquipas.map(m.calcular),
       }));
 
-      let html = '<thead><tr><th class="col-fixa">Equipa</th><th>Jogos</th>';
+      let html = '<thead><tr><th class="col-fixa">Equipa</th>';
       METRICAS_NUMEROS.forEach(m => {
         html += '<th' + (m.nota ? ' title="' + m.nota + '"' : '') + '>' + m.rotuloCurto +
           (m.nota ? ' <span class="sem-dados">†</span>' : '') + '</th>';
@@ -1387,9 +1429,10 @@
       html += '</tr></thead><tbody>';
 
       destaque.forEach(eq => {
-        html += '<tr><td class="col-fixa' + (eq.grande ? ' equipa-grande' : '') + '">' + eq.nome +
-          '<br><span style="font-weight:400;text-transform:none;color:var(--cor-texto-fraco);">' + eq.liga + '</span></td>';
-        html += '<td>' + eq.jogos_analisados + '</td>';
+        const posicao = eq.posicao ? ordinal(eq.posicao) + ' · ' : '';
+        html += '<tr><td class="col-fixa' + (eq.grande ? ' equipa-grande' : '') + '">' +
+          '<div class="nome-equipa">' + eq.nome + '</div>' +
+          '<div class="info-equipa">' + posicao + eq.liga + ' · ' + eq.jogos_analisados + ' jogos</div></td>';
 
         METRICAS_NUMEROS.forEach((m, i) => {
           const valor = m.calcular(eq);
@@ -1413,12 +1456,12 @@
 
     // Dados de EXEMPLO, gerados com um gerador determinístico (não Math.random,
     // para o esqueleto ficar reprodutível) — por substituir por dados reais.
-    function gerarEquipaExemplo(seed, nome, liga, grande, top3) {
+    function gerarEquipaExemplo(seed, nome, liga, grande, top3, posicao) {
       let s = seed;
       const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
       const entre = (min, max) => min + rnd() * (max - min);
       return {
-        nome, liga, grande, top3_atualmente: top3 || grande,
+        nome, liga, grande, top3_atualmente: top3 || grande, posicao,
         jogos_analisados: Math.round(entre(3, 6)),
         faltas_cometidas: Math.round(entre(35, 78)),
         faltas_sofridas: Math.round(entre(35, 78)),
@@ -1440,14 +1483,14 @@
     (function construirExemplo() {
       const equipas = DADOS_EXEMPLO_NUMEROS.equipas;
       let id = 1;
-      const add = (nome, liga, grande, top3) => {
-        equipas[id] = gerarEquipaExemplo(id * 97 + 13, nome, liga, grande, top3);
+      const add = (nome, liga, grande, top3, posicao) => {
+        equipas[id] = gerarEquipaExemplo(id * 97 + 13, nome, liga, grande, top3, posicao);
         id++;
       };
 
-      add('Benfica', 'Primeira Liga', true, false);
-      add('FC Porto', 'Primeira Liga', true, false);
-      add('Sporting CP', 'Primeira Liga', true, false);
+      add('Benfica', 'Primeira Liga', true, false, 2);
+      add('FC Porto', 'Primeira Liga', true, false, 1);
+      add('Sporting CP', 'Primeira Liga', true, false, 4);
 
       const topoOutrasLigas = {
         'Premier League': ['Manchester City', 'Arsenal', 'Liverpool'],
@@ -1457,12 +1500,12 @@
         'Ligue 1': ['Paris SG', 'Marselha', 'Mónaco'],
       };
       Object.entries(topoOutrasLigas).forEach(([liga, nomes]) => {
-        nomes.forEach(nome => add(nome, liga, false, true));
+        nomes.forEach((nome, i) => add(nome, liga, false, true, i + 1));
       });
 
       // Fora de destaque — só para a pool do "percentil geral" ter mais gente.
-      ['Vitória SC', 'Getafe', 'Torino', 'Werder Bremen', 'Lyon', 'Fulham'].forEach(nome => {
-        add(nome, 'outra', false, false);
+      ['Vitória SC', 'Getafe', 'Torino', 'Werder Bremen', 'Lyon', 'Fulham'].forEach((nome, i) => {
+        add(nome, 'outra', false, false, i + 8);
       });
     })();
 

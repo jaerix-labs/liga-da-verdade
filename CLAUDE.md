@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-09-06
+Última atualização: 2026-09-07
 
 ---
 
@@ -783,22 +783,62 @@ sentido — nunca os dois ao mesmo tempo na mesma métrica.
 
 | Métrica | Extremo que sugere favorecimento | Cor |
 |---|---|---|
-| 1. Faltas cometidas por amarelo | Alto (falta muito, leva poucos cartões) | Vermelho |
-| 2. Faltas sofridas por amarelo ao adversário | Baixo (adversário é castigado depressa por lhe fazer falta) | Verde |
-| 3. Rácio de assimetria (1÷2) | Alto | Vermelho |
-| 4a. Amarelos a favor/jogo | Alto (adversário castigado mais) | Vermelho |
-| 4b. Amarelos contra/jogo | Baixo (equipa própria poupada) | Verde |
-| 5. Segundos amarelos/jogo | Baixo | Verde |
-| 6. Vermelhos/jogo | Baixo | Verde |
-| 7. Penáltis a favor/remate na área | Alto | Vermelho |
-| 8. Penáltis contra/remate sofrido na área | Baixo | Verde |
-| 9. Rácio de penáltis (a favor÷contra) | Alto | Vermelho |
+| 1. Faltas cometidas por cartão | Alto (falta muito, leva poucos cartões) | Vermelho |
+| 2. Faltas sofridas por cartão ao adversário | Baixo (adversário é castigado depressa por lhe fazer falta) | Verde |
+| 3. Rácio de assimetria de cartões (1÷2) | Alto | Vermelho |
+| 4. Cartões ao adversário/jogo (a favor) | Alto (adversário castigado mais) | Vermelho |
+| 5. Cartões próprios/jogo (contra) | Baixo (equipa própria poupada) | Verde |
+| 6. Vermelhos próprios/jogo | Baixo | Verde |
+| 7. Vermelhos ao adversário/jogo | Alto | Vermelho |
+| 8. Penáltis obtidos/jogo | Alto | Vermelho |
+| 9. Penáltis contra/jogo | Baixo | Verde |
+| 10. Rácio de penáltis (obtidos÷contra) | Alto | Vermelho |
 
 Só se pinta nos extremos (P80+ para vermelho, P20- para verde), com
 intensidade proporcional a quão extremo é — não é tudo-ou-nada. Esta tabela
 de direções é uma escolha interpretativa (a mesma lógica em toda a
 "família": "a favor" alto e "contra" baixo favorecem sempre a equipa), e
 fica declarada aqui e no próprio site, não escondida no código.
+
+### Simplificação da tabela (2026-09-07)
+
+A pedido do João, depois de ver o esqueleto a funcionar:
+
+- **"Faltas por amarelo" generaliza para "faltas por cartão"**: o
+  denominador passa a somar amarelos + vermelhos, não só amarelos. Um
+  jogador expulso por 2º amarelo conta como **3 cartões** (amarelo + amarelo
+  + vermelho), não 1 incidente — por isso a fórmula usada no `index.html` é
+  `cartões = amarelos + 2×segundos_amarelos + vermelhos` (o 2º amarelo entra
+  a dobrar: uma vez como o cartão em si, outra como o vermelho que causa).
+  **Isto é diferente de como `recolher_estatisticas.py` guarda os campos**
+  (lá evita-se essa dupla contagem de propósito, para não confundir
+  "cartão" com "incidente" — ver o comentário sobre 2º amarelo mais abaixo).
+  A reconstrução faz-se só no browser, sem mudar a recolha.
+- **"Amarelos a favor/contra" generalizam para "cartões"** pela mesma soma,
+  porque "amarelos a favor" era um termo ambíguo (a favor de quem viu o
+  cartão, ou de quem beneficia?). Os vermelhos mantêm-se como métrica à
+  parte (próprios e ao adversário, as duas direções), por serem o
+  incidente mais grave e já terem aviso de amostra pequena.
+- **"Segundos amarelos por jogo" removida** — com os cartões generalizados a
+  pesarem o 2º amarelo a dobrar, ficou redundante. Inferência minha, não
+  pedido explícito; reverter se o João preferir tê-la de volta.
+- **Penáltis deixam de ser normalizados por remates dentro da área** — o
+  João não viu interesse nessa normalização. Passa a ser simplesmente
+  "penáltis obtidos/jogo" e "penáltis contra/jogo", mantendo o rácio
+  obtidos÷contra.
+- **Coluna "Jogos" removida** — passa a aparecer dentro da célula da
+  equipa, junto com a posição na liga: "Benfica · 2.º · Primeira Liga · 5
+  jogos". Responde de uma vez a "porque está aqui" (posição) e "com que
+  força foi calculado" (jogos), sem gastar uma coluna à parte.
+- **Posição na liga**: `scripts/recolher_estatisticas.py` passou a guardar
+  `posicao` por equipa (função `posicoes_liga()`, antiga `top3_liga()`,
+  agora devolve a posição de todas as equipas da classificação, não só o
+  top-3). Aplica-se também aos 3 grandes, que ficam sempre em destaque
+  independentemente da posição — mostra-se a posição real deles na mesma.
+- **"P99" mantém-se, não "Top 99%"** — o João sugeriu a troca para leitura
+  mais imediata, mas "top 99%" em português tende a significar "quase
+  todos" (o oposto do que P99 quer dizer: quase ninguém acima). Decidido
+  manter "P", com a leitura explicada no texto do site.
 
 **Aviso para quem mexer nisto no futuro:** a cor é só um ponto de partida
 visual, não uma acusação — o próprio texto do site diz isto explicitamente.
