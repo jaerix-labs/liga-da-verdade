@@ -24,6 +24,15 @@ NOMES_GRANDES = ["Benfica", "Porto", "Sporting"]
 # — ver CLAUDE.md, Segunda Parte.
 MAX_PEDIDOS_POR_CORRIDA = 90
 
+# Marcações (posição/top-3, 6 pedidos no máximo) e revisão de jogos antigos
+# ficam com uma fatia reservada do orçamento, para nunca ficarem a zero só
+# porque o processamento de jogos novos gastou tudo primeiro — foi
+# exatamente isso que aconteceu numa corrida real (posicao ficou None em
+# todas as equipas), corrigido em 2026-09-07.
+PEDIDOS_RESERVADOS_PARA_MARCACOES = 10
+PEDIDOS_RESERVADOS_PARA_REVISAO = 10
+LIMITE_PARA_JOGOS_NOVOS = MAX_PEDIDOS_POR_CORRIDA - PEDIDOS_RESERVADOS_PARA_MARCACOES - PEDIDOS_RESERVADOS_PARA_REVISAO
+
 SAIDA = Path(__file__).resolve().parent.parent / "dados" / "estatisticas-2026-27.json"
 
 pedidos_feitos = 0
@@ -238,7 +247,7 @@ def processar_tudo(dados, equipas):
     isto não há como calcular o percentil "contra todas as equipas"."""
     fixtures_por_liga = {}
     for liga_id, _ in ligas_rotacionadas():
-        if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
+        if pedidos_feitos >= LIMITE_PARA_JOGOS_NOVOS:
             break
         fixtures_por_liga[liga_id] = fixtures_terminados(liga_id)
 
@@ -247,8 +256,8 @@ def processar_tudo(dados, equipas):
     for liga_id, fixtures in fixtures_por_liga.items():
         liga_nome = LIGAS[liga_id]
         for jogo in fixtures:
-            if pedidos_feitos >= MAX_PEDIDOS_POR_CORRIDA:
-                print("Limite de pedidos desta corrida atingido — o resto fica para a próxima.", file=sys.stderr)
+            if pedidos_feitos >= LIMITE_PARA_JOGOS_NOVOS:
+                print("Limite de pedidos para jogos novos atingido — o resto fica para a próxima (marcações e revisão ainda têm orçamento reservado).", file=sys.stderr)
                 break
 
             fid = str(jogo["id"])
@@ -310,7 +319,6 @@ def atualizar_marcacoes_top3(equipas):
 
 
 DIAS_MINIMO_PARA_REVISAO = 18
-PEDIDOS_RESERVADOS_PARA_REVISAO = 10
 
 
 def revisar_fixtures_antigos(equipas, dados):
