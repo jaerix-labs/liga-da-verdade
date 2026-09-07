@@ -4646,6 +4646,1465 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2026-27-j04-rioave-sporting",
+      "jornada": 4,
+      "data": "2026-08-28",
+      "casa": "Rio Ave",
+      "fora": "Sporting",
+      "resultado": {
+        "casa": 0,
+        "fora": 4
+      },
+      "arbitro": "Bruno Costa",
+      "var": "Rui Soares",
+      "golos": [
+        {
+          "minuto": 5,
+          "equipa": "fora",
+          "marcador": "F. Gonçalves",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j04-rioave-sporting-5"
+        },
+        {
+          "minuto": 19,
+          "equipa": "fora",
+          "marcador": "G. Catamo",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j04-rioave-sporting-19"
+        },
+        {
+          "minuto": 26,
+          "equipa": "fora",
+          "marcador": "L. J. Suárez",
+          "conta": true
+        },
+        {
+          "minuto": 37,
+          "equipa": "fora",
+          "marcador": "L. J. Suárez",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j04-rioave-sporting-5",
+          "minuto": "5",
+          "tipo": "golo_validado",
+          "descricao": "No lance do primeiro golo, Doumbia passa para Flávio Gonçalves, que está em posição legal (93 cm), e o contacto posterior com o guarda-redes Van der Gouw ocorre depois de a bola já ter entrado na baliza, num choque casual e fortuito. Golo validado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-10",
+          "minuto": "10",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Sporting, Ntoi (Rio Ave) embate em Zalazar e desequilibra-se sozinho, sem qualquer infração ou carga do defensor. Árbitro não assinala penálti a favor do Rio Ave.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-15",
+          "minuto": "15",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Luís Suárez avança deliberadamente sobre o adversário e atinge com o ombro direito o maxilar inferior de Petrasso, num gesto antidesportivo e negligente. Árbitro não mostra cartão amarelo a Suárez neste lance.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-19",
+          "minuto": "19",
+          "tipo": "golo_validado",
+          "descricao": "No início da jogada do segundo golo, Flávio Gonçalves tem um ligeiro contacto com Bezerra (Rio Ave), que prossegue a corrida e força a queda, sem infração real. Na sequência, Geny Catamo marca. Golo validado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-22",
+          "minuto": "22",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Após um canto, a bola bate no braço direito de Doumbia (Sporting), que o tinha dobrado, junto e encostado ao corpo, em posição natural de proteção, sem volumetria extra. Árbitro não assinala penálti a favor do Rio Ave.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-60",
+          "minuto": "60",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Nikitscher (Rio Ave), sem interesse em jogar a bola, derruba Flávio Gonçalves (Sporting) por trás, cortando uma jogada de contra-ataque. Árbitro mostra cartão amarelo a Nikitscher.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-61-62-64",
+          "minuto": "61-62-64",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Rio Ave, a bola vem de um colega de equipa do Sporting e bate no ombro/braço de Liavas (Rio Ave), que tinha o braço junto ao corpo, em posição natural e sem intenção de o afastar. Árbitro não assinala penálti a favor do Sporting.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-29",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-29",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-rioave-sporting-69",
+          "minuto": "69",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Rio Ave, agarrar mútuo entre Petrasso (Rio Ave) e Ioannidis (Sporting), precedido de fora de jogo do avançado do Sporting, que cai após disputa de posição, com ambos a usarem os braços. Árbitro não assinala penálti a favor do Sporting.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-29",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-29_rioave_sporting_record_faustino_ferreira.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j04-acviseu-porto",
+      "jornada": 4,
+      "data": "2026-08-29",
+      "casa": "Académico de Viseu",
+      "fora": "Porto",
+      "resultado": {
+        "casa": 0,
+        "fora": 3
+      },
+      "arbitro": "Miguel Nogueira",
+      "var": "Pedro Ferreira",
+      "golos": [
+        {
+          "minuto": 5,
+          "equipa": "fora",
+          "marcador": "A. Silva",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j04-acviseu-porto-5-6"
+        },
+        {
+          "minuto": 20,
+          "equipa": "fora",
+          "marcador": "G. Veiga",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j04-acviseu-porto-20"
+        },
+        {
+          "minuto": 38,
+          "equipa": "fora",
+          "marcador": "W. Gomes",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j04-acviseu-porto-5-6",
+          "minuto": "5-6",
+          "tipo": "golo_validado",
+          "descricao": "No lance do primeiro golo, William Gomes (FC Porto) coloca a mão direita no ventre/peito de Gustavo Costa (AC. Viseu), sem em nenhum momento o agarrar, puxar ou impedir de prosseguir. Gustavo Costa sente o contacto e deixa-se cair. Golo de André Silva validado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-30",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-20",
+          "minuto": "20",
+          "tipo": "golo_validado",
+          "descricao": "No lance do segundo golo, Bednarek passa para Pepê, que está em posição legal (com dois adversários entre ele e a linha de baliza), na construção da jogada que termina no golo de Gabri Veiga. Golo validado, sem fora de jogo.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-30",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-26-30",
+          "minuto": "26-30",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "André Silva (FC Porto) entra de pé alto/levantado numa disputa aérea e acerta lateralmente na cabeça de Luís Silva (AC. Viseu). Árbitro assinala apenas falta, sem mostrar cartão amarelo a André Silva.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-30",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-33",
+          "minuto": "33",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Froholdt (FC Porto), sem possibilidade de jogar a bola, agarra de forma ostensiva a camisola do adversário, puxando-o e derrubando-o. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Froholdt.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-35",
+          "minuto": "35",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "António Correia (AC. Viseu) traça as pernas de Pepê (FC Porto) por trás, atingindo-o e impedindo-o de prosseguir uma jogada promissora de ataque. Árbitro assinala apenas falta, sem mostrar cartão amarelo a António Correia.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 2
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-47",
+          "minuto": "47",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Pepê (FC Porto) cai na área em disputa com Robinho (AC. Viseu), desequilibrando-se no ar antes de haver contacto claro. Árbitro não assinala penálti a favor do FC Porto.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 3
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-30",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-57",
+          "minuto": "57",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Kahraman (AC. Viseu) agarra e puxa de forma ostensiva, evidente e persistente a camisola de Gabri Veiga (FC Porto), chegando a rasgá-la. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Kahraman.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 3
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-08-30",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-08-30",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-acviseu-porto-77",
+          "minuto": "77",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Martim Fernandes (FC Porto) cai em disputa de posição na zona do árbitro assistente. Árbitro não assinala falta a favor do FC Porto. [Classificação incerta — não há golo, penálti, cartão nem ataque cortado descritos; ver aviso ao João.]",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 3
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-08-30",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-08-30_acviseu_porto_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j04-benfica-estoril",
+      "jornada": 4,
+      "data": "2026-08-31",
+      "casa": "Benfica",
+      "fora": "Estoril",
+      "resultado": {
+        "casa": 2,
+        "fora": 1
+      },
+      "arbitro": "Hélder Carvalho",
+      "var": "Tiago Martins",
+      "golos": [
+        {
+          "minuto": 40,
+          "equipa": "casa",
+          "marcador": "V. Pavlidis",
+          "conta": true
+        },
+        {
+          "minuto": 51,
+          "equipa": "casa",
+          "marcador": "C. Lenglet",
+          "conta": true
+        },
+        {
+          "minuto": 82,
+          "equipa": "fora",
+          "marcador": "Y. Begraoui",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j04-benfica-estoril-12-13",
+          "minuto": "12-13",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Estoril, após um pontapé de canto a favor do Benfica, há um choque normal entre Xeka (Estoril) e Leandro Barreiro (Benfica) quando ambos se movimentam focados na bola. Árbitro não assinala penálti a favor do Benfica.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-18",
+          "minuto": "18",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Ricard Sánchez (Estoril) empurra Prestianni (Benfica) fora da área, cortando uma jogada de perigo e um ataque prometedor. Árbitro assinala apenas livre direto, sem mostrar cartão amarelo a Ricard Sánchez.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-28",
+          "minuto": "28",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Leandro Barreiro (Benfica), de forma imprudente, derruba Lacximicant (Estoril). Árbitro assinala apenas falta, sem mostrar cartão amarelo a Leandro Barreiro.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-52-53",
+          "minuto": "52-53",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Samuel Soares (Benfica) sai a um cruzamento, agarra a bola com as mãos e, de seguida, há contacto casual com Ismael Sierra (Estoril), que ao tentar cabecear acerta a cabeça no braço do guarda-redes. Árbitro não assinala penálti a favor do Estoril.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-57",
+          "minuto": "57",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Palhinha (Benfica), sem disputar a bola, atinge com o pé esquerdo e derruba Ricard Sánchez (Estoril), de forma negligente. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Palhinha.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-61",
+          "minuto": "61",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Rafa (Benfica), sem possibilidade de disputar a bola, rasteira João Carvalho (Estoril), de forma imprudente e antidesportiva. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Rafa.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-69-70",
+          "minuto": "69-70",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Fernando Medrano (Estoril), ao perseguir Alexander Bah (Benfica), toca no seu pé por trás e provoca a queda, de forma imprudente. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Fernando Medrano.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-75",
+          "minuto": "75",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Ismael Sierra (Estoril) chega tarde à bola e rasteira Alexander Bah (Benfica), impedindo um ataque prometedor. Árbitro assinala falta e mostra cartão amarelo a Sierra.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j04-benfica-estoril-76-77",
+          "minuto": "76-77",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Estoril, na sequência de um pontapé de canto, Ismael Sierra coloca ambas as mãos sobre os ombros de Leandro Barreiro (Benfica), que se deixa cair. Árbitro não assinala penálti a favor do Benfica.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-01",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-01",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-01",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-01_benfica_estoril_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-02",
+              "pagina": "14",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
