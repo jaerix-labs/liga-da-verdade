@@ -270,7 +270,7 @@
   }
 
   table.tabela-numeros th, table.tabela-numeros td {
-    padding: 0.5rem 0.65rem;
+    padding: 0.5rem 0.45rem;
     text-align: center;
     border-bottom: 1px solid var(--cor-linha);
     white-space: nowrap;
@@ -619,22 +619,25 @@
       Compara-se com equipas <strong>dominantes</strong>, não com a liga
       inteira: uma equipa que domina faz menos faltas táticas e leva menos
       cartões só por isso. Comparar com outros dominantes neutraliza esse
-      efeito. Cada métrica mostra dois percentis — contra as 18 equipas
-      dominantes, e contra todas as equipas das 6 ligas. Uma diferença grande
-      entre os dois é, em si, informação: sinal de que a métrica está a medir
-      domínio, não arbitragem.
+      efeito. Por isso cada célula mostra dois percentis: <strong>D</strong>
+      (entre as 18 equipas em destaque — a comparação que interessa para
+      "favorecimento") e <strong>G</strong> (entre todas as equipas seguidas
+      nas 6 ligas — dominantes ou não). Uma diferença grande entre os dois é,
+      em si, informação: sinal de que a métrica está a medir domínio, não
+      arbitragem.
     </p>
     <p>
-      O percentil lê-se assim: <strong>P99</strong> significa que quase
-      nenhuma equipa do grupo tem um valor mais alto do que esta — está no
-      topo. <strong>P0</strong> é o oposto, o valor mais baixo do grupo. As
+      Cada percentil lê-se assim: um valor de <strong>99</strong> significa
+      que quase nenhuma equipa do grupo tem um valor mais alto do que esta —
+      está no topo. <strong>0</strong> é o oposto, o valor mais baixo do
+      grupo. As
       células ficam <span style="color:#e08080;">a vermelho</span> ou
-      <span style="color:#6fbf73;">a verde</span> só nos extremos (P80+ ou
-      P20-) do percentil entre dominantes, e só no sentido em que esse
-      extremo é, para aquela métrica em concreto, o sinal de possível
-      favorecimento — nunca os dois sentidos ao mesmo tempo. Uma cor forte
-      não é prova de nada sozinha; é um ponto de partida para olhar com mais
-      atenção.
+      <span style="color:#6fbf73;">a verde</span> só nos extremos (D80+ ou
+      D20-, sempre o percentil <strong>entre dominantes</strong>, nunca o
+      geral), e só no sentido em que esse extremo é, para aquela métrica em
+      concreto, o sinal de possível favorecimento — nunca os dois sentidos
+      ao mesmo tempo. Uma cor forte não é prova de nada sozinha; é um ponto
+      de partida para olhar com mais atenção.
     </p>
     <p class="aviso" id="aviso-numeros" style="text-align:left; margin:0 0 1rem;"></p>
     </div>
@@ -648,9 +651,11 @@
       <span class="aviso-fraca">⚠</span> marca uma métrica com amostra
       pequena de mais para o percentil ser fiável (ex.: 1-2 cartões vermelhos
       numa época ainda curta) — mostra-se sempre, nunca se esconde, mas com o
-      aviso ao lado (ver Método). "P dom" = percentil entre as 18 equipas
-      dominantes; "P geral" = percentil entre todas as equipas das 6 ligas.
-      Células sem número não têm jogos ou incidentes suficientes para
+      aviso ao lado (ver Método). <strong>D</strong> = percentil entre as 18
+      equipas em destaque (dominantes); <strong>G</strong> = percentil entre
+      todas as equipas seguidas nas 6 ligas. A cor da célula usa sempre o D,
+      nunca o G (ver acima). Células sem número não têm jogos ou incidentes
+      suficientes para
       calcular o rácio. <span class="sem-dados">†</span> — "faltas sofridas
       por cartão mostrado ao adversário" agrega o comportamento de até 17
       adversários diferentes, que podem jogar de forma particular contra as
@@ -1367,18 +1372,20 @@
       return valor.toFixed(casas);
     }
 
-    // Cor de fundo da célula, derivada do percentil ENTRE AS DOMINANTES
-    // (não do geral — é a comparação relevante para "favorecimento", entre
-    // equipas do mesmo nível). Só pinta os extremos (P80+/P20-), com
-    // intensidade proporcional a quão extremo é.
-    function corFundoCelula(pDom, favoreceQuando) {
-      if (pDom == null) return null;
-      if (favoreceQuando === 'alto' && pDom >= 80) {
-        const forca = (pDom - 80) / 20;
+    // Cor de fundo da célula, derivada do percentil ENTRE DOMINANTES (nunca
+    // do geral — a comparação relevante para "favorecimento" é entre
+    // equipas do mesmo nível, não equipas dominantes contra a liga toda,
+    // que mistura "domina o jogo" com "é beneficiado pela arbitragem"). Só
+    // pinta os extremos (P80+/P20-), com intensidade proporcional a quão
+    // extremo é.
+    function corFundoCelula(pDominantes, favoreceQuando) {
+      if (pDominantes == null) return null;
+      if (favoreceQuando === 'alto' && pDominantes >= 80) {
+        const forca = (pDominantes - 80) / 20;
         return 'background:rgba(224,128,128,' + (0.12 + forca * 0.38).toFixed(2) + ');';
       }
-      if (favoreceQuando === 'baixo' && pDom <= 20) {
-        const forca = (20 - pDom) / 20;
+      if (favoreceQuando === 'baixo' && pDominantes <= 20) {
+        const forca = (20 - pDominantes) / 20;
         return 'background:rgba(111,191,115,' + (0.12 + forca * 0.38).toFixed(2) + ');';
       }
       return null;
@@ -1417,7 +1424,7 @@
         ' equipas seguidas no total nas 6 ligas.';
 
       const valoresPorMetrica = METRICAS_NUMEROS.map(m => ({
-        dom: destaque.map(m.calcular),
+        dominantes: destaque.map(m.calcular),
         geral: todasEquipas.map(m.calcular),
       }));
 
@@ -1437,14 +1444,14 @@
         METRICAS_NUMEROS.forEach((m, i) => {
           const valor = m.calcular(eq);
           const fraca = valor != null && m.fraca && m.fraca(eq);
-          const pDom = percentil(valor, valoresPorMetrica[i].dom);
+          const pDominantes = percentil(valor, valoresPorMetrica[i].dominantes);
           const pGeral = percentil(valor, valoresPorMetrica[i].geral);
-          const cor = valor != null ? corFundoCelula(pDom, m.favoreceQuando) : null;
+          const cor = valor != null ? corFundoCelula(pDominantes, m.favoreceQuando) : null;
           html += '<td' + (cor ? ' style="' + cor + '"' : '') + '>';
           html += '<div class="valor">' + formatarValorNumeros(valor, m.casas) +
             (fraca ? ' <span class="aviso-fraca" title="Amostra pequena — percentil pouco fiável">⚠</span>' : '') + '</div>';
           if (valor != null) {
-            html += '<div class="percentis">P' + (pDom ?? '–') + ' dom · P' + (pGeral ?? '–') + ' geral</div>';
+            html += '<div class="percentis">D' + (pDominantes ?? '–') + ' · G' + (pGeral ?? '–') + '</div>';
           }
           html += '</td>';
         });
