@@ -642,7 +642,7 @@
       ao mesmo tempo. Uma cor forte não é prova de nada sozinha; é um ponto
       de partida para olhar com mais atenção.
     </p>
-    <p class="aviso" id="aviso-numeros" style="text-align:left; margin:0 0 1rem;"></p>
+    <p class="aviso" id="aviso-numeros" style="text-align:left; margin:0 0 1rem;">A carregar…</p>
     </div>
 
     <div class="numeros-scroll">
@@ -1288,10 +1288,9 @@
       fixar('p-dez-sofrer', EFEITO_DEZ_SOFRER.toFixed(2));
     }
 
-    // ---- Segunda Parte: "Números" (Entregável 1 — esqueleto com dados de
-    // exemplo). O Entregável 2 substitui DADOS_EXEMPLO_NUMEROS por um fetch a
-    // dados/estatisticas-2026-27.json, com a mesma forma (ver CLAUDE.md,
-    // secção 16, e scripts/recolher_estatisticas.py). ----
+    // ---- Segunda Parte: "Números" (Entregável 2 — dados reais). Lê
+    // dados/estatisticas-2026-27.json, escrito por
+    // scripts/recolher_estatisticas.py (ver CLAUDE.md, secção 16). ----
 
     // "Cartões" generaliza amarelo+vermelho, contando cada cartão mostrado
     // como uma unidade — mesmo quando o 2º amarelo e o vermelho consequente
@@ -1464,61 +1463,6 @@
       tabela.innerHTML = html + '</tbody>';
     }
 
-    // Dados de EXEMPLO, gerados com um gerador determinístico (não Math.random,
-    // para o esqueleto ficar reprodutível) — por substituir por dados reais.
-    function gerarEquipaExemplo(seed, nome, liga, grande, top3, posicao) {
-      let s = seed;
-      const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
-      const entre = (min, max) => min + rnd() * (max - min);
-      return {
-        nome, liga, grande, top3_atualmente: top3 || grande, posicao,
-        jogos_analisados: Math.round(entre(3, 6)),
-        faltas_cometidas: Math.round(entre(35, 78)),
-        faltas_sofridas: Math.round(entre(35, 78)),
-        amarelos_propria_equipa: Math.max(1, Math.round(entre(1, 12))),
-        amarelos_adversario: Math.max(1, Math.round(entre(1, 12))),
-        segundo_amarelo_propria_equipa: Math.round(entre(0, 2)),
-        segundo_amarelo_adversario: Math.round(entre(0, 2)),
-        vermelhos_propria_equipa: rnd() < 0.2 ? 1 : 0,
-        vermelhos_adversario: rnd() < 0.2 ? 1 : 0,
-        remates_area_propria: Math.round(entre(14, 46)),
-        remates_area_adversario: Math.round(entre(9, 36)),
-        penaltis_a_favor: Math.round(entre(0, 3)),
-        penaltis_contra: Math.round(entre(0, 3)),
-        ultima_atualizacao: null,
-      };
-    }
-
-    const DADOS_EXEMPLO_NUMEROS = { equipas: {} };
-    (function construirExemplo() {
-      const equipas = DADOS_EXEMPLO_NUMEROS.equipas;
-      let id = 1;
-      const add = (nome, liga, grande, top3, posicao) => {
-        equipas[id] = gerarEquipaExemplo(id * 97 + 13, nome, liga, grande, top3, posicao);
-        id++;
-      };
-
-      add('Benfica', 'Primeira Liga', true, false, 2);
-      add('FC Porto', 'Primeira Liga', true, false, 1);
-      add('Sporting CP', 'Primeira Liga', true, false, 4);
-
-      const topoOutrasLigas = {
-        'Premier League': ['Manchester City', 'Arsenal', 'Liverpool'],
-        'La Liga': ['Real Madrid', 'Barcelona', 'Atlético Madrid'],
-        'Serie A': ['Inter', 'Juventus', 'Nápoles'],
-        'Bundesliga': ['Bayern Munique', 'Bayer Leverkusen', 'RB Leipzig'],
-        'Ligue 1': ['Paris SG', 'Marselha', 'Mónaco'],
-      };
-      Object.entries(topoOutrasLigas).forEach(([liga, nomes]) => {
-        nomes.forEach((nome, i) => add(nome, liga, false, true, i + 1));
-      });
-
-      // Fora de destaque — só para a pool do "percentil geral" ter mais gente.
-      ['Vitória SC', 'Getafe', 'Torino', 'Werder Bremen', 'Lyon', 'Fulham'].forEach((nome, i) => {
-        add(nome, 'outra', false, false, i + 8);
-      });
-    })();
-
     // ---- Navegação entre "Classificações", "Método" e "Números" (sem recarregar a página) ----
     function mostrarVista(nome) {
       document.getElementById('vista-normal').style.display = nome === 'classificacoes' ? '' : 'none';
@@ -1628,6 +1572,23 @@
       renderizarPercurso(dados);
     }
 
+    // Fetch independente do de carregarTudo() — a Segunda Parte é um
+    // acréscimo à parte (secção 16 do CLAUDE.md); se este ficheiro faltar ou
+    // vier mal, a Liga da Verdade original continua a funcionar na mesma.
+    async function carregarNumeros() {
+      let dados;
+      try {
+        const resposta = await fetch('dados/estatisticas-2026-27.json', { cache: 'no-store' });
+        if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+        dados = await resposta.json();
+      } catch (erro) {
+        document.getElementById('aviso-numeros').innerHTML =
+          '<span class="erro">Não foi possível carregar os dados desta parte (' + erro.message + ').</span>';
+        return;
+      }
+      renderizarNumeros(dados);
+    }
+
     if (new URLSearchParams(location.search).get('teste') === '1') {
       document.querySelector('.nav-principal').style.display = 'none';
       document.getElementById('vista-normal').style.display = 'none';
@@ -1637,10 +1598,10 @@
       renderizarTestes();
     } else {
       renderizarMetodo();
-      renderizarNumeros(DADOS_EXEMPLO_NUMEROS);
       const hash = location.hash.replace('#', '');
       mostrarVista(['metodo', 'numeros'].includes(hash) ? hash : 'classificacoes');
       carregarTudo();
+      carregarNumeros();
     }
   </script>
 </body>
