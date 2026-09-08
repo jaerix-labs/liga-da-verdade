@@ -296,6 +296,9 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    white-space: normal;
+    max-width: 5.5rem;
+    line-height: 1.25;
   }
 
   table.tabela-numeros thead th.col-fixa {
@@ -1321,9 +1324,9 @@
     // ser normalizados por remates (não achou a normalização informativa),
     // e faltas/cartões generalizam amarelo+vermelho em vez de só amarelo.
     const METRICAS_NUMEROS = [
-      { rotulo: 'Faltas cometidas por cartão recebido', rotuloCurto: 'Faltas/cartão', casas: 2, favoreceQuando: 'alto', calcular: faltasPorCartao },
+      { rotulo: 'Faltas cometidas por cartão recebido', rotuloCurto: 'Faltas cometidas / cartão', casas: 2, favoreceQuando: 'alto', calcular: faltasPorCartao },
       {
-        rotulo: 'Faltas sofridas por cartão mostrado ao adversário', rotuloCurto: 'Faltas sofr./cartão adv.', casas: 2, favoreceQuando: 'baixo',
+        rotulo: 'Faltas sofridas por cartão mostrado ao adversário', rotuloCurto: 'Faltas sofridas / cartão adv.', casas: 2, favoreceQuando: 'baixo',
         nota: 'Agrega o comportamento de até 17 adversários diferentes — não é a métrica mais fiável do conjunto.',
         calcular: faltasSofridasPorCartaoAdversario,
       },
@@ -1335,9 +1338,9 @@
         },
       },
       { rotulo: 'Cartões ao adversário por jogo (a favor)', rotuloCurto: 'Cartões adv./jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? cartoesAdversario(eq) / eq.jogos_analisados : null },
-      { rotulo: 'Cartões próprios por jogo (contra)', rotuloCurto: 'Cartões próprios/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? cartoesPropria(eq) / eq.jogos_analisados : null },
+      { rotulo: 'Cartões vistos por jogo (contra)', rotuloCurto: 'Cartões vistos/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? cartoesPropria(eq) / eq.jogos_analisados : null },
       {
-        rotulo: 'Vermelhos próprios por jogo', rotuloCurto: 'Vermelhos próprios/jogo', casas: 2, favoreceQuando: 'baixo',
+        rotulo: 'Vermelhos vistos por jogo', rotuloCurto: 'Vermelhos vistos/jogo', casas: 2, favoreceQuando: 'baixo',
         calcular: eq => eq.jogos_analisados ? eq.vermelhos_propria_equipa / eq.jogos_analisados : null,
         fraca: eq => eq.vermelhos_propria_equipa < 3,
       },
@@ -1346,10 +1349,10 @@
         calcular: eq => eq.jogos_analisados ? eq.vermelhos_adversario / eq.jogos_analisados : null,
         fraca: eq => eq.vermelhos_adversario < 3,
       },
-      { rotulo: 'Penáltis obtidos por jogo', rotuloCurto: 'Pénaltis obtidos/jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? eq.penaltis_a_favor / eq.jogos_analisados : null },
-      { rotulo: 'Penáltis contra por jogo', rotuloCurto: 'Pénaltis contra/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? eq.penaltis_contra / eq.jogos_analisados : null },
+      { rotulo: 'Penáltis a favor por jogo', rotuloCurto: 'Penáltis a favor/jogo', casas: 2, favoreceQuando: 'alto', calcular: eq => eq.jogos_analisados ? eq.penaltis_a_favor / eq.jogos_analisados : null },
+      { rotulo: 'Penáltis contra por jogo', rotuloCurto: 'Penáltis contra/jogo', casas: 2, favoreceQuando: 'baixo', calcular: eq => eq.jogos_analisados ? eq.penaltis_contra / eq.jogos_analisados : null },
       {
-        rotulo: 'Rácio de penáltis (obtidos ÷ contra)', rotuloCurto: 'Rácio pénaltis', casas: 2, favoreceQuando: 'alto',
+        rotulo: 'Rácio de penáltis (a favor ÷ contra)', rotuloCurto: 'Rácio penáltis', casas: 2, favoreceQuando: 'alto',
         calcular: eq => eq.penaltis_contra > 0 ? eq.penaltis_a_favor / eq.penaltis_contra : (eq.penaltis_a_favor > 0 ? Infinity : null),
       },
     ];
