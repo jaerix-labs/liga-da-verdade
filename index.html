@@ -1405,6 +1405,17 @@
       return n + '.º';
     }
 
+    // "O site tem de mostrar isto — nunca fingir que os dados estão sempre
+    // frescos" (D35, CLAUDE.md secção 16). Com a recolha diária e a rotação
+    // de ligas, uma equipa pode legitimamente ficar dias sem confirmação.
+    function relativoDias(dataIso) {
+      if (!dataIso) return null;
+      const dias = Math.floor((Date.now() - new Date(dataIso).getTime()) / 86400000);
+      if (dias <= 0) return 'hoje';
+      if (dias === 1) return 'ontem';
+      return 'há ' + dias + ' dias';
+    }
+
     // Tabela transposta: uma equipa por linha, uma métrica por coluna — menos
     // largura total do que métricas em linha (18 colunas antes, 10 agora), e
     // as 18 linhas deslizam-se verticalmente, que é scroll natural numa
@@ -1423,7 +1434,8 @@
 
       document.getElementById('aviso-numeros').textContent =
         destaque.length + ' equipas em destaque, comparadas com ' + todasEquipas.length +
-        ' equipas seguidas no total nas 6 ligas.';
+        ' equipas seguidas no total nas 6 ligas. Última recolha: ' +
+        (relativoDias(dados.gerado_em) ?? 'ainda sem registo') + '.';
 
       const valoresPorMetrica = METRICAS_NUMEROS.map(m => ({
         dominantes: destaque.map(m.calcular),
@@ -1441,7 +1453,9 @@
         const posicao = eq.posicao ? ordinal(eq.posicao) + ' · ' : '';
         html += '<tr><td class="col-fixa' + (eq.grande ? ' equipa-grande' : '') + '">' +
           '<div class="nome-equipa">' + eq.nome + '</div>' +
-          '<div class="info-equipa">' + posicao + eq.liga + ' · ' + eq.jogos_analisados + ' jogos</div></td>';
+          '<div class="info-equipa">' + posicao + eq.liga + ' · ' + eq.jogos_analisados + ' jogos · ' +
+          (relativoDias(eq.ultima_atualizacao) ? 'atualizado ' + relativoDias(eq.ultima_atualizacao) : 'ainda sem confirmação') +
+          '</div></td>';
 
         METRICAS_NUMEROS.forEach((m, i) => {
           const valor = m.calcular(eq);

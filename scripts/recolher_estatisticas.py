@@ -224,6 +224,14 @@ def main():
     try:
         processar_tudo(dados, equipas)
     finally:
+        # Recalcula sempre, para todas as equipas — não só as tocadas nesta
+        # corrida. Sem isto, uma equipa sem jogos novos desde antes de um
+        # campo agregado existir (ex.: ultima_atualizacao, acrescentado depois
+        # de FC Porto já ter os 5 primeiros jogos) fica com esse campo por
+        # trás, escondido, até calhar ser revisitada. É uma recomputação
+        # local, sem pedidos à API — sem custo nenhum fazer sempre.
+        for equipa in equipas.values():
+            recalcular_totais(equipa)
         dados["gerado_em"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         dados["pedidos_usados_nesta_corrida"] = pedidos_feitos
         SAIDA.parent.mkdir(parents=True, exist_ok=True)

@@ -7,7 +7,7 @@ computador e de sessão sem re-explicar nada.
 **Ler também o `FONTES.md`**, que contém a lista fechada de analistas, as vias
 de acesso e a rotina de recolha.
 
-Última atualização: 2026-09-07
+Última atualização: 2026-09-10
 
 ---
 
@@ -707,6 +707,37 @@ incluir `{ cache: 'no-store' }`, para nunca servir uma cópia em cache do
 browser. Sem isto, um visitante que volte ao site depois de uma atualização
 pode continuar a ver a jornada anterior sem se aperceber.
 
+### 2026-09-10 — `ultima_atualizacao` ficava `null` em equipas antigas, escondido
+
+**Sintoma:** ao implementar no site a data da última atualização por equipa
+(pedido do João, "podemos mostrar isto?"), o FC Porto apareceu com "ainda
+sem confirmação" apesar de ter 5 jogos analisados desde a primeira corrida
+real (2026-09-06).
+
+**Causa:** o campo `ultima_atualizacao` só é escrito por
+`recalcular_totais()`, e essa função só corria para uma equipa quando ela
+tinha jogos **novos** nessa corrida (ou era revisitada pela revisão
+periódica, ~18 dias). O FC Porto teve os 5 jogos todos processados na
+própria primeira corrida real, **antes** de `ultima_atualizacao` ter sido
+acrescentado ao esquema (acrescentado ainda nesse dia, numa alteração
+seguinte). Como não teve jogos novos desde então, nunca voltou a passar por
+`recalcular_totais()`, e o campo ficou parado no valor por omissão (`null`)
+— um problema de dados "herdados" de antes de um campo existir, não um erro
+de cálculo.
+
+**Correção:** `main()` passa a chamar `recalcular_totais()` para **todas**
+as equipas, em toda a corrida, dentro do `finally` — não só as tocadas
+nessa corrida. É uma recomputação local a partir do que já está guardado em
+`jogos_processados`, sem pedidos à API, por isso não tem custo fazer sempre.
+
+**Aviso para quem mexer nisto no futuro:** sempre que se acrescentar um novo
+campo agregado calculado por `recalcular_totais()`, este bug já não se
+repete — a função corre sempre para toda a gente a cada corrida. Mas se um
+dia se mover algum cálculo agregado para fora de `recalcular_totais()` (para
+uma função nova), esse cálculo volta a herdar o mesmo risco: equipas sem
+atividade recente ficam com o valor por omissão escondido até serem
+revisitadas.
+
 ---
 
 ## 16. SEGUNDA PARTE — ANÁLISE ESTATÍSTICA DA ARBITRAGEM
@@ -923,10 +954,15 @@ mesmo ao longo do tempo, nunca contra uma fonte externa).
   chega para todas — foi exatamente o que aconteceu na primeira corrida real
   (só a Primeira Liga foi tocada, por ser sempre a primeira da lista).
 - **Cada equipa guarda `ultima_atualizacao`** (a mais recente das datas em
-  que algum dos seus jogos foi confirmado pela API). O site tem de mostrar
-  isto — nunca fingir que os dados estão sempre frescos (D35): com uma
-  recolha diária e incremental, uma equipa pode legitimamente ficar alguns
-  dias sem atualização se o orçamento se esgotar antes de lá chegar.
+  que algum dos seus jogos foi confirmado pela API). O site mostra isto —
+  nunca finge que os dados estão sempre frescos (D35): com uma recolha
+  diária e incremental, uma equipa pode legitimamente ficar alguns dias sem
+  atualização se o orçamento se esgotar antes de lá chegar. **Implementado
+  no site em 2026-09-10**, na vista "Números": uma frase geral no topo
+  ("Última recolha: há X dias") e uma por equipa, na própria célula
+  ("atualizado ontem" / "ainda sem confirmação"). Ver bug relacionado na
+  secção 15 (2026-09-10) — este campo ficou `null` para equipas processadas
+  antes dele existir, até o script passar a recalculá-lo sempre, para todas.
 - **`.github/workflows/estatisticas.yml`**: o passo de commit+push corre
   sempre (`if: always()`), mesmo que a recolha falhe a meio — sem isto, o
   progresso parcial gravado no disco do runner perdia-se por nunca ser
