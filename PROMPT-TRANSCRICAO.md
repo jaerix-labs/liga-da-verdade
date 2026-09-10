@@ -25,7 +25,7 @@ J02_sporting-guimaraes.txt
 Entrega sempre o ficheiro, não só o texto no ecrã. O João guarda-o e passa-o
 diretamente ao Claude Code, sem copiar nem colar.
 
-**Versão 6.3 — 2026-09-06. Estável.** Ver histórico no fim.
+**Versão 6.5 — 2026-09-10. Estável.** Ver histórico no fim.
 
 ---
 
@@ -46,6 +46,13 @@ resolver ambiguidades sozinho.
 4. **Nunca uses o teu conhecimento do jogo.** Só os recortes e o que o João
    disser. Se souberes o marcador de um golo mas ele não estiver no recorte,
    marca `[EM FALTA]`.
+   **Exceção: a equipa de um jogador.** Quando não dá para determinar a
+   equipa de um jogador nem pelo espelhamento casa/fora da cronologia nem
+   pelo contexto do próprio texto (ex.: "o jogador do Nacional"), faz uma
+   pesquisa rápida do nome antes de perguntar — é informação pública e
+   verificável, não "conhecimento do jogo" no sentido que esta regra
+   protege (resultado, decisões, veredictos). Só perguntas se a pesquisa
+   for inconclusiva.
 5. **Nunca acrescentes analistas** fora da lista, mesmo que apareçam nos
    recortes.
 6. **Nunca alteres uma palavra de uma citação.** Em especial, nunca
@@ -53,6 +60,12 @@ resolver ambiguidades sozinho.
    exatamente como está no recorte. Se a frase citada parecer contradizer o
    símbolo ao lado, **volta a ler a frase antes de assinalar contradição** — na
    maior parte das vezes o erro está na leitura, não no jornal.
+7. **Nunca adivinhes a cor de um selo/seta pela posição ou por um padrão
+   típico das colunas anteriores.** As três colunas do O Jogo, por exemplo,
+   não seguem uma alternância fixa — já houve linhas com as três a
+   concordar e linhas com as três a discordar. A cor decide-se sempre pelo
+   que a frase dessa coluna diz, nunca pela expectativa de como "costuma
+   ser".
 
 ### PERGUNTA SEMPRE QUE TIVERES DÚVIDAS
 
@@ -189,6 +202,15 @@ lado da casa → golo do FC Porto anulado aos 59'.
 Um golo anulado só se torna **lance** se um analista o comentar. Mas tem de
 constar sempre dos dados do jogo, porque muda o estado do jogo que o motor usa.
 
+**A cronologia não é a única fonte que confirma um golo anulado.** Nem
+sempre a linha `Goal cancelled` aparece nos dados do Flashscore. Se pelo
+menos uma fonte de análise o confirmar de forma inequívoca — por exemplo,
+o cabeçalho do O Jogo trazer explicitamente "Golo anulado: Nome (min.)",
+ou vários analistas descreverem o mesmo golo como anulado — regista-o na
+mesma, com `[ANULADO]`. A ausência na cronologia não invalida o golo
+anulado; só significa que essa anulação não passou pelo VAR (ex.:
+decisão imediata do assistente, sem revisão).
+
 ### Autogolos — ícone diferente, mas o marcador corrente continua a mandar
 
 Um autogolo aparece na cronologia com um **ícone visualmente diferente** dos
@@ -309,6 +331,17 @@ não a incluas.
 |------|---------|-----------------|
 | `71-72` | **Uma** decisão que fontes diferentes datam de forma diferente (uma ancora na falta, outra no golo) | Minuto composto |
 | `67a` / `67b` | **Duas** decisões diferentes no mesmo minuto | Lances separados |
+| `22-penálti` / `22-cartão` | **Duas** decisões diferentes no mesmo minuto, quando um sufixo descritivo é mais claro que `a`/`b` | Lances separados, sufixo à escolha |
+
+**Cuidado com o inverso: dois minutos próximos, mesmos dois jogadores,
+mesma ação — verifica antes de assumir que são dois lances.** Aconteceu no
+Benfica-Estoril (jornada 4): Fernando Medrano faltoso sobre Bah aparecia
+como "69'" numa fonte e "70'" noutra, com veredictos opostos (uma fonte
+"certo", outra "errado"). Não são dois lances — é o mesmo lance, com
+opiniões diferentes sobre se merecia cartão. Antes de separar, pergunta-te
+sempre: *é a mesma dupla de jogadores, na mesma ação, só que uma fonte
+discorda de outra sobre a gravidade?* Se sim, é minuto composto, não dois
+lances.
 
 ---
 
@@ -403,6 +436,14 @@ Para cada lance:
   cartão que faltou (o vermelho) é que conta para o beneficiário, que passa a
   ser a equipa do jogador sancionado. Regista o veredicto do analista como
   `errado` (o árbitro não acertou na sanção)
+  **Cartão nenhum mostrado, analistas divididos sobre qual faltava** (uns
+  escrevem que faltou só falta ou amarelo, outros que faltou vermelho /
+  expulsão): regista a posição de **cada analista à letra** — quem disse
+  falta só, quem disse amarelo, quem disse vermelho. **Não colapses** num
+  único "X de Y erro". A distinção decide o impacto: um amarelo por mostrar
+  vale zero no modelo, uma expulsão por mostrar é das correções mais pesadas.
+  É o mesmo cuidado do "cartão da cor errada", para o caso em que não houve
+  cartão nenhum
 - **Um veredicto por analista que comentou**: nome, jornal, data de publicação,
   **número da página**, `certo` ou `errado`
 
@@ -458,12 +499,41 @@ frase exata do analista sobre a posição do atacante**: *"ficava isolado"*,
 
 Essa frase decide o peso do lance. Não a resumas nem a interpretes.
 
+**Falta por assinalar (ou falta fantasma) — diz sempre se travou ou não uma
+ocasião.** Para qualquer lance em que o árbitro não marcou uma falta (ou
+marcou uma que não existia), fora da área e sem cartão envolvido, tens de
+dizer **explicitamente** o que os analistas descrevem:
+
+- **Travou uma jogada de golo** → transcreve as palavras do analista sobre a
+  jogada (*"cortou o ataque"*, *"estava lançado"*, *"na cara do golo"*). É
+  uma ocasião interrompida.
+- **Nenhum analista descreve uma jogada de golo** — é uma falta de
+  construção, de meio-campo, um toque secundário que só um ou dois analistas
+  referem — então escreve à letra: **`[nenhum analista descreve ocasião de
+  golo — falta simples]`**.
+
+Sem esta frase, quem escreve o JSON não consegue distinguir uma correção
+pequena (ocasião interrompida, escalão baixo) de impacto zero (falta simples),
+e a diferença é decidida à sorte. **Na dúvida, transcreve o que cada analista
+diz da jogada e deixa a decisão para a secção de perguntas.**
+
 ### O que se ignora sempre
 
 - **Notas ao árbitro.** Não interessam.
 - **Tempo de compensação.** Não entra em lado nenhum.
 - Estado do relvado, gestão do jogo, elogios genéricos.
 - Comentários que não sejam sobre uma decisão concreta num lance concreto.
+- **Correções de lei do jogo em bola parada** (ex.: árbitro/VAR corrige um
+  canto que devia ter sido pontapé de baliza, ou vice-versa) — não é falta,
+  cartão nem penálti.
+- **Distância ou posição da barreira** num livre.
+- **Braçadeira de capitão** trocada a meio do jogo.
+- **Substituição extra por concussão cerebral** (incluindo o cartão roxo
+  usado para a assinalar) — é protocolo, não uma decisão de arbitragem.
+
+Regra geral por trás destes casos: se a fonte não está a avaliar uma
+falta, um cartão, um penálti ou a validade de um golo, não é lance, por
+mais que venha numerada e com símbolo.
 
 ---
 
@@ -608,7 +678,7 @@ recortes. Só depois cola no Claude Code.
 
 ---
 
-## ESTADO: ESTÁVEL DESDE 2026-08-13 (última alteração reativa: 2026-09-05)
+## ESTADO: ESTÁVEL DESDE 2026-08-13 (última alteração reativa: 2026-09-10)
 
 Este ficheiro foi afinado em cinco voltas sobre a jornada 1 e **considera-se
 fechado**. A v5 produziu zero classes de erro novas. A jornada 2 (v5.3)
@@ -648,6 +718,65 @@ Se, ao transcreveres, encontrares um caso que estas instruções não previam,
 
 ### Histórico
 
+- **2026-09-10 (v6.5, reativa)** — jornadas 3 (jogo em atraso) e 5, detetado
+  na revisão pelo Claude Code. Dois problemas novos:
+  - **Cartão nenhum mostrado, painel dividido entre amarelo e vermelho.** No
+    lance do cotovelo de William Gomes (Porto-Moreirense), os 7 analistas
+    diziam "erro", mas a transcrição colapsou isso num "7 de 7 errado" sem
+    registar que 5 falavam de amarelo por mostrar e 2 (Coroado, Iturralde) de
+    vermelho por mostrar. A diferença decide o impacto: amarelo por mostrar
+    vale zero no modelo, expulsão por mostrar é das correções mais pesadas.
+    Sem a divisão à letra, quem escreve o JSON não tem como distinguir.
+    Fixada a regra em "B. LANCES": quando não há cartão e os analistas
+    divergem sobre qual faltava, regista a posição de cada um separadamente.
+  - **Falta por assinalar sem se dizer se travou uma ocasião.** No lance 10'
+    do Moreirense-Benfica (Tomás Araújo sobre Nile John), a transcrição dizia
+    só "não assinala falta" + "3 de 3 errado". Sem saber se algum analista
+    descreveu uma jogada de golo travada, o JSON tanto podia ficar em
+    `ocasiao_interrompida` (correção pequena) como a zero. Fixada a regra em
+    "Ocasiões de golo interrompidas": para qualquer falta por assinalar fora
+    da área e sem cartão, dizer sempre à letra se travou ou não uma jogada de
+    golo — e usar `[nenhum analista descreve ocasião de golo — falta simples]`
+    quando for o caso.
+- **2026-09-08 (v6.4, reativa)** — jornada 4 (2º e 3º jogos) e jornada 5
+  (todos os jogos). Seis problemas novos, um deles um erro de leitura que
+  quase passou:
+  - **Erro de leitura evitado por pouco.** Ao ler o Sporting-Nacional,
+    comecei a atribuir cor a uma seta do O Jogo pelo padrão visual das
+    colunas anteriores em vez de ler cada frase — e as três colunas
+    concordavam entre si nesse lance (não havia padrão alternado nenhum).
+    Autocorrigido antes de entregar. Acrescentada regra absoluta nº 7:
+    a cor decide-se sempre pela frase da própria coluna, nunca por
+    expectativa de padrão.
+  - **Dois minutos próximos, mesmo lance.** No Benfica-Estoril, um lance
+    (Medrano/Bah) apareceu inicialmente separado em "69'" e "70'" por
+    fontes diferentes, com veredictos opostos — até se perceber que era o
+    mesmo lance, só com opiniões diferentes. Acrescentado aviso explícito
+    na regra do minuto composto: antes de separar em dois lances,
+    verificar se não é a mesma dupla de jogadores na mesma ação.
+  - **Golo anulado sem linha na cronologia.** No Marítimo-Benfica, o golo
+    anulado do Pavlidis (63') não vinha assinalado como `Goal cancelled`
+    nos dados do Flashscore, mas estava confirmado, sem margem para
+    dúvida, no cabeçalho do O Jogo e em três fontes de análise. Passa a
+    ser suficiente para incluir o golo anulado, mesmo sem a linha da
+    cronologia.
+  - **Duas decisões distintas no mesmo minuto exato**, não só no mesmo
+    minuto aproximado — Marítimo-Benfica teve dois lances diferentes,
+    ambos rotulados "22'" (um pedido de penálti, um cartão em falta).
+    Formalizado um sufixo descritivo como alternativa ao `a`/`b` (ex.:
+    `22-penálti` / `22-cartão`).
+  - **Lances fora do âmbito clássico continuam a aparecer** — depois da
+    barreira de livre (jornada 4) veio a correção de canto/pontapé de
+    baliza pelo VAR (Porto-Moreirense) e o cartão roxo de substituição por
+    concussão (Porto-Moreirense). Consolidada uma lista fechada de casos
+    "não é lance" em "O que se ignora sempre", para parar de tratar cada
+    um como uma pergunta nova.
+  - **Identificação de equipa de um jogador.** Em vários lances (Froholdt,
+    Martim Fernandes, jogadores do Marítimo/Benfica) a equipa não dava
+    para determinar só pelo espelhamento casa/fora nem pelo texto. Em vez
+    de perguntar, passa a fazer-se uma pesquisa rápida do nome do jogador
+    — é dado público, não é "conhecimento do jogo" na aceção da regra
+    absoluta nº 4. Só se pergunta se a pesquisa for inconclusiva.
 - **2026-09-06 (v6.3, reativa)** — jornada 3, segundo jogo (Sporting-Alverca).
   Quatro problemas novos, nenhum de veredicto errado — todos de estrutura das
   fontes:

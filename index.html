@@ -812,6 +812,8 @@
         case 'expulsao_mostrada': return 7;
         case 'amarelo_mostrado':
         case 'amarelo_nao_mostrado': return 8;
+        case 'falta_assinalada':
+        case 'falta_nao_assinalada': return 9;
         default:
           throw new Error('Tipo de lance desconhecido: "' + incidente.tipo + '" (' + incidente.id +
             '). O catálogo de famílias do CLAUDE.md tem uma lacuna — não se inventa um tipo novo aqui.');
@@ -867,6 +869,8 @@
           }
           break;
         case 8: // cartão amarelo indevido — impacto 0 na v1
+          return { casa: 0, fora: 0 };
+        case 9: // falta simples assinalada/por assinalar, sem ocasião nem cartão — impacto 0 (D37)
           return { casa: 0, fora: 0 };
       }
 
@@ -1065,14 +1069,25 @@
         });
       }
 
-      // e) Família 5 ou 8 → impacto sempre 0
+      // e) Famílias 5, 8 e 9 → impacto sempre 0 (registam-se, nunca entram no cálculo)
       {
-        const v = 0; // penálti falhado e amarelo: registam-se, nunca entram no cálculo
+        const jogoFalso = { golos: [] };
+        const base = {
+          minuto: '40', resultado_antes: { casa: 1, fora: 0 },
+          jogadores_antes: { casa: 11, fora: 11 }, equipa_beneficiada: 'casa', escalao: null
+        };
+        const tipos = ['penalti_assinalado', 'amarelo_mostrado', 'amarelo_nao_mostrado',
+          'falta_assinalada', 'falta_nao_assinalada'];
+        const valores = tipos.map(tipo => {
+          const r = impactoBruto(Object.assign({ id: 't-' + tipo, tipo }, base), jogoFalso);
+          return r.casa === 0 && r.fora === 0;
+        });
+        const passou = valores.every(Boolean);
         testes.push({
-          nome: 'e) Impacto de família 5 ou 8 (penálti falhado / amarelo)',
-          esperado: 'exatamente 0',
-          obtido: String(v),
-          passou: v === 0
+          nome: 'e) Impacto de famílias 5, 8 e 9 (penálti falhado / amarelo / falta simples)',
+          esperado: 'exatamente 0 para os 5 tipos',
+          obtido: passou ? 'todos 0' : 'algum ≠ 0: ' + tipos.filter((_, i) => !valores[i]).join(', '),
+          passou
         });
       }
 

@@ -3,219 +3,219 @@
   "classificacao_oficial": [
     {
       "posicao": 1,
-      "clube": "Arouca",
-      "pd": 2,
-      "v": 2,
+      "clube": "Porto",
+      "pd": 5,
+      "v": 5,
       "e": 0,
       "d": 0,
-      "gm": 5,
-      "gs": 0,
-      "dg": 5,
-      "pts": 6
+      "gm": 11,
+      "gs": 1,
+      "dg": 10,
+      "pts": 15
     },
     {
       "posicao": 2,
-      "clube": "Porto",
-      "pd": 2,
-      "v": 2,
-      "e": 0,
+      "clube": "Benfica",
+      "pd": 5,
+      "v": 4,
+      "e": 1,
       "d": 0,
-      "gm": 4,
-      "gs": 0,
-      "dg": 4,
-      "pts": 6
+      "gm": 18,
+      "gs": 3,
+      "dg": 15,
+      "pts": 13
     },
     {
       "posicao": 3,
-      "clube": "Marítimo",
-      "pd": 2,
-      "v": 2,
-      "e": 0,
+      "clube": "Sporting",
+      "pd": 5,
+      "v": 4,
+      "e": 1,
       "d": 0,
-      "gm": 3,
-      "gs": 1,
-      "dg": 2,
-      "pts": 6
+      "gm": 14,
+      "gs": 5,
+      "dg": 9,
+      "pts": 13
     },
     {
       "posicao": 4,
-      "clube": "Benfica",
-      "pd": 2,
-      "v": 1,
-      "e": 1,
+      "clube": "Santa Clara",
+      "pd": 5,
+      "v": 3,
+      "e": 2,
       "d": 0,
       "gm": 9,
-      "gs": 2,
-      "dg": 7,
-      "pts": 4
+      "gs": 3,
+      "dg": 6,
+      "pts": 11
     },
     {
       "posicao": 5,
-      "clube": "Nacional",
-      "pd": 2,
-      "v": 1,
+      "clube": "Arouca",
+      "pd": 5,
+      "v": 3,
       "e": 1,
-      "d": 0,
-      "gm": 4,
-      "gs": 2,
-      "dg": 2,
-      "pts": 4
+      "d": 1,
+      "gm": 7,
+      "gs": 3,
+      "dg": 4,
+      "pts": 10
     },
     {
       "posicao": 6,
-      "clube": "Sporting",
-      "pd": 2,
-      "v": 1,
+      "clube": "Braga",
+      "pd": 3,
+      "v": 2,
       "e": 1,
       "d": 0,
       "gm": 5,
-      "gs": 4,
-      "dg": 1,
-      "pts": 4
+      "gs": 3,
+      "dg": 2,
+      "pts": 7
     },
     {
       "posicao": 7,
-      "clube": "Santa Clara",
-      "pd": 2,
-      "v": 1,
+      "clube": "Gil Vicente",
+      "pd": 4,
+      "v": 2,
       "e": 1,
-      "d": 0,
+      "d": 1,
       "gm": 3,
-      "gs": 2,
-      "dg": 1,
-      "pts": 4
+      "gs": 1,
+      "dg": 2,
+      "pts": 7
     },
     {
       "posicao": 8,
-      "clube": "Gil Vicente",
-      "pd": 1,
-      "v": 1,
-      "e": 0,
-      "d": 0,
-      "gm": 1,
-      "gs": 0,
-      "dg": 1,
-      "pts": 3
+      "clube": "Marítimo",
+      "pd": 5,
+      "v": 2,
+      "e": 1,
+      "d": 2,
+      "gm": 6,
+      "gs": 8,
+      "dg": -2,
+      "pts": 7
     },
     {
       "posicao": 9,
       "clube": "Estrela Amadora",
-      "pd": 2,
-      "v": 0,
-      "e": 2,
+      "pd": 4,
+      "v": 1,
+      "e": 3,
       "d": 0,
-      "gm": 4,
-      "gs": 4,
-      "dg": 0,
-      "pts": 2
+      "gm": 9,
+      "gs": 8,
+      "dg": 1,
+      "pts": 6
     },
     {
       "posicao": 10,
-      "clube": "Braga",
-      "pd": 1,
-      "v": 0,
-      "e": 1,
-      "d": 0,
-      "gm": 2,
-      "gs": 2,
-      "dg": 0,
-      "pts": 1
-    },
-    {
-      "posicao": 11,
-      "clube": "Famalicão",
-      "pd": 2,
-      "v": 0,
-      "e": 1,
-      "d": 1,
-      "gm": 2,
-      "gs": 3,
-      "dg": -1,
-      "pts": 1
-    },
-    {
-      "posicao": 11,
       "clube": "Académico de Viseu",
-      "pd": 2,
-      "v": 0,
+      "pd": 5,
+      "v": 1,
+      "e": 2,
+      "d": 2,
+      "gm": 5,
+      "gs": 8,
+      "dg": -3,
+      "pts": 5
+    },
+    {
+      "posicao": 11,
+      "clube": "Nacional",
+      "pd": 5,
+      "v": 1,
       "e": 1,
-      "d": 1,
-      "gm": 2,
-      "gs": 3,
-      "dg": -1,
-      "pts": 1
+      "d": 3,
+      "gm": 6,
+      "gs": 8,
+      "dg": -2,
+      "pts": 4
+    },
+    {
+      "posicao": 12,
+      "clube": "Vitória SC",
+      "pd": 5,
+      "v": 1,
+      "e": 1,
+      "d": 3,
+      "gm": 3,
+      "gs": 5,
+      "dg": -2,
+      "pts": 4
     },
     {
       "posicao": 13,
-      "clube": "Alverca",
-      "pd": 2,
-      "v": 0,
+      "clube": "Moreirense",
+      "pd": 5,
+      "v": 1,
       "e": 1,
-      "d": 1,
-      "gm": 2,
-      "gs": 4,
-      "dg": -2,
-      "pts": 1
+      "d": 3,
+      "gm": 4,
+      "gs": 12,
+      "dg": -8,
+      "pts": 4
     },
     {
       "posicao": 14,
-      "clube": "Estoril",
-      "pd": 2,
+      "clube": "Famalicão",
+      "pd": 5,
       "v": 0,
-      "e": 1,
-      "d": 1,
-      "gm": 1,
-      "gs": 3,
+      "e": 3,
+      "d": 2,
+      "gm": 4,
+      "gs": 6,
       "dg": -2,
-      "pts": 1
+      "pts": 3
     },
     {
       "posicao": 15,
-      "clube": "Moreirense",
-      "pd": 2,
-      "v": 0,
-      "e": 1,
-      "d": 1,
+      "clube": "Rio Ave",
+      "pd": 5,
+      "v": 1,
+      "e": 0,
+      "d": 4,
       "gm": 2,
-      "gs": 6,
-      "dg": -4,
-      "pts": 1
+      "gs": 11,
+      "dg": -9,
+      "pts": 3
     },
     {
       "posicao": 16,
-      "clube": "Vitória SC",
-      "pd": 2,
+      "clube": "Alverca",
+      "pd": 5,
       "v": 0,
-      "e": 0,
-      "d": 2,
-      "gm": 2,
-      "gs": 4,
-      "dg": -2,
-      "pts": 0
+      "e": 2,
+      "d": 3,
+      "gm": 5,
+      "gs": 10,
+      "dg": -5,
+      "pts": 2
     },
     {
       "posicao": 17,
-      "clube": "Rio Ave",
-      "pd": 2,
+      "clube": "Estoril",
+      "pd": 5,
       "v": 0,
-      "e": 0,
-      "d": 2,
-      "gm": 0,
-      "gs": 3,
-      "dg": -3,
-      "pts": 0
+      "e": 2,
+      "d": 3,
+      "gm": 2,
+      "gs": 7,
+      "dg": -5,
+      "pts": 2
     },
     {
       "posicao": 18,
       "clube": "Casa Pia",
-      "pd": 2,
+      "pd": 5,
       "v": 0,
-      "e": 0,
-      "d": 2,
+      "e": 1,
+      "d": 4,
       "gm": 0,
-      "gs": 8,
-      "dg": -8,
-      "pts": 0
+      "gs": 11,
+      "dg": -11,
+      "pts": 1
     }
   ],
   "jogos": [
@@ -4648,6 +4648,526 @@
       ]
     },
     {
+      "id": "2026-27-j03-moreirense-benfica",
+      "jornada": 3,
+      "data": "2026-09-09",
+      "casa": "Moreirense",
+      "fora": "Benfica",
+      "resultado": {
+        "casa": 0,
+        "fora": 4
+      },
+      "arbitro": "Fábio Veríssimo",
+      "var": "Rui Costa",
+      "golos": [
+        {
+          "minuto": "45+4",
+          "equipa": "fora",
+          "marcador": "V. Pavlidis",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j03-moreirense-benfica-44"
+        },
+        {
+          "minuto": 55,
+          "equipa": "fora",
+          "marcador": "A. Schjelderup",
+          "conta": true
+        },
+        {
+          "minuto": 59,
+          "equipa": "fora",
+          "marcador": "G. Prestianni",
+          "conta": true
+        },
+        {
+          "minuto": 72,
+          "equipa": "fora",
+          "marcador": "F. Aursnes",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j03-moreirense-benfica-10",
+          "minuto": "10",
+          "tipo": "falta_nao_assinalada",
+          "descricao": "Tomás Araújo (Benfica), com o pé direito, rasteira Nile John (Moreirense) junto à área, de forma imprudente. Árbitro não assinala falta a favor do Moreirense. Nenhum analista descreve uma ocasião de golo travada — falta simples (família 9, D37).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-11-12",
+          "minuto": "11-12",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Maracás (Moreirense), ao tentar jogar a bola, acerta com o pé na coxa de Rafa (Benfica). Árbitro assinala apenas a continuação do jogo, sem falta nem cartão amarelo a Maracás.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-14",
+          "minuto": "14",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na área do Moreirense, Pavlidis (Benfica) recua na sua movimentação para tentar dominar a bola e provoca um contacto com Maracás (Moreirense), que o perseguia. Árbitro não assinala penálti a favor do Benfica.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-41-42",
+          "minuto": "41-42",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Gilberto Batista (Moreirense) rasteira Prestianni (Benfica) à entrada da área, quando este lhe tinha acabado de roubar a bola, cortando um ataque prometedor. Árbitro mostra cartão amarelo a Gilberto Batista.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-44",
+          "minuto": "44",
+          "tipo": "penalti_assinalado",
+          "descricao": "Numa bola parada, Lenglet (Benfica) chega primeiro e cabeceia a bola; Parsemain (Moreirense), numa entrada fora de tempo, levanta demasiado a perna direita e acerta-lhe na cabeça/ombro. Árbitro, chamado ao monitor pelo VAR, assinala penálti a favor do Benfica e mostra cartão amarelo a Parsemain. Penálti convertido por Pavlidis aos 45+4' — o minuto do incidente é o do lance (44'), não o do golo (D25).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-52",
+          "minuto": "52",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Landerson (Moreirense) levanta de forma evidente o braço direito em protesto de desacordo com uma decisão do árbitro. Árbitro mostra cartão amarelo a Landerson, pelo protesto e não pela falta cometida sobre Leandro Barreiro (Benfica).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-69",
+          "minuto": "69",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Lukebakio (Benfica), de forma negligente e perigosa, atinge o pé de Tiago Andrade (Moreirense) numa tentativa de jogar a bola. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Lukebakio.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 3
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-10",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-75",
+          "minuto": "75",
+          "tipo": "amarelo_mostrado",
+          "descricao": "João Palhinha (Benfica), na perseguição a Manuel Mendonça (Moreirense), pisa-lhe o pé e o tornozelo, de forma negligente, causando algum perigo. Árbitro mostra cartão amarelo a João Palhinha.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-87",
+          "minuto": "87",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Mateja Stjepanovic (Moreirense) entra por trás, de sola, com os pitons da chuteira direita no gémeo direito de Georgiy Sudakov (Benfica). Árbitro mostra cartão amarelo a Stjepanovic.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j03-moreirense-benfica-90+1",
+          "minuto": "90+1",
+          "tipo": "amarelo_mostrado",
+          "descricao": "John Durán (Benfica), sem possibilidade nem interesse em jogar a bola, agarra ostensivamente e puxa a camisola de Yan Maranhão (Moreirense), impedindo-o de prosseguir. Árbitro mostra cartão amarelo a John Durán.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 4
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-10",
+              "pagina": "13",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j03_2026-09-10_moreirense_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-10",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j04_2026-09-10_moreirense_benfica_abola_henriques.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "2026-27-j04-rioave-sporting",
       "jornada": 4,
       "data": "2026-08-28",
@@ -6101,6 +6621,1440 @@
               "ligacao": null,
               "veredicto": "certo",
               "ficheiro_prova": "j04_2026-09-02_record_iturralde.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j05-maritimo-benfica",
+      "jornada": 5,
+      "data": "2026-09-05",
+      "casa": "Marítimo",
+      "fora": "Benfica",
+      "resultado": {
+        "casa": 0,
+        "fora": 3
+      },
+      "arbitro": "Sérgio Guelho",
+      "var": "Manuel Oliveira",
+      "golos": [
+        {
+          "minuto": 7,
+          "equipa": "fora",
+          "marcador": "L. Barreiro",
+          "conta": true
+        },
+        {
+          "minuto": 63,
+          "equipa": "fora",
+          "marcador": "V. Pavlidis",
+          "conta": false,
+          "incidente_relacionado": "2026-27-j05-maritimo-benfica-63"
+        },
+        {
+          "minuto": 71,
+          "equipa": "fora",
+          "marcador": "L. Barreiro",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j05-maritimo-benfica-71"
+        },
+        {
+          "minuto": 82,
+          "equipa": "fora",
+          "marcador": "G. Prestianni",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j05-maritimo-benfica-9",
+          "minuto": "9",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Junto à linha lateral, Igor Julião (Marítimo), deliberadamente, rasteira por trás e derruba Prestianni (Benfica), num comportamento antidesportivo. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Igor Julião.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-13",
+          "minuto": "13",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Paulo Henrique (Marítimo) usa o ombro e depois empurra Alexander Bah (Benfica) junto à linha de baliza, provocando a sua queda de forma imprudente. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Paulo Henrique.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-22-penalti",
+          "minuto": "22-penálti",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Rodrigo Andrade (Marítimo) coloca a mão no peito de Prestianni (Benfica), que sente o contacto e se deixa cair de imediato, sem agarrão ou empurrão. Árbitro não assinala penálti a favor do Benfica.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-22-cartao",
+          "minuto": "22-cartão",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Tomás Araújo (Benfica), chegando já tarde à bola, estica a perna e o braço direitos e derruba Martín Tejón (Marítimo), com o único propósito de bloquear a sua passagem. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Tomás Araújo.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-42",
+          "minuto": "42",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Igor Julião (Marítimo), atrasado na tentativa de jogar a bola, atinge com o pé o braço e a zona costal de Pavlidis (Benfica), de forma negligente e persistente. Árbitro mostra cartão amarelo a Igor Julião.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-57",
+          "minuto": "57",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Tomás Araújo (Benfica) tem um ímpeto mais vigoroso na disputa com Butzke (Marítimo), dentro da área, sem que se justificasse assinalar penálti. Árbitro não assinala penálti a favor do Marítimo.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "10",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-63",
+          "minuto": "63",
+          "tipo": "golo_anulado",
+          "descricao": "No momento do passe que isola Pavlidis (Benfica), o avançado está adiantado relativamente à linha defensiva do Marítimo. Árbitro assistente assinala fora de jogo e o golo é anulado, decisão confirmada pelo VAR. A falha alegada aponta ao próprio lance do golo (fora de jogo do marcador).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "11",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-maritimo-benfica-71",
+          "minuto": "71",
+          "tipo": "golo_validado",
+          "descricao": "No segundo golo do Benfica, no momento da assistência de Pavlidis para Leandro Barreiro, este estava atrás do penúltimo adversário (posição validada por 55 cm). Golo validado. A falha alegada apontaria ao próprio lance do golo (fora de jogo do marcador); o único analista a comentar valida a decisão.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_maritimo_benfica_abola_henriques.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j05-porto-moreirense",
+      "jornada": 5,
+      "data": "2026-09-04",
+      "casa": "Porto",
+      "fora": "Moreirense",
+      "resultado": {
+        "casa": 2,
+        "fora": 1
+      },
+      "arbitro": "António Nobre",
+      "var": "Bruno Esteves",
+      "golos": [
+        {
+          "minuto": 20,
+          "equipa": "fora",
+          "marcador": "D. Pinto",
+          "conta": true
+        },
+        {
+          "minuto": 37,
+          "equipa": "casa",
+          "marcador": "J. Bednarek",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j05-porto-moreirense-36"
+        },
+        {
+          "minuto": 58,
+          "equipa": "casa",
+          "marcador": "W. Gomes",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [
+        {
+          "minuto": "85",
+          "equipa": "fora",
+          "jogador": "G. Liberato",
+          "incidente_relacionado": "2026-27-j05-porto-moreirense-85"
+        }
+      ],
+      "incidentes": [
+        {
+          "id": "2026-27-j05-porto-moreirense-3",
+          "minuto": "3",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Na sequência de um pontapé de canto, Froholdt (FC Porto) cabeceia e a bola bate no braço direito de Dinis Pinto (Moreirense), que o tinha encostado ao peito, em posição natural. Árbitro não assinala penálti a favor do FC Porto.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-17-18",
+          "minuto": "17-18",
+          "tipo": "expulsao_nao_mostrada",
+          "descricao": "William Gomes (FC Porto), de forma deliberada e negligente, projeta o cotovelo esquerdo e atinge Francisco Domingues (Moreirense) na cara. Árbitro assinala apenas falta, sem mostrar qualquer cartão a William Gomes. Os 7 analistas consideram que faltou sanção: 5 (Henriques, Leirós, Azevedo, Faustino, Ferreira) escrevem que faltou cartão amarelo; 2 (Coroado, Iturralde) que faltou cartão vermelho / expulsão. Registado como expulsão por mostrar, com veredicto 'errado' apenas para os 2 que a defenderam — a fração 2/7 desconta o impacto (D32).",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-05",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_abola_henriques.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-36",
+          "minuto": "36",
+          "tipo": "golo_apos_decisao_anterior",
+          "descricao": "João Veloso (Moreirense) entra de forma imprudente e tarde sobre William Gomes (FC Porto), derrubando-o. Árbitro assinala falta a favor do FC Porto; da bola parada resulta o golo do empate de Bednarek aos 37' (assistência de William Gomes). Reinício corrigido não determinado.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            }
+          ],
+          "reinicio_corrigido": null
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-41",
+          "minuto": "41",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Guilherme Liberato (Moreirense) agarra de forma persistente e antidesportiva a camisola de Alberto Costa (FC Porto), por trás, sem qualquer possibilidade de jogar a bola. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Guilherme Liberato.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-05",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-42",
+          "minuto": "42",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Alberto Costa (FC Porto) pontapeia a perna de apoio de João Veloso (Moreirense), por trás, impedindo um ataque prometedor, de forma imprudente. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Alberto Costa.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-44",
+          "minuto": "44",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Com o jogo interrompido, João Veloso (Moreirense) confronta e empurra Alberto Costa (FC Porto), num comportamento antidesportivo sem disputa de bola. Árbitro mostra cartão amarelo a João Veloso.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-63",
+          "minuto": "63",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Francisco Moura (FC Porto), sem disputar a bola, usa o braço esquerdo para travar a progressão de Manuel Mendonça (Moreirense) numa falta tática, atingindo-lhe a cara de forma negligente. Árbitro mostra cartão amarelo a Francisco Moura.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-05",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-porto-moreirense-85",
+          "minuto": "85",
+          "tipo": "expulsao_mostrada",
+          "descricao": "Guilherme Liberato (Moreirense) leva o braço à frente numa disputa aérea com Victor Froholdt (FC Porto) e atinge-o com o cotovelo na face/garganta, de forma grosseira e com força excessiva. Árbitro, chamado ao monitor pelo VAR, mostra cartão vermelho a Guilherme Liberato. Cartão confirmado pela cronologia aos 90', após revisão de VAR iniciada aos 88' — o minuto do lance é 85' (D25).",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 1
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-05",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-05",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-05",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-05_porto_moreirense_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-27-j05-sporting-nacional",
+      "jornada": 5,
+      "data": "2026-09-05",
+      "casa": "Sporting",
+      "fora": "Nacional",
+      "resultado": {
+        "casa": 2,
+        "fora": 0
+      },
+      "arbitro": "João Pinheiro",
+      "var": "Pedro Ferreira",
+      "golos": [
+        {
+          "minuto": 32,
+          "equipa": "casa",
+          "marcador": "L. J. Suárez",
+          "conta": true,
+          "incidente_relacionado": "2026-27-j05-sporting-nacional-31"
+        },
+        {
+          "minuto": 49,
+          "equipa": "casa",
+          "marcador": "F. Gonçalves",
+          "conta": true
+        }
+      ],
+      "cartoes_vermelhos": [],
+      "incidentes": [
+        {
+          "id": "2026-27-j05-sporting-nacional-5",
+          "minuto": "5",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Maxi Araújo (Sporting), de forma ostensiva e por trás, agarra e puxa a camisola de Stavros Gavriel (Nacional), cortando uma saída em contra-ataque. Árbitro mostra cartão amarelo a Maxi Araújo.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_abola_henriques.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-16",
+          "minuto": "16",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Pablo Ruan (Nacional), por trás e de forma negligente, calça o pé de Gonçalo Inácio (Sporting). Árbitro assinala apenas falta, sem mostrar cartão amarelo a Pablo Ruan.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-20",
+          "minuto": "20",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Sergi Altimira (Sporting) empurra Stavros Gavriel (Nacional) pelas costas, na omoplata esquerda, impedindo-o de prosseguir um ataque prometedor. Árbitro mostra cartão amarelo a Sergi Altimira.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_abola_henriques.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-31",
+          "minuto": "31",
+          "tipo": "penalti_assinalado",
+          "descricao": "Léo Santos (Nacional), na área, entra em tackle deslizante e derruba Maxi Araújo (Sporting), de forma imprudente. Árbitro assinala penálti a favor do Sporting, convertido por Luís Suárez aos 32'. A Bola levanta ainda, na mesma entrada, a hipótese de amarelo a Léo Santos — não tratada como lance à parte, por não ter símbolo próprio nem outra fonte.",
+          "resultado_antes": {
+            "casa": 0,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-48",
+          "minuto": "48",
+          "tipo": "amarelo_mostrado",
+          "descricao": "Markus Jensen (Nacional), por trás e deliberadamente, na rotação do adversário, rasteira Geny Catamo (Sporting), sem interesse em jogar a bola. Árbitro mostra cartão amarelo a Markus Jensen.",
+          "resultado_antes": {
+            "casa": 1,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Pedro Henriques",
+              "fonte": "A Bola",
+              "data_publicacao": "2026-09-06",
+              "pagina": "6",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_abola_henriques.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-53",
+          "minuto": "53",
+          "tipo": "ocasiao_interrompida",
+          "descricao": "Geny Catamo (Sporting) ganha a frente a Markus Jensen (Nacional) que, na perseguição, acerta com o pé esquerdo no calcanhar do atacante, provocando a sua queda. Árbitro não assinala falta a favor do Sporting. Nenhum analista transcreve frase sobre a posição de Catamo — aplica-se o escalão mais baixo (D26).",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": "ataque_sem_finalizacao_iminente",
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-59",
+          "minuto": "59",
+          "tipo": "amarelo_nao_mostrado",
+          "descricao": "Geny Catamo (Sporting), atrasado na tentativa de jogar a bola, pisa de forma negligente o pé de Matheus Dias (Nacional), causando algum perigo. Árbitro assinala apenas falta, sem mostrar cartão amarelo a Geny Catamo.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "casa",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Coroado",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "José Leirós",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Fortunato Azevedo",
+              "fonte": "O Jogo",
+              "data_publicacao": "2026-09-06",
+              "pagina": "4",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_ojogo_coroado_leiros_azevedo.png"
+            },
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Iturralde González",
+              "fonte": "Record (Liga da Verdade)",
+              "data_publicacao": "2026-09-08",
+              "pagina": "12",
+              "ligacao": null,
+              "veredicto": "errado",
+              "ficheiro_prova": "j05_2026-09-08_record_iturralde.png"
+            }
+          ]
+        },
+        {
+          "id": "2026-27-j05-sporting-nacional-75",
+          "minuto": "75",
+          "tipo": "penalti_nao_assinalado",
+          "descricao": "Um remate desvia no corpo de Matheus Dias (Nacional), que, após defesa do guarda-redes Marin, usa o ombro para devolver a bola. Árbitro não assinala penálti a favor do Sporting.",
+          "resultado_antes": {
+            "casa": 2,
+            "fora": 0
+          },
+          "jogadores_antes": {
+            "casa": 11,
+            "fora": 11
+          },
+          "equipa_beneficiada": "fora",
+          "escalao": null,
+          "opinioes": [
+            {
+              "analista": "Jorge Faustino",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
+            },
+            {
+              "analista": "Marco Ferreira",
+              "fonte": "Record",
+              "data_publicacao": "2026-09-06",
+              "pagina": "5",
+              "ligacao": null,
+              "veredicto": "certo",
+              "ficheiro_prova": "j05_2026-09-06_sporting_nacional_record_faustino_ferreira.png"
             }
           ]
         }
