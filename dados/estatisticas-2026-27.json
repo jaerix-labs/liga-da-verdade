@@ -274,7 +274,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-10T19:15:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:31Z",
           "adversario_id": 193961,
           "mandante": false
         },
@@ -333,7 +333,7 @@
       "penaltis_a_favor": 1,
       "penaltis_contra": 3,
       "posicao": 15,
-      "ultima_atualizacao": "2026-09-20T12:51:12Z"
+      "ultima_atualizacao": "2026-09-25T13:15:31Z"
     },
     "4020908": {
       "nome": "Alverca",
@@ -560,7 +560,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-09T19:30:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:29Z",
           "adversario_id": 183749,
           "mandante": false
         },
@@ -639,7 +639,7 @@
       "penaltis_a_favor": 0,
       "penaltis_contra": 1,
       "posicao": 6,
-      "ultima_atualizacao": "2026-09-21T14:50:02Z"
+      "ultima_atualizacao": "2026-09-25T13:15:29Z"
     },
     "182898": {
       "nome": "Marítimo",
@@ -743,7 +743,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-08T14:30:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:26Z",
           "adversario_id": 4014100,
           "mandante": true
         },
@@ -802,7 +802,7 @@
       "penaltis_a_favor": 1,
       "penaltis_contra": 1,
       "posicao": 11,
-      "ultima_atualizacao": "2026-09-20T12:51:12Z"
+      "ultima_atualizacao": "2026-09-25T13:15:26Z"
     },
     "180345": {
       "nome": "Benfica",
@@ -1538,7 +1538,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-09T19:30:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:29Z",
           "adversario_id": 185451,
           "mandante": true
         },
@@ -1617,7 +1617,7 @@
       "penaltis_a_favor": 1,
       "penaltis_contra": 1,
       "posicao": 12,
-      "ultima_atualizacao": "2026-09-21T14:50:02Z"
+      "ultima_atualizacao": "2026-09-25T13:15:29Z"
     },
     "191408": {
       "nome": "Guimaraes",
@@ -1701,7 +1701,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-08T17:00:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:34Z",
           "adversario_id": 205024,
           "mandante": true
         },
@@ -1779,7 +1779,7 @@
       "remates_area_adversario": 32,
       "penaltis_a_favor": 1,
       "penaltis_contra": 0,
-      "ultima_atualizacao": "2026-09-21T14:50:02Z",
+      "ultima_atualizacao": "2026-09-25T13:15:34Z",
       "posicao": 14
     },
     "196514": {
@@ -2170,7 +2170,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-08T14:30:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:26Z",
           "adversario_id": 182898,
           "mandante": false
         },
@@ -2248,7 +2248,7 @@
       "remates_area_adversario": 71,
       "penaltis_a_favor": 2,
       "penaltis_contra": 2,
-      "ultima_atualizacao": "2026-09-21T14:50:02Z",
+      "ultima_atualizacao": "2026-09-25T13:15:26Z",
       "posicao": 17
     },
     "203322": {
@@ -2313,7 +2313,7 @@
             "penaltis_contra": 1
           },
           "data_jogo": "2026-08-15T17:00:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:37Z",
           "adversario_id": 193961,
           "mandante": true
         },
@@ -2411,7 +2411,7 @@
       "remates_area_adversario": 87,
       "penaltis_a_favor": 0,
       "penaltis_contra": 2,
-      "ultima_atualizacao": "2026-09-24T13:11:05Z",
+      "ultima_atualizacao": "2026-09-25T13:15:37Z",
       "posicao": 7
     },
     "193961": {
@@ -2476,7 +2476,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-15T17:00:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:37Z",
           "adversario_id": 203322,
           "mandante": false
         },
@@ -2496,7 +2496,7 @@
             "penaltis_contra": 1
           },
           "data_jogo": "2026-08-10T19:15:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:31Z",
           "adversario_id": 192259,
           "mandante": true
         },
@@ -2574,7 +2574,7 @@
       "remates_area_adversario": 34,
       "penaltis_a_favor": 1,
       "penaltis_contra": 1,
-      "ultima_atualizacao": "2026-09-21T14:50:02Z",
+      "ultima_atualizacao": "2026-09-25T13:15:37Z",
       "posicao": 4
     },
     "205024": {
@@ -2659,7 +2659,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-08-08T17:00:00.000Z",
-          "revisto_em": "2026-09-06T09:58:33Z",
+          "revisto_em": "2026-09-25T13:15:34Z",
           "adversario_id": 191408,
           "mandante": false
         },
@@ -2737,7 +2737,7 @@
       "remates_area_adversario": 69,
       "penaltis_a_favor": 1,
       "penaltis_contra": 0,
-      "ultima_atualizacao": "2026-09-20T12:51:12Z",
+      "ultima_atualizacao": "2026-09-25T13:15:34Z",
       "posicao": 5
     },
     "193110": {
@@ -15112,6 +15112,6 @@
       "penaltis_contra": 0
     }
   },
-  "gerado_em": "2026-09-24T13:11:16Z",
+  "gerado_em": "2026-09-25T13:15:37Z",
   "pedidos_usados_nesta_corrida": 31
 }
