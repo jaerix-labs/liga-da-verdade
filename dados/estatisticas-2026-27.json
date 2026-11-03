@@ -640,23 +640,43 @@
           "revisto_em": "2026-10-25T12:56:57Z",
           "adversario_id": 205024,
           "mandante": true
+        },
+        "1340775963": {
+          "delta": {
+            "faltas_cometidas": 15,
+            "faltas_sofridas": 11,
+            "amarelos_propria_equipa": 3,
+            "amarelos_adversario": 1,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 4,
+            "remates_area_adversario": 9,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 1
+          },
+          "data_jogo": "2026-11-02T20:15:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 180345,
+          "mandante": false
         }
       },
-      "jogos_analisados": 9,
-      "faltas_cometidas": 126,
-      "faltas_sofridas": 102,
-      "amarelos_propria_equipa": 19,
-      "amarelos_adversario": 18,
+      "jogos_analisados": 10,
+      "faltas_cometidas": 141,
+      "faltas_sofridas": 113,
+      "amarelos_propria_equipa": 22,
+      "amarelos_adversario": 19,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 3,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 66,
-      "remates_area_adversario": 65,
+      "remates_area_propria": 70,
+      "remates_area_adversario": 74,
       "penaltis_a_favor": 2,
-      "penaltis_contra": 2,
+      "penaltis_contra": 3,
       "posicao": 10,
-      "ultima_atualizacao": "2026-10-25T12:56:57Z"
+      "ultima_atualizacao": "2026-11-03T15:48:26Z"
     },
     "185451": {
       "nome": "SC Braga",
@@ -1289,23 +1309,43 @@
           "revisto_em": "2026-10-27T13:56:37Z",
           "adversario_id": 193961,
           "mandante": false
+        },
+        "1340775963": {
+          "delta": {
+            "faltas_cometidas": 11,
+            "faltas_sofridas": 15,
+            "amarelos_propria_equipa": 1,
+            "amarelos_adversario": 3,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 9,
+            "remates_area_adversario": 4,
+            "penaltis_a_favor": 1,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:15:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 4020908,
+          "mandante": true
         }
       },
-      "jogos_analisados": 9,
-      "faltas_cometidas": 110,
-      "faltas_sofridas": 150,
-      "amarelos_propria_equipa": 21,
-      "amarelos_adversario": 28,
+      "jogos_analisados": 10,
+      "faltas_cometidas": 121,
+      "faltas_sofridas": 165,
+      "amarelos_propria_equipa": 22,
+      "amarelos_adversario": 31,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 1,
       "vermelhos_propria_equipa": 2,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 125,
-      "remates_area_adversario": 48,
-      "penaltis_a_favor": 2,
+      "remates_area_propria": 134,
+      "remates_area_adversario": 52,
+      "penaltis_a_favor": 3,
       "penaltis_contra": 1,
       "posicao": 2,
-      "ultima_atualizacao": "2026-10-27T13:56:37Z"
+      "ultima_atualizacao": "2026-11-03T15:48:26Z"
     },
     "12876414": {
       "nome": "Estrela da Amadora",
@@ -2384,22 +2424,42 @@
           "revisto_em": "2026-10-24T12:26:32Z",
           "adversario_id": 182898,
           "mandante": true
+        },
+        "1340779367": {
+          "delta": {
+            "faltas_cometidas": 21,
+            "faltas_sofridas": 17,
+            "amarelos_propria_equipa": 1,
+            "amarelos_adversario": 2,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 6,
+            "remates_area_adversario": 7,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:15:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 649246,
+          "mandante": false
         }
       },
-      "jogos_analisados": 9,
-      "faltas_cometidas": 141,
-      "faltas_sofridas": 91,
-      "amarelos_propria_equipa": 26,
-      "amarelos_adversario": 22,
+      "jogos_analisados": 10,
+      "faltas_cometidas": 162,
+      "faltas_sofridas": 108,
+      "amarelos_propria_equipa": 27,
+      "amarelos_adversario": 24,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 1,
       "vermelhos_propria_equipa": 1,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 100,
-      "remates_area_adversario": 56,
+      "remates_area_propria": 106,
+      "remates_area_adversario": 63,
       "penaltis_a_favor": 1,
       "penaltis_contra": 0,
-      "ultima_atualizacao": "2026-10-24T12:26:32Z",
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
       "posicao": 13
     },
     "196514": {
@@ -2810,22 +2870,42 @@
           "revisto_em": "2026-10-25T12:56:57Z",
           "adversario_id": 181196,
           "mandante": true
+        },
+        "1340779367": {
+          "delta": {
+            "faltas_cometidas": 17,
+            "faltas_sofridas": 21,
+            "amarelos_propria_equipa": 2,
+            "amarelos_adversario": 1,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 7,
+            "remates_area_adversario": 6,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:15:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 191408,
+          "mandante": true
         }
       },
-      "jogos_analisados": 9,
-      "faltas_cometidas": 122,
-      "faltas_sofridas": 110,
-      "amarelos_propria_equipa": 19,
-      "amarelos_adversario": 18,
+      "jogos_analisados": 10,
+      "faltas_cometidas": 139,
+      "faltas_sofridas": 131,
+      "amarelos_propria_equipa": 21,
+      "amarelos_adversario": 19,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 1,
       "vermelhos_adversario": 1,
-      "remates_area_propria": 71,
-      "remates_area_adversario": 56,
+      "remates_area_propria": 78,
+      "remates_area_adversario": 62,
       "penaltis_a_favor": 3,
       "penaltis_contra": 1,
-      "ultima_atualizacao": "2026-10-25T12:56:57Z",
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
       "posicao": 7
     },
     "4014100": {
@@ -4025,7 +4105,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:05Z",
           "adversario_id": 42483,
           "mandante": false
         },
@@ -4143,8 +4223,8 @@
       "remates_area_adversario": 92,
       "penaltis_a_favor": 1,
       "penaltis_contra": 1,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
-      "posicao": 10
+      "ultima_atualizacao": "2026-11-03T15:49:05Z",
+      "posicao": 11
     },
     "56950": {
       "nome": "Aston Villa",
@@ -4228,7 +4308,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:00Z",
           "adversario_id": 56099,
           "mandante": true
         },
@@ -4346,8 +4426,8 @@
       "remates_area_adversario": 98,
       "penaltis_a_favor": 1,
       "penaltis_contra": 0,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
-      "posicao": 9
+      "ultima_atualizacao": "2026-11-03T15:49:00Z",
+      "posicao": 10
     },
     "144603": {
       "nome": "Eintracht Frankfurt",
@@ -7648,7 +7728,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 6,
+      "posicao": 7,
       "jogos_processados": {
         "1321391885": {
           "delta": {
@@ -7929,7 +8009,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T18:45:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:48:55Z",
           "adversario_id": 68864,
           "mandante": true
         },
@@ -8035,7 +8115,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-03T15:48:55Z",
       "faltas_cometidas": 125,
       "faltas_sofridas": 107,
       "amarelos_propria_equipa": 21,
@@ -8663,7 +8743,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 12,
+      "posicao": 13,
       "jogos_processados": {
         "1321395289": {
           "delta": {
@@ -8741,7 +8821,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T15:15:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:48:57Z",
           "adversario_id": 78225,
           "mandante": true
         },
@@ -8847,7 +8927,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-03T15:48:57Z",
       "faltas_cometidas": 107,
       "faltas_sofridas": 87,
       "amarelos_propria_equipa": 15,
@@ -9069,7 +9149,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 14,
+      "posicao": 10,
       "jogos_processados": {
         "1321389332": {
           "delta": {
@@ -9230,22 +9310,42 @@
           "revisto_em": "2026-10-24T12:26:32Z",
           "adversario_id": 72268,
           "mandante": true
+        },
+        "1321436137": {
+          "delta": {
+            "faltas_cometidas": 16,
+            "faltas_sofridas": 11,
+            "amarelos_propria_equipa": 1,
+            "amarelos_adversario": 1,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 6,
+            "remates_area_adversario": 11,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 1
+          },
+          "data_jogo": "2026-11-02T19:45:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 83331,
+          "mandante": false
         }
       },
-      "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-10-24T12:26:32Z",
-      "faltas_cometidas": 114,
-      "faltas_sofridas": 111,
-      "amarelos_propria_equipa": 12,
-      "amarelos_adversario": 17,
+      "jogos_analisados": 9,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 130,
+      "faltas_sofridas": 122,
+      "amarelos_propria_equipa": 13,
+      "amarelos_adversario": 18,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
       "vermelhos_adversario": 2,
-      "remates_area_propria": 87,
-      "remates_area_adversario": 56,
+      "remates_area_propria": 93,
+      "remates_area_adversario": 67,
       "penaltis_a_favor": 3,
-      "penaltis_contra": 2
+      "penaltis_contra": 3
     },
     "72268": {
       "nome": "Nice",
@@ -9861,7 +9961,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 10,
+      "posicao": 11,
       "jogos_processados": {
         "1321390183": {
           "delta": {
@@ -10022,21 +10122,41 @@
           "revisto_em": "2026-10-26T14:50:21Z",
           "adversario_id": 66311,
           "mandante": false
+        },
+        "1321436137": {
+          "delta": {
+            "faltas_cometidas": 11,
+            "faltas_sofridas": 16,
+            "amarelos_propria_equipa": 1,
+            "amarelos_adversario": 1,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 11,
+            "remates_area_adversario": 6,
+            "penaltis_a_favor": 1,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T19:45:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 90990,
+          "mandante": true
         }
       },
-      "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-11-02T17:48:47Z",
-      "faltas_cometidas": 74,
-      "faltas_sofridas": 119,
-      "amarelos_propria_equipa": 10,
-      "amarelos_adversario": 17,
+      "jogos_analisados": 9,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 85,
+      "faltas_sofridas": 135,
+      "amarelos_propria_equipa": 11,
+      "amarelos_adversario": 18,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 55,
-      "remates_area_adversario": 70,
-      "penaltis_a_favor": 1,
+      "remates_area_propria": 66,
+      "remates_area_adversario": 76,
+      "penaltis_a_favor": 2,
       "penaltis_contra": 1
     },
     "73119": {
@@ -10247,7 +10367,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 7,
+      "posicao": 6,
       "jogos_processados": {
         "1321393587": {
           "delta": {
@@ -10325,7 +10445,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T15:15:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:48:57Z",
           "adversario_id": 81629,
           "mandante": false
         },
@@ -10431,7 +10551,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-03T15:48:57Z",
       "faltas_cometidas": 114,
       "faltas_sofridas": 104,
       "amarelos_propria_equipa": 20,
@@ -10528,7 +10648,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T18:45:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:48:55Z",
           "adversario_id": 97798,
           "mandante": false
         },
@@ -10634,7 +10754,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-03T15:48:55Z",
       "faltas_cometidas": 107,
       "faltas_sofridas": 113,
       "amarelos_propria_equipa": 10,
@@ -10653,7 +10773,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 13,
+      "posicao": 14,
       "jogos_processados": {
         "1321391034": {
           "delta": {
@@ -10856,7 +10976,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 11,
+      "posicao": 12,
       "jogos_processados": {
         "1321394438": {
           "delta": {
@@ -11543,7 +11663,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:05Z",
           "adversario_id": 55248,
           "mandante": true
         },
@@ -11649,7 +11769,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-03T15:49:05Z",
       "faltas_cometidas": 87,
       "faltas_sofridas": 116,
       "amarelos_propria_equipa": 17,
@@ -11668,7 +11788,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 14,
+      "posicao": 7,
       "jogos_processados": {
         "1325339674": {
           "delta": {
@@ -11829,20 +11949,40 @@
           "revisto_em": "2026-10-25T12:56:57Z",
           "adversario_id": 36526,
           "mandante": false
+        },
+        "1325394989": {
+          "delta": {
+            "faltas_cometidas": 9,
+            "faltas_sofridas": 13,
+            "amarelos_propria_equipa": 3,
+            "amarelos_adversario": 3,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 1,
+            "remates_area_propria": 11,
+            "remates_area_adversario": 7,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:00:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 29718,
+          "mandante": false
         }
       },
-      "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-10-25T12:56:57Z",
-      "faltas_cometidas": 65,
-      "faltas_sofridas": 104,
-      "amarelos_propria_equipa": 15,
-      "amarelos_adversario": 18,
+      "jogos_analisados": 9,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 74,
+      "faltas_sofridas": 117,
+      "amarelos_propria_equipa": 18,
+      "amarelos_adversario": 21,
       "segundo_amarelo_propria_equipa": 1,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
-      "vermelhos_adversario": 1,
-      "remates_area_propria": 77,
-      "remates_area_adversario": 75,
+      "vermelhos_adversario": 2,
+      "remates_area_propria": 88,
+      "remates_area_adversario": 82,
       "penaltis_a_favor": 0,
       "penaltis_contra": 0
     },
@@ -12538,7 +12678,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:03Z",
           "adversario_id": 30569,
           "mandante": false
         },
@@ -12644,7 +12784,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-03T15:49:03Z",
       "faltas_cometidas": 118,
       "faltas_sofridas": 92,
       "amarelos_propria_equipa": 22,
@@ -13069,7 +13209,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 11,
+      "posicao": 12,
       "jogos_processados": {
         "1325338823": {
           "delta": {
@@ -13350,7 +13490,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:00Z",
           "adversario_id": 56950,
           "mandante": false
         },
@@ -13456,7 +13596,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-03T15:49:00Z",
       "faltas_cometidas": 127,
       "faltas_sofridas": 96,
       "amarelos_propria_equipa": 20,
@@ -13475,7 +13615,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 8,
+      "posicao": 9,
       "jogos_processados": {
         "1325344780": {
           "delta": {
@@ -14084,7 +14224,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 12,
+      "posicao": 13,
       "jogos_processados": {
         "1325343929": {
           "delta": {
@@ -14245,20 +14385,40 @@
           "revisto_em": "2026-10-26T14:50:21Z",
           "adversario_id": 45036,
           "mandante": false
+        },
+        "1325394989": {
+          "delta": {
+            "faltas_cometidas": 13,
+            "faltas_sofridas": 9,
+            "amarelos_propria_equipa": 3,
+            "amarelos_adversario": 3,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 1,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 7,
+            "remates_area_adversario": 11,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:00:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 39079,
+          "mandante": true
         }
       },
-      "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-10-26T14:50:21Z",
-      "faltas_cometidas": 95,
-      "faltas_sofridas": 91,
-      "amarelos_propria_equipa": 23,
-      "amarelos_adversario": 18,
+      "jogos_analisados": 9,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 108,
+      "faltas_sofridas": 100,
+      "amarelos_propria_equipa": 26,
+      "amarelos_adversario": 21,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
-      "vermelhos_propria_equipa": 0,
+      "vermelhos_propria_equipa": 1,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 60,
-      "remates_area_adversario": 83,
+      "remates_area_propria": 67,
+      "remates_area_adversario": 94,
       "penaltis_a_favor": 1,
       "penaltis_contra": 2
     },
@@ -14267,7 +14427,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 7,
+      "posicao": 8,
       "jogos_processados": {
         "1325343929": {
           "delta": {
@@ -14345,7 +14505,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-03T15:49:03Z",
           "adversario_id": 47589,
           "mandante": true
         },
@@ -14451,7 +14611,7 @@
         }
       },
       "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-03T15:49:03Z",
       "faltas_cometidas": 120,
       "faltas_sofridas": 112,
       "amarelos_propria_equipa": 24,
@@ -14470,7 +14630,7 @@
       "liga": "Premier League",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 13,
+      "posicao": 14,
       "jogos_processados": {
         "1325342227": {
           "delta": {
@@ -15362,7 +15522,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 12,
+      "posicao": 13,
       "jogos_processados": {
         "1336383952": {
           "delta": {
@@ -15605,7 +15765,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 9,
+      "posicao": 10,
       "jogos_processados": {
         "1336383952": {
           "delta": {
@@ -16334,7 +16494,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 10,
+      "posicao": 11,
       "jogos_processados": {
         "1336379697": {
           "delta": {
@@ -16778,20 +16938,40 @@
           "revisto_em": "2026-10-27T13:56:37Z",
           "adversario_id": 456920,
           "mandante": false
+        },
+        "1336441820": {
+          "delta": {
+            "faltas_cometidas": 13,
+            "faltas_sofridas": 5,
+            "amarelos_propria_equipa": 4,
+            "amarelos_adversario": 0,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 7,
+            "remates_area_adversario": 14,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:00:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 463728,
+          "mandante": false
         }
       },
-      "jogos_analisados": 10,
-      "ultima_atualizacao": "2026-10-28T14:51:27Z",
-      "faltas_cometidas": 140,
-      "faltas_sofridas": 122,
-      "amarelos_propria_equipa": 26,
+      "jogos_analisados": 11,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 153,
+      "faltas_sofridas": 127,
+      "amarelos_propria_equipa": 30,
       "amarelos_adversario": 18,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
       "vermelhos_adversario": 1,
-      "remates_area_propria": 70,
-      "remates_area_adversario": 71,
+      "remates_area_propria": 77,
+      "remates_area_adversario": 85,
       "penaltis_a_favor": 4,
       "penaltis_contra": 1
     },
@@ -17772,7 +17952,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 8,
+      "posicao": 9,
       "jogos_processados": {
         "1336387356": {
           "delta": {
@@ -18015,7 +18195,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 13,
+      "posicao": 8,
       "jogos_processados": {
         "1336387356": {
           "delta": {
@@ -18216,20 +18396,40 @@
           "revisto_em": "2026-10-25T12:56:57Z",
           "adversario_id": 451814,
           "mandante": false
+        },
+        "1336441820": {
+          "delta": {
+            "faltas_cometidas": 5,
+            "faltas_sofridas": 13,
+            "amarelos_propria_equipa": 0,
+            "amarelos_adversario": 4,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 14,
+            "remates_area_adversario": 7,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T20:00:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 619461,
+          "mandante": true
         }
       },
-      "jogos_analisados": 10,
-      "ultima_atualizacao": "2026-10-26T14:51:44Z",
-      "faltas_cometidas": 123,
-      "faltas_sofridas": 119,
+      "jogos_analisados": 11,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 128,
+      "faltas_sofridas": 132,
       "amarelos_propria_equipa": 19,
-      "amarelos_adversario": 21,
+      "amarelos_adversario": 25,
       "segundo_amarelo_propria_equipa": 1,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 2,
       "vermelhos_adversario": 1,
-      "remates_area_propria": 81,
-      "remates_area_adversario": 67,
+      "remates_area_propria": 95,
+      "remates_area_adversario": 74,
       "penaltis_a_favor": 1,
       "penaltis_contra": 1
     },
@@ -18238,7 +18438,7 @@
       "liga": "La Liga",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 11,
+      "posicao": 12,
       "jogos_processados": {
         "1336385654": {
           "delta": {
@@ -21217,7 +21417,7 @@
       "liga": "Serie A",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 15,
+      "posicao": 17,
       "jogos_processados": {
         "1319142692": {
           "delta": {
@@ -21398,20 +21598,40 @@
           "revisto_em": "2026-10-28T14:51:06Z",
           "adversario_id": 415221,
           "mandante": true
+        },
+        "1319208219": {
+          "delta": {
+            "faltas_cometidas": 12,
+            "faltas_sofridas": 15,
+            "amarelos_propria_equipa": 2,
+            "amarelos_adversario": 3,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 5,
+            "remates_area_adversario": 10,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T17:30:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 427986,
+          "mandante": true
         }
       },
-      "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-10-31T14:17:13Z",
-      "faltas_cometidas": 85,
-      "faltas_sofridas": 109,
-      "amarelos_propria_equipa": 12,
-      "amarelos_adversario": 17,
+      "jogos_analisados": 10,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 97,
+      "faltas_sofridas": 124,
+      "amarelos_propria_equipa": 14,
+      "amarelos_adversario": 20,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 1,
       "vermelhos_adversario": 1,
-      "remates_area_propria": 71,
-      "remates_area_adversario": 93,
+      "remates_area_propria": 76,
+      "remates_area_adversario": 103,
       "penaltis_a_favor": 0,
       "penaltis_contra": 3
     },
@@ -21420,7 +21640,7 @@
       "liga": "Serie A",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 18,
+      "posicao": 15,
       "jogos_processados": {
         "1319148649": {
           "delta": {
@@ -21601,20 +21821,40 @@
           "revisto_em": "2026-10-29T14:56:00Z",
           "adversario_id": 421178,
           "mandante": true
+        },
+        "1319202262": {
+          "delta": {
+            "faltas_cometidas": 10,
+            "faltas_sofridas": 8,
+            "amarelos_propria_equipa": 0,
+            "amarelos_adversario": 0,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 2,
+            "remates_area_adversario": 16,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T19:45:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 425433,
+          "mandante": false
         }
       },
-      "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-10-31T14:17:05Z",
-      "faltas_cometidas": 95,
-      "faltas_sofridas": 129,
+      "jogos_analisados": 10,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 105,
+      "faltas_sofridas": 137,
       "amarelos_propria_equipa": 14,
       "amarelos_adversario": 15,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 65,
-      "remates_area_adversario": 110,
+      "remates_area_propria": 67,
+      "remates_area_adversario": 126,
       "penaltis_a_favor": 1,
       "penaltis_contra": 1
     },
@@ -21623,7 +21863,7 @@
       "liga": "Serie A",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 16,
+      "posicao": 18,
       "jogos_processados": {
         "1319148649": {
           "delta": {
@@ -22696,20 +22936,40 @@
           "revisto_em": "2026-10-30T14:48:54Z",
           "adversario_id": 427986,
           "mandante": false
+        },
+        "1319202262": {
+          "delta": {
+            "faltas_cometidas": 8,
+            "faltas_sofridas": 10,
+            "amarelos_propria_equipa": 0,
+            "amarelos_adversario": 0,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 16,
+            "remates_area_adversario": 2,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T19:45:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 445857,
+          "mandante": true
         }
       },
-      "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:45:22Z",
-      "faltas_cometidas": 92,
-      "faltas_sofridas": 82,
+      "jogos_analisados": 10,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 100,
+      "faltas_sofridas": 92,
       "amarelos_propria_equipa": 9,
       "amarelos_adversario": 13,
       "segundo_amarelo_propria_equipa": 1,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 2,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 86,
-      "remates_area_adversario": 107,
+      "remates_area_propria": 102,
+      "remates_area_adversario": 109,
       "penaltis_a_favor": 1,
       "penaltis_contra": 3
     },
@@ -23164,7 +23424,7 @@
       "liga": "Serie A",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 17,
+      "posicao": 16,
       "jogos_processados": {
         "1319144394": {
           "delta": {
@@ -23345,20 +23605,40 @@
           "revisto_em": "2026-10-30T14:48:54Z",
           "adversario_id": 425433,
           "mandante": true
+        },
+        "1319208219": {
+          "delta": {
+            "faltas_cometidas": 15,
+            "faltas_sofridas": 12,
+            "amarelos_propria_equipa": 3,
+            "amarelos_adversario": 2,
+            "segundo_amarelo_propria_equipa": 0,
+            "segundo_amarelo_adversario": 0,
+            "vermelhos_propria_equipa": 0,
+            "vermelhos_adversario": 0,
+            "remates_area_propria": 10,
+            "remates_area_adversario": 5,
+            "penaltis_a_favor": 0,
+            "penaltis_contra": 0
+          },
+          "data_jogo": "2026-11-02T17:30:00.000Z",
+          "revisto_em": "2026-11-03T15:48:26Z",
+          "adversario_id": 416072,
+          "mandante": false
         }
       },
-      "jogos_analisados": 9,
-      "ultima_atualizacao": "2026-11-01T14:45:12Z",
-      "faltas_cometidas": 101,
-      "faltas_sofridas": 114,
-      "amarelos_propria_equipa": 20,
-      "amarelos_adversario": 17,
+      "jogos_analisados": 10,
+      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "faltas_cometidas": 116,
+      "faltas_sofridas": 126,
+      "amarelos_propria_equipa": 23,
+      "amarelos_adversario": 19,
       "segundo_amarelo_propria_equipa": 0,
       "segundo_amarelo_adversario": 0,
       "vermelhos_propria_equipa": 0,
       "vermelhos_adversario": 0,
-      "remates_area_propria": 87,
-      "remates_area_adversario": 97,
+      "remates_area_propria": 97,
+      "remates_area_adversario": 102,
       "penaltis_a_favor": 0,
       "penaltis_contra": 1
     },
@@ -24032,8 +24312,8 @@
       "penaltis_contra": 0
     }
   },
-  "gerado_em": "2026-11-02T17:48:47Z",
-  "pedidos_usados_nesta_corrida": 72,
+  "gerado_em": "2026-11-03T15:49:05Z",
+  "pedidos_usados_nesta_corrida": 48,
   "correcoes_detectadas": [
     {
       "jogo": "1321378269",
