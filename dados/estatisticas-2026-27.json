@@ -5590,7 +5590,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T13:30:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:12Z",
           "adversario_id": 147156,
           "mandante": true
         },
@@ -5696,7 +5696,7 @@
         }
       },
       "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:12Z",
       "faltas_cometidas": 105,
       "faltas_sofridas": 78,
       "amarelos_propria_equipa": 15,
@@ -5773,7 +5773,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T13:30:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:09Z",
           "adversario_id": 158219,
           "mandante": true
         },
@@ -5879,7 +5879,7 @@
         }
       },
       "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:09Z",
       "faltas_cometidas": 80,
       "faltas_sofridas": 94,
       "amarelos_propria_equipa": 16,
@@ -5956,7 +5956,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T13:30:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:09Z",
           "adversario_id": 141199,
           "mandante": false
         },
@@ -6062,7 +6062,7 @@
         }
       },
       "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:09Z",
       "faltas_cometidas": 84,
       "faltas_sofridas": 90,
       "amarelos_propria_equipa": 12,
@@ -7420,7 +7420,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T13:30:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:12Z",
           "adversario_id": 142901,
           "mandante": false
         },
@@ -7526,7 +7526,7 @@
         }
       },
       "jogos_analisados": 8,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:12Z",
       "faltas_cometidas": 81,
       "faltas_sofridas": 90,
       "amarelos_propria_equipa": 12,
@@ -7728,7 +7728,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 7,
+      "posicao": 6,
       "jogos_processados": {
         "1321391885": {
           "delta": {
@@ -10367,7 +10367,7 @@
       "liga": "Ligue 1",
       "grande": false,
       "top3_atualmente": false,
-      "posicao": 6,
+      "posicao": 7,
       "jogos_processados": {
         "1321393587": {
           "delta": {
@@ -16106,7 +16106,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:15:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:01Z",
           "adversario_id": 619461,
           "mandante": false
         },
@@ -16232,7 +16232,7 @@
         }
       },
       "jogos_analisados": 11,
-      "ultima_atualizacao": "2026-10-31T14:16:40Z",
+      "ultima_atualizacao": "2026-11-06T15:39:01Z",
       "faltas_cometidas": 175,
       "faltas_sofridas": 119,
       "amarelos_propria_equipa": 31,
@@ -16592,7 +16592,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T12:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:04Z",
           "adversario_id": 3970699,
           "mandante": false
         },
@@ -16718,7 +16718,7 @@
         }
       },
       "jogos_analisados": 11,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:04Z",
       "faltas_cometidas": 148,
       "faltas_sofridas": 146,
       "amarelos_propria_equipa": 20,
@@ -16835,7 +16835,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T14:15:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:01Z",
           "adversario_id": 460324,
           "mandante": true
         },
@@ -16961,7 +16961,7 @@
         }
       },
       "jogos_analisados": 11,
-      "ultima_atualizacao": "2026-11-03T15:48:26Z",
+      "ultima_atualizacao": "2026-11-06T15:39:01Z",
       "faltas_cometidas": 153,
       "faltas_sofridas": 127,
       "amarelos_propria_equipa": 30,
@@ -18536,7 +18536,7 @@
             "penaltis_contra": 1
           },
           "data_jogo": "2026-09-12T19:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:07Z",
           "adversario_id": 461175,
           "mandante": false
         },
@@ -18642,7 +18642,7 @@
         }
       },
       "jogos_analisados": 10,
-      "ultima_atualizacao": "2026-11-01T14:43:58Z",
+      "ultima_atualizacao": "2026-11-06T15:39:07Z",
       "faltas_cometidas": 129,
       "faltas_sofridas": 131,
       "amarelos_propria_equipa": 25,
@@ -18759,7 +18759,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T12:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:04Z",
           "adversario_id": 462026,
           "mandante": true
         },
@@ -18885,7 +18885,7 @@
         }
       },
       "jogos_analisados": 11,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-06T15:39:04Z",
       "faltas_cometidas": 144,
       "faltas_sofridas": 158,
       "amarelos_propria_equipa": 30,
@@ -19711,7 +19711,7 @@
             "penaltis_contra": 0
           },
           "data_jogo": "2026-09-12T19:00:00.000Z",
-          "revisto_em": "2026-09-13T13:06:07Z",
+          "revisto_em": "2026-11-06T15:39:07Z",
           "adversario_id": 620312,
           "mandante": true
         },
@@ -19837,7 +19837,7 @@
         }
       },
       "jogos_analisados": 11,
-      "ultima_atualizacao": "2026-11-02T17:47:38Z",
+      "ultima_atualizacao": "2026-11-06T15:39:07Z",
       "faltas_cometidas": 96,
       "faltas_sofridas": 152,
       "amarelos_propria_equipa": 24,
@@ -24312,7 +24312,7 @@
       "penaltis_contra": 0
     }
   },
-  "gerado_em": "2026-11-05T16:07:46Z",
+  "gerado_em": "2026-11-06T15:39:12Z",
   "pedidos_usados_nesta_corrida": 34,
   "correcoes_detectadas": [
     {
